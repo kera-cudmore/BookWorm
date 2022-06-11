@@ -206,7 +206,7 @@ To clone the repository:
 
 ## Testing
 
-Please see [testing.md](testing.md) for all testing performed
+Please see [testing.md](TESTING.md) for all testing performed
 - - -
 
 ## Credits
