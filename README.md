@@ -1,108 +1,227 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BookWorm
 
-Welcome USER_NAME,
+BookWorm was created as my third milestone project for the Code Institutes Level 5 Diploma in Web Application Development.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Add site responsive screenshot here ![]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Link to deployed site to go here []()
 
-## Gitpod Reminders
+![GitHub last commit](https://img.shields.io/github/last-commit/kera-cudmore/BookWorm?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/kera-cudmore/BookWorm?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/kera-cudmore/BookWorm?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/kera-cudmore/BookWorm?style=for-the-badge)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## CONTENTS
 
-`python3 -m http.server`
+* [User Experience](#User-Experience)
+  * [Project Goals](#Project-Goals)
+  * [User Stories](#User-Stories)
 
-A blue button should appear to click: _Make Public_,
+* [Design](#Design)
+  * [Colour Scheme](#Colour-Scheme)
+  * [Typography](#Typography)
+  * [Imagery](#Imagery)
+  * [Wireframes](#Wireframes)
+  * [Database Structure](#Database-Structure)
 
-Another blue button should appear to click: _Open Browser_.
+* [Features](#Features)
+  * [General Features of Each Page](#General-Features-of-Each-Page)
+  * [Future Implementations](#Future-Implementations)
+  * [Accessibility](#Accessibility)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* [Technologies Used](#Technologies-Used)
+  * [Languages Used](#Languages-Used)
+  * [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)
+  * [Google Books API](#Google-Books-API)
 
-A blue button should appear to click: _Make Public_,
+* [Deployment & Local Development](#Deployment-&-Local-Development)
+  * [Deployment](#Deployment)
+  * [Local Development](#Local-Development)
+    * [How to Fork](#How-to-Fork)
+    * [How to Clone](#How-to-Clone)
 
-Another blue button should appear to click: _Open Browser_.
+* [Testing](#Testing)
+  
+* [Credits](#Credits)
+  * [Code Used](#Code-Used)
+  * [Content](#Content)
+  * [Media](#Media)
+  * [Acknowledgments](#Acknowledgments)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- - -
 
-To log into the Heroku toolbelt CLI:
+## User Experience
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Project Goals
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### User Stories
 
-------
+#### Target Audience
 
-## Release History
+#### First Time Visitor Goals
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+As a first time user of the site I want to be able to:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* Understand what the site is for and how to navigate the site.
+* Register for an account.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+#### Returning Visitor Goals
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+As a returning registered user of the site I want to be able to:
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+* 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### Admin User
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+As an administrator for the site I want to be able to:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- - -
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Design
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Colour Scheme
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Image of colour scheme to go here
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Typography
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Google Fonts was used to import the chosen fonts for use in the site. 
 
-------
 
-## FAQ about the uptime script
+### Imagery
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Wireframes
 
-**How will this affect me?**
+Wireframes were created for mobile, tablet and desktop using ...
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Wireframes links/images to go here
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Database Structure
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- - -
 
-**So….?**
+## Features
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+The website is comprised of …
 
-**Can I opt out?**
+### Elements found on each page
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Future Implementations
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Accessibility
 
-**Anything more?**
+I have been mindful during coding to ensure that the website is as accessible friendly as possible. This has been have achieved by:
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+* Using semantic HTML.
+* Using descriptive alt attributes on images on the site.
+* Providing information for screen readers where there are icons used and no text.
+* Ensuring that there is a sufficient colour contrast throughout the site.
 
----
+- - -
 
-Happy coding!
+## Technologies Used
+
+### Languages Used
+
+HTML, CSS, Javascript, Python
+
+### Frameworks, Libraries & Programs Used
+
+Flask - Used for the templating on the site.
+
+MongoDB - 
+
+PostgreSQL - 
+
+Flask PyMongo - 
+
+pip - To install python packages
+
+Jinja - 
+
+Bootstrap - version?
+
+Balsamiq - Used to create wireframes.
+
+Git - For version control.
+
+Github - To save and store the files for the website.
+
+Google Fonts - To import the fonts used on the website.
+
+Font Awesome - For the iconography on the website.
+
+Google Dev Tools - To troubleshoot and test features, solve issues with responsiveness and styling.
+
+[Tiny PNG](https://tinypng.com/) To compress images.
+
+[Birme](https://www.birme.net/) To resize images and convert to webp format.
+
+[Favicon.io](https://favicon.io/) To create favicon.
+
+[Am I Responsive?](http://ami.responsivedesign.is/) To show the website image on a range of devices.
+
+[Shields.io](https://shields.io/) To add badges to the README
+
+### Google Books API
+
+- - -
+
+## Deployment & Local Development
+
+### Deployment
+
+The site is deployed using Heroku
+
+Add instructions on how to deploy to heroku here
+
+### Local Development
+
+#### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project, [BookWorm](https://github.com/kera-cudmore/BookWorm).
+3. Click the Fork button in the top right corner.
+
+#### How to Clone
+
+To clone the repository:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [BookWorm](https://github.com/kera-cudmore/BookWorm).
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type `git clone` into the terminal and then paste the link you copied in step 3. Press enter.
+6. Set up a virtual environment.
+7. Install the packages from the requirments.txt file by running the following command in the Terminal `pip3 install -r requirements.txt`
+8. Set the IP address to 127.0.0.1 and the PORT to 5000.
+
+- - -
+
+## Testing
+
+Please see [testing.md](testing.md) for all testing performed
+- - -
+
+## Credits
+
+### Code Used
+
+### Content
+
+Content for this project was written by Kera Cudmore.
+
+### Media
+
+### Acknowledgments
+
+I would like to acknowledge the following people who helped me along the way in completing this project:
+
+* My family, for their patience while I worked on this project.
+* My Code Institute Mentor, [Adegbenga Adeye](https://github.com/deye9)
