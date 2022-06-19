@@ -85,14 +85,19 @@ As an administrator for the site I want to be able to:
 
 Image of colour scheme to go here
 
-
 ### Typography
 
-Google Fonts was used to import the chosen fonts for use in the site. 
+Google Fonts was used to import the chosen fonts for use in the site.
 
+I have used Pacifico for the headings on the site.
+
+![Pacifico Font](documentation/pacifico.png)
+
+I have used Montserrat for the body text on the site.
+
+![Montserrat Font](documentation/montserrat.png)
 
 ### Imagery
-
 
 ### Wireframes
 
@@ -218,6 +223,8 @@ Please see [testing.md](TESTING.md) for all testing performed
 Content for this project was written by Kera Cudmore.
 
 ### Media
+
+* Background image used for the site - [Photo by Rahul Pandit from Pexels: Heart Book Art on Bokeh Photography](https://www.pexels.com/photo/heart-book-art-on-bokeh-photography-1884326/)
 
 ### Acknowledgments
 
