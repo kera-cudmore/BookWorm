@@ -20,6 +20,10 @@
     <meta name="author" content="Kera Cudmore" />
 
     <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap v5.2.0 -->
@@ -43,8 +47,8 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="" alt="" width="30" height="24"
-                        class="d-inline-block align-text-top" />
+                    <img src="{{ url_for('static', filename='images/booklogo.webp') }}" alt="Line art illustration of an open book" width="50" height="50"
+                        class="d-inline-block align-text-center" />
                     Bookworm</a>
                 <!-- Mobile View Toggler -->
                 <button class="navbar-toggler" type="button"
