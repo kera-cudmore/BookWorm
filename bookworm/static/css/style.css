@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap');
+
+/*---------- ROOT VARIABLES ----------*/
+
+:root {
+    /*----- Typography -----*/
+    --header-text: 'Pacifico', cursive;
+    --content-text: 'Montserrat', sans-serif;
+
+    /*----- Colours -----*/
+    --white: #ffffff;
+}
+
+
+
+main {
+    background-image: url("../images/bookheart.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    font-family: var(--content-text);
+}
+
+.navbar-brand {
+    font-family: var(--header-text);
+    font-size: 1.5rem;
+}
+
+h1 {
+    color: var(--white);
+    text-shadow: 8px 8px 6px #000000a0;
+    font-family: var(--header-text);
+    font-size: 7rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+
+
+.panel {
+    background: rgba(255, 255, 255, 0.519);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px;
+    padding-top: 2rem;
+    padding-bottom:2 rem;
+}
+
