@@ -1,31 +1,45 @@
+/*---------- GOOGLE FONT IMPORT ----------*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap');
 
-/*---------- ROOT VARIABLES ----------*/
 
+/*---------- ROOT VARIABLES ----------*/
 :root {
     /*----- Typography -----*/
     --header-text: 'Pacifico', cursive;
     --content-text: 'Montserrat', sans-serif;
-
     /*----- Colours -----*/
     --white: #ffffff;
+    --black: #000000;
+    --grey: #DCDCDC;
+    --rose: #BC8F8F;
+    --bronze: #CD853F;
+    --brown: #90522D;
 }
 
 
-
-main {
-    background-image: url("../images/bookheart.webp");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    font-family: var(--content-text);
+/*---------- NAVBAR ----------*/
+.navbar.bg-light {
+    background-color: var(--rose) !important;
 }
 
 .navbar-brand {
     font-family: var(--header-text);
     font-size: 1.5rem;
 }
+
+
+/*---------- BODY - Background Image ----------*/
+body {
+    background-image: url("../images/bookheart.webp");
+    /* Background backup needs to be added here */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: var(--content-text);
+    font-size: 1.2rem;
+}
+
+
 
 h1 {
     color: var(--white);
@@ -37,14 +51,18 @@ h1 {
 }
 
 
-
+/*---------- PANEL ----------*/
 .panel {
-    background: rgba(255, 255, 255, 0.519);
+    background: rgba( 220, 220, 220, 0.5 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 2.5px );
-    -webkit-backdrop-filter: blur( 2.5px );
-    border-radius: 10px;
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+    border-radius: 25px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     padding-top: 2rem;
     padding-bottom:2 rem;
 }
 
+a {
+    text-decoration: none;
+}
