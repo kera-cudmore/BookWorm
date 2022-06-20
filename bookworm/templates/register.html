@@ -1,6 +1,57 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-<h1>Register</h1>
+<section class="container">
+    <!-- Page Heading -->
+    <div class="col-12 text-center">
+        <div class="row">
+            <h1>Register</h1>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-8 mx-auto mb-5 card panel">
+        <div class="col-12 text-center">
+            <p>Register for an account and start tracking your reading today!</p>
+        </div>
+        <form action="#" method="POST">
+
+            <!-- USERNAME -->
+            <div class="m-5 text-center">
+                <label class="form-label">Username </label>
+                <input class="form-control" type="text" name="username"
+                    placeholder="Username" />
+            </div>
+
+            <!-- EMAIL -->
+            <div class="m-5 text-center">
+                <label class="form-label">Email </label>
+                <input class="form-control" type="email" name="email"
+                    placeholder="Email" />
+
+            <!-- PASSWORD -->
+            <div class="m-5 text-center">
+                <label class="form-label">Password </label>
+                <input class="form-control" type="password" name="password"
+                    placeholder="Password" />
+            </div>
+
+            <!-- CONFIRM PASSWORD-->
+            <div class="m-5 text-center">
+                <label class="form-label">Confirm Password </label>
+                <input class="form-control" type="confirmpassword" name="confirmpassword"
+                    placeholder="Confirm Password" />
+            </div>
+
+            <!-- SIGN UP BUTTON -->
+            <div class="text-center">
+                <button class="btn btn-light btn-lg mb-3" type="submit">Register</button>
+            </div>
+
+            <p class="text-center mt-3">
+                Already have an account yet? Wiggle on over to the
+                <a href="#">Login Page.</a>
+            </p>
+        </form>
+    </div>
+</section>
 
 {% endblock %}
