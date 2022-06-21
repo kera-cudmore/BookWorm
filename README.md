@@ -89,11 +89,11 @@ Image of colour scheme to go here
 
 Google Fonts was used to import the chosen fonts for use in the site.
 
-I have used Pacifico for the headings on the site.
+I have used [Pacifico](https://fonts.google.com/specimen/Pacifico#standard-styles) for the headings on the site. I have chosen to use this font as it is a brush script handwriting font which make me think of a fat little bookworm!
 
 ![Pacifico Font](documentation/pacifico.png)
 
-I have used Montserrat for the body text on the site.
+I have used [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montserrat&category=Sans+Serif) for the body text on the site. Monserrat is a sans-serif font which allows it to be legible and is a great choice for accessibility.
 
 ![Montserrat Font](documentation/montserrat.png)
 
