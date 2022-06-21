@@ -63,19 +63,22 @@ Link to deployed site to go here []()
 As a first time user of the site I want to be able to:
 
 * Understand what the site is for and how to navigate the site.
+* Search for books.
 * Register for an account.
 
 #### Returning Visitor Goals
 
 As a returning registered user of the site I want to be able to:
 
-* 
+* Log in to my account.
+* Create, edit, delete and view my bookshelves.
+* Create, edit, delete and view my book reviews.
 
 #### Admin User
 
 As an administrator for the site I want to be able to:
 
-* 
+* Remove any reviews that are offensive.
 
 - - -
 
