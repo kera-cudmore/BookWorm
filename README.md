@@ -115,11 +115,17 @@ The website is comprised of …
 
 ### Elements found on each page
 
-* Favicon - Created at [Favicon.io](https://favicon.io/). I have chosen an illustration of an open book as it fit the theme of my site.
+* Favicon - Created at [Favicon.io](https://favicon.io/). I have chosen an illustration of an open book as it fit the theme of my site, this image has also been used as the logo for the site - which fosters continuity through the site for users and promotes brand awareness.
 
-* Navbar
+IMAGE OF FAVICON TO GO HERE
 
-* Footer
+* Navbar - The Navbar is displayed on all pages of the website and allows users to navigate the site with ease. The navbar is comprised of a logo, the sites name, links to navigate the site and a search bar. The links on the navbar will vary depending on whether a user is logged into their account.
+
+IMAGE OF NAVBAR TO GO HERE 
+
+* Footer - A footer is displayed on all pages of the website and contains ***
+
+IMAGE OF FOOTER TO GO HERE
 
 ### Future Implementations
 
