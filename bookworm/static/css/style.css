@@ -30,9 +30,9 @@
 
 /*---------- BODY - Background Image ----------*/
 body {
-    background-image: url("../images/bookheart.webp");
-    /* Background backup needs to be added here */
-    background-repeat: no-repeat;
+    background-image: url("../images/openbooks.webp");
+    background-color: var(--brown);
+    background-repeat: repeat;
     background-position: center;
     background-size: cover;
     font-family: var(--content-text);

@@ -241,7 +241,7 @@ Content for this project was written by Kera Cudmore.
 
 ### Media
 
-* Background image used for the site - [Photo by Rahul Pandit from Pexels: Heart Book Art on Bokeh Photography](https://www.pexels.com/photo/heart-book-art-on-bokeh-photography-1884326/)
+* Background image used for the site - [Pile of open books](https://www.rawpixel.com/image/5921249/photo-image-paper-book-public-domain)
 * Favicon image - [Open book png sticker, cute doodle on transparent background](https://www.rawpixel.com/image/6475209/png-aesthetic-sticker)
 
 ### Acknowledgments
