@@ -11,16 +11,22 @@ from bookworm import app, db
 @app.route("/")
 def home():
     """
-    Home function will return the rendered template for base.html
+    home function will return the rendered template for index.html
     """
-    return render_template("base.html")
+    return render_template("index.html")
 
 
 @app.route("/login")
 def login():
+    """
+    login function will return the rendered template for login.html
+    """
     return render_template("login.html")
 
 
 @app.route("/register")
 def register():
+    """
+    register function will return the rendered template for register.html
+    """
     return render_template("register.html")
