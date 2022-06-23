@@ -63,19 +63,22 @@ Link to deployed site to go here []()
 As a first time user of the site I want to be able to:
 
 * Understand what the site is for and how to navigate the site.
+* Search for books.
 * Register for an account.
 
 #### Returning Visitor Goals
 
 As a returning registered user of the site I want to be able to:
 
-* 
+* Log in to my account.
+* Create, edit, delete and view my bookshelves.
+* Create, edit, delete and view my book reviews.
 
 #### Admin User
 
 As an administrator for the site I want to be able to:
 
-* 
+* Remove any reviews that are offensive.
 
 - - -
 
@@ -89,11 +92,11 @@ Image of colour scheme to go here
 
 Google Fonts was used to import the chosen fonts for use in the site.
 
-I have used Pacifico for the headings on the site.
+I have used [Pacifico](https://fonts.google.com/specimen/Pacifico#standard-styles) for the headings on the site. I have chosen to use this font as it is a brush script handwriting font which make me think of a fat little bookworm!
 
 ![Pacifico Font](documentation/pacifico.png)
 
-I have used Montserrat for the body text on the site.
+I have used [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montserrat&category=Sans+Serif) for the body text on the site. Monserrat is a sans-serif font which allows it to be legible and is a great choice for accessibility.
 
 ![Montserrat Font](documentation/montserrat.png)
 
@@ -115,11 +118,17 @@ The website is comprised of …
 
 ### Elements found on each page
 
-* Favicon - Created at [Favicon.io](https://favicon.io/). I have chosen an illustration of an open book as it fit the theme of my site.
+* Favicon - Created at [Favicon.io](https://favicon.io/). I have chosen an illustration of an open book as it fit the theme of my site, this image has also been used as the logo for the site - which fosters continuity through the site for users and promotes brand awareness.
 
-* Navbar
+IMAGE OF FAVICON TO GO HERE
 
-* Footer
+* Navbar - The Navbar is displayed on all pages of the website and allows users to navigate the site with ease. The navbar is comprised of a logo, the sites name, links to navigate the site and a search bar. The links on the navbar will vary depending on whether a user is logged into their account.
+
+IMAGE OF NAVBAR TO GO HERE 
+
+* Footer - A footer is displayed on all pages of the website and contains ***
+
+IMAGE OF FOOTER TO GO HERE
 
 ### Future Implementations
 
