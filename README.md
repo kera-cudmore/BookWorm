@@ -143,23 +143,41 @@ HTML, CSS, Javascript, Python
 ### Frameworks, Libraries & Programs Used
 
 [Flask](https://pypi.org/project/Flask/) - A microframework.
+
 [MongoDB](https://www.mongodb.com/) - Non-relational database used to store the book information.
+
 [PyMongo](https://pypi.org/project/pymongo/) - Python Driver for MongoDB.
+
 [PostgreSQL](https://www.postgresql.org/) - Relational database used to store the users and the bookshelves.
+
 [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) - Database abstraction library, used to interact with PostgreSQL.
+
 [Pip](https://pypi.org/project/pip/) - Tool for installing python packages.
+
 [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) - Templating engine.
+
 [Bootstrap](https://getbootstrap.com/) - version 5.2.0 - CSS Framework.
+
 [Balsamiq](https://balsamiq.com/) - Used to create wireframes.
+
 [Git](https://git-scm.com/) - For version control.
+
 [Github](https://github.com/) - To save and store the files for the website.
+
 [Google Fonts](https://fonts.google.com/) - To import the fonts used on the website.
+
 [Font Awesome](https://fontawesome.com/) - Version ** - For the iconography on the website.
+
 [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To troubleshoot and test features, solve issues with responsiveness and styling.
+
 [Tiny PNG](https://tinypng.com/) To compress images for use in the readme.
+
 [Birme](https://www.birme.net/) To resize images and convert to webp format for the site.
+
 [Favicon.io](https://favicon.io/) To create the favicon.
+
 [Am I Responsive?](http://ami.responsivedesign.is/) To show the website image on a range of devices.
+
 [Shields.io](https://shields.io/) To add badges to the README.
 
 ### Google Books API
