@@ -13,42 +13,6 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/login")
-def login():
-    """
-LOGIN FUNCTION
-    """
-    if "user" in session:
-        flash("You're already logged in!")
-        return redirect(url_for('profile', username=session["user"]))
-
-    if request.method == "POST":
-        existing_user = Users.query.filter(
-            Users.username == request.form.get("username")).lower()
-
-        if existing_user:
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for(
-                    "profile", username=session["user"]))
-
-            else:
-                # invalid password match - By using and/or incorrect
-                # makes harder to brute force an account
-                flash("Incorrect Username and/or Password")
-                return redirect(url_for("login"))
-
-        else:
-            # username doesn't exist - By using and/or incorrect
-            # makes harder to brute force an account
-            flash("Incorrect Username and/or Password")
-            return redirect(url_for("login"))
-
-    return render_template("login.html")
-
-
 @app.route("/register")
 def register():
     """
@@ -82,3 +46,40 @@ def register():
 
     # renders the register page
     return render_template("register.html")
+
+
+@app.route("/login")
+def login():
+    """
+LOGIN FUNCTION
+    """
+    if request.method == "POST":
+        existing_user = Users.query.filter(
+            Users.username == request.form.get("username")).lower()
+
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
+
+            else:
+                # invalid password match - By using and/or incorrect
+                # makes harder to brute force an account
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist - By using and/or incorrect
+            # makes harder to brute force an account
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
