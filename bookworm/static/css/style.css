@@ -66,3 +66,8 @@ h1 {
 a {
     text-decoration: none;
 }
+
+/*---------- FLASH MESSAGES ----------*/
+.flashes h4 {
+    line-height: 2;
+}
