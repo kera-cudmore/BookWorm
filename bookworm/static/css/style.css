@@ -69,5 +69,8 @@ a {
 
 /*---------- FLASH MESSAGES ----------*/
 .flashes h4 {
+    background-color: red;
+    color: var(--white);
     line-height: 2;
+    padding: 1rem;
 }
