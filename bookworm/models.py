@@ -1,7 +1,7 @@
 """ IMPORTS """
 
 # To define the database structure
-from bookworm import db
+from bookworm import app, db
 
 
 class Users(db.Model):

@@ -1,19 +1,12 @@
-""" IMPORTS """
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, Blueprint, url_for, redirect, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from bookworm import app, db
+
 from bookworm.models import Users, Bookshelves
 
-
-@app.route("/")
-def home():
-    """
-    HOME FUNCTION
-    """
-    return render_template("index.html")
+auth = Blueprint('auth', __name__)
 
 
-@app.route("/register")
+@auth.route("/register")
 def register():
     """
     REGISTER FUNCTION
@@ -21,12 +14,12 @@ def register():
     if request.method == "POST":
         # Check to see if username already exists
         existing_user = Users.query.filter(
-            Users.username == request.form.get("username")).lower()
+            Users.username == request.form.get("username")).lower().all
 
         # If username exists - flash message & reload register page
         if existing_user:
             flash("Username already exists")
-            return redirect(url_for("register"))
+            return redirect(url_for("auth.register"))
 
         # If username doesn't exist in the db
         # gather info from the form to enter into db
@@ -42,13 +35,13 @@ def register():
         # add the user to the session and redirect to the login page
         session["user"] = request.form.get("username").lower()
         flash("Registration successful!")
-        return redirect(url_for('login'))
+        return redirect(url_for('auth.login'))
 
     # renders the register page
     return render_template("register.html")
 
 
-@app.route("/login")
+@auth.route("/login")
 def login():
     """
 LOGIN FUNCTION
@@ -63,23 +56,22 @@ LOGIN FUNCTION
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
-                    "profile", username=session["user"]))
+                    "auth.profile", username=session["user"]))
 
             else:
                 # invalid password match - By using and/or incorrect
                 # makes harder to brute force an account
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for("login"))
+                return redirect(url_for("auth.login"))
 
         else:
             # username doesn't exist - By using and/or incorrect
             # makes harder to brute force an account
             flash("Incorrect Username and/or Password")
-            return redirect(url_for("login"))
 
     return render_template("login.html")
 
 
-@app.route("/profile")
+@auth.route("/profile")
 def profile():
     return render_template("profile.html")

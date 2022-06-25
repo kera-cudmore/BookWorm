@@ -15,9 +15,17 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
+
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 
 db = SQLAlchemy(app)
 
-from bookworm import routes # noqa - app & db need to be defined first
+# noqa - app & db need to be defined first before the routes
+from bookworm.users.routes import users
+from bookworm.books.routes import books
+from bookworm.main.routes import main
+
+app.register_blueprint(users)
+app.register_blueprint(books)
+app.register_blueprint(main)

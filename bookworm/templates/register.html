@@ -8,11 +8,12 @@
         </div>
     </div>
 
+    <!-- Register Panel -->
     <div class="col-12 col-lg-8 mx-auto mb-5 panel">
         <div class="col-12 text-center">
             <p>Register for an account and start tracking your reading today!</p>
         </div>
-        <form action="{{ url_for('login') }}" method="POST">
+        <form action="{{ url_for('auth.login') }}" method="POST">
 
             <!-- USERNAME -->
             <!-- Defensive programming - minlength 5 maxlength 15, 
@@ -48,7 +49,7 @@
 
             <p class="text-center mt-3">
                 Already have an account yet? Wiggle on over to the
-                <a class="text-reset" href="{{ url_for('login') }}">Login Page.</a>
+                <a class="text-reset" href="{{ url_for('auth.login') }}">Login Page.</a>
             </p>
         </form>
     </div>
