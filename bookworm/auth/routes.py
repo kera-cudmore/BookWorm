@@ -32,7 +32,7 @@ def register():
         db.session.commit()
 
         # # add the user to the session and redirect to the login page
-        # session["user"] = request.form.get("username").lower()
+        session["user"] = request.form.get("username").lower()
         flash('Registration successful!')
         return redirect(url_for('auth./login'))
 
@@ -46,16 +46,13 @@ def login():
 LOGIN FUNCTION
     """
     if request.method == "POST":
-        existing_user = Users.query.filter(
-            Users.username == request.form.get("username")).lower()
+        existing_user = Users.query.filter(Users.username == request.form.get("username").lower()).all()
 
         if existing_user:
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user[0].password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for(
-                    "auth.profile", username=session["user"]))
+                return redirect(url_for("auth.profile", username=session["user"]))
 
             else:
                 # invalid password match - By using and/or incorrect
