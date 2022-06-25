@@ -17,7 +17,7 @@ def register():
 
         # If username exists - flash message & reload register page
         if existing_user:
-            flash("Username already exists")
+            flash("This username already exists, please try another username.")
             return redirect(url_for("auth.register"))
 
         # If username doesn't exist in the db
