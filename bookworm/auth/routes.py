@@ -6,7 +6,7 @@ from bookworm.models import Users, Bookshelves
 auth = Blueprint('auth', __name__)
 
 
-@auth.route("/register")
+@auth.route("/register", methods=["GET", "POST"])
 def register():
     """
     REGISTER FUNCTION
@@ -23,13 +23,13 @@ def register():
 
         # If username doesn't exist in the db
         # gather info from the form to enter into db
-        user = Users(
+        newuser = Users(
             username=request.form.get("username").lower(),
             email=request.form.get("email").lower(),
             password=generate_password_hash(request.form.get("password")),
         )
         # Add to db
-        db.session.add(user)
+        db.session.add(newuser)
         db.session.commit()
 
         # add the user to the session and redirect to the login page
