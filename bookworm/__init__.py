@@ -22,10 +22,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 db = SQLAlchemy(app)
 
 # noqa - app & db need to be defined first before the routes
-from bookworm.users.routes import users
+from bookworm.auth.routes import auth
 from bookworm.books.routes import books
 from bookworm.main.routes import main
 
-app.register_blueprint(users)
+app.register_blueprint(auth)
 app.register_blueprint(books)
 app.register_blueprint(main)
