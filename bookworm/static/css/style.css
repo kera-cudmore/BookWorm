@@ -15,12 +15,13 @@
     --grey: #DCDCDC;
     --bronze: #CD853F;
     --brown: #90522D;
+    --light_brown: #AC9575;
 }
 
 
 /*---------- NAVBAR ----------*/
 .navbar.bg-light {
-    background-color: var(--rose) !important;
+    background-color: var(--light_brown) !important;
 }
 
 .navbar-brand {
@@ -29,18 +30,25 @@
 }
 
 
-/*---------- BODY - Background Image ----------*/
-body {
+/*---------- Hero Image behind headings ----------*/
+.hero {
+    margin-bottom: 4rem;
+}
+
+.bg-image {
     background-image: url("../images/openbooks.webp");
-    background-color: var(--brown);
-    background-repeat: repeat;
+    background-repeat: repeat; 
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    height: 250px;
+}
+
+/*---------- BODY ----------*/
+body {
+    background-color: #ac957585;
     font-family: var(--content-text);
     font-size: 1.2rem;
 }
-
-
 
 h1 {
     color: var(--white);
@@ -54,14 +62,23 @@ h1 {
 
 /*---------- PANEL ----------*/
 .panel {
-    background: rgba( 220, 220, 220, 0.5 );
+    /* Rose coloured Panel */
+    background: rgba( 188, 143, 143, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    /* grey coloured panel */
+    /* background: rgba( 220, 220, 220, 0.5 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 2px );
     -webkit-backdrop-filter: blur( 2px );
     border-radius: 25px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     padding-top: 2rem;
-    padding-bottom:2 rem;
+    padding-bottom:2 rem; */
 }
 
 a {
@@ -70,8 +87,7 @@ a {
 
 /*---------- FLASH MESSAGES ----------*/
 .flashes h4 {
-    background-color: var(--slate);
-    color: var(--white);
+    background-color: var(--rose);
     line-height: 2;
     padding: 1rem;
 }
