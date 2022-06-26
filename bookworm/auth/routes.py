@@ -32,9 +32,8 @@ def register():
         db.session.commit()
 
         # # add the user to the session and redirect to the login page
-        session["user"] = request.form.get("username").lower()
         flash('Registration successful!')
-        return redirect(url_for('auth./login'))
+        return redirect(url_for('auth./login', username=username))
 
     # renders the register page
     return render_template("register.html")
