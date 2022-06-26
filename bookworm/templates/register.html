@@ -11,38 +11,31 @@
     <!-- Register Panel -->
     <div class="col-12 col-lg-8 mx-auto mb-5 panel">
         <div class="col-12 text-center">
-            <p>Register for an account and start tracking your reading today!</p>
+            <h2 class="mb-3">Register for an account & start tracking your reading today!</h2>
         </div>
         <form method="POST" action="{{ url_for('auth.register') }}">
 
             <!-- USERNAME -->
             <!-- Defensive programming - minlength 5 maxlength 15, 
                 RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long -->
-            <div class="m-5 text-center">
-                <label for="username" class="form-label">Username </label>
+            <div class="mx-5 mb-4">
+                <label for="username" class="form-label">Username: </label>
                 <input class="form-control" type="text" name="username"
                     id="username" placeholder="Username" minlength="5"
                     maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
             </div>
 
-            <!-- NAME -->
-                <div class="m-5 text-center">
-                    <label for="username" class="form-label">Name </label>
-                    <input class="form-control" type="text" name="name"
-                        id="name" placeholder="Name"required/>
-                </div>
-
             <!-- EMAIL -->
-            <div class="m-5 text-center">
-                <label for="email" class="form-label">Email </label>
+            <div class="mx-5 mb-4">
+                <label for="email" class="form-label">Email: </label>
                 <input class="form-control" type="email" name="email"
                     id="email" placeholder="Email" required/>
 
             <!-- PASSWORD -->
             <!-- Defensive programming - minlength 5 maxlength 15,
                 RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long-->
-            <div class="m-5 text-center">
-                <label for="password" class="form-label">Password </label>
+            <div class="my-4">
+                <label for="password" class="form-label">Password: </label>
                 <input class="form-control" type="password" name="password"
                     id="password" placeholder="Password" minlength="5" 
                     maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
