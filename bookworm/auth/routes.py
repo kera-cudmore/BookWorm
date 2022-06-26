@@ -1,5 +1,6 @@
 from flask import render_template, request, Blueprint, url_for, redirect, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
+from bookworm import db
 from bookworm.models import Users, Bookshelves
 
 auth = Blueprint('auth', __name__)
@@ -13,7 +14,7 @@ def register():
     if request.method == "POST":
         # Check to see if username already exists
         existing_user = Users.query.filter(
-            Users.username == request.form.get("username").lower()).all
+            Users.username == request.form.get("username").lower()).all()
 
         # If username exists - flash message & reload register page
         if existing_user:
@@ -24,6 +25,7 @@ def register():
         # gather info from the form to enter into db
         newuser = Users(
             username=request.form.get("username").lower(),
+            name=request.form.get("name"),
             email=request.form.get("email").lower(),
             password=generate_password_hash(request.form.get("password")),
         )
