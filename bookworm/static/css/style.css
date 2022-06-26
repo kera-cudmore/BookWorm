@@ -10,8 +10,9 @@
     /*----- Colours -----*/
     --white: #ffffff;
     --black: #000000;
-    --grey: #DCDCDC;
     --rose: #BC8F8F;
+    --slate: #778899;
+    --grey: #DCDCDC;
     --bronze: #CD853F;
     --brown: #90522D;
 }
@@ -69,7 +70,7 @@ a {
 
 /*---------- FLASH MESSAGES ----------*/
 .flashes h4 {
-    background-color: red;
+    background-color: var(--slate);
     color: var(--white);
     line-height: 2;
     padding: 1rem;
