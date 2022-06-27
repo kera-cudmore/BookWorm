@@ -64,11 +64,11 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse"
+                <div class="collapse navbar-collapse justify-content-end"
                     id="navbarSupportedContent">
 
                     <!-- Navbar Links -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-0 mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
                                 href="#">
@@ -85,6 +85,12 @@
                                 href="{{ url_for('auth.register') }}">
                                 <i class="bi bi-person-plus"></i> Register</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ url_for('books.search') }}">
+                                <i class="bi bi-search-heart"></i> Search</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link">
                                 <i class="bi bi-bookshelf"></i> Bookshelves</a>
@@ -103,14 +109,14 @@
                                 <i class="bi bi-box-arrow-right"></i> Log Out</a>
                         </li>
                     </ul>
-                    <!-- Search Bar -->
+                    <!-- Search Bar
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search"
                             placeholder="Search" aria-label="Search" />
                         <button class="btn" type="submit">
                             <i class="bi bi-search-heart"></i>
                         </button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </nav>
