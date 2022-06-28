@@ -5,7 +5,7 @@ import json
 from bookworm import os, db
 from bookworm.models import Users, Bookshelves
 
-api_key = os.environ.get("GOOGLE_BOOKS_API") 
+api_key = os.environ.get("GOOGLE_BOOKS_API")
 
 books = Blueprint('books', __name__)
 
@@ -21,9 +21,15 @@ def search():
         payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
 
         book_request = requests.get("https://www.googleapis.com/books/v1/volumes", params=payload)
-
         results = book_request.json()
 
         print(results)
 
     return render_template("search.html")
+
+
+@books.route("/bookshelves")
+def bookshelves():
+
+
+    return render_template("bookshelves.html")
