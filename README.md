@@ -54,17 +54,23 @@ Link to deployed site to go here []()
 
 ### Project Goals
 
+The idea for Bookworm was created from a need I saw that my mum had. Being a voracious reader, she never knew which books she had sat on her bookshelf at home whilst out purchasing new books. She also finds it difficult to keep track of which book she is currently on in a series, and previous authors she has read who she enjoyed and would like to try more of their work.
+
+I felt that the project could then be taken a step further, and could also provide a way to store reviews on books read together with a rating and the dates read. It would also be nice to make notes about a book, for example, if you have loaned the book out to a friend.
+
 ### User Stories
 
 #### Target Audience
+
+The target audience for Bookworm are book lovers all around the world who would like to keep track of their reading and their books.
 
 #### First Time Visitor Goals
 
 As a first time user of the site I want to be able to:
 
 * Understand what the site is for and how to navigate the site.
-* Search for books.
 * Register for an account.
+* Search for books.
 
 #### Returning Visitor Goals
 
