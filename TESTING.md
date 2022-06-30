@@ -80,10 +80,21 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 | :--- | :--- | :--- |
 | `First Time Visitors` |
 | :--- | :--- | :--- |
+| Understand what the site is for and how to navigate the site. | :--- | :--- |
+| Register for an account. | :--- | :--- |
+| Search for books | :--- | :--- |
 |`Returning Visitors`|
 | :--- | :--- | :--- |
+| Log in to my account | :--- | :--- |
+| Create a bookshelf | -- | :--- |
+| Edit a bookshelf | :--- | :--- |
+| Delete a bookshelf | :--- | :--- |
+| Create a book review | :--- | :--- |
+| Edit a book review | :--- | :--- |
+| Delete a book review | :--- | :--- |
 |`Admin User` |
 | :--- | :--- | :--- |
+| Remove any reviews that are offensive | :--- | :--- |
 
 - - -
 
