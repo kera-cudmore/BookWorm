@@ -197,6 +197,10 @@ HTML, CSS, Javascript, Python
 
 ### Google Books API
 
+I have used the Google Books API to allow users of the site to search for books. As I was only searching for books I was able to utilise the Google Books API key instead of using OAuth.
+
+I made use of the Google Books API [documentation](https://developers.google.com/books) to learn how to fetch data from the API. The documentation also allowed me to amend my request to only fetch the fields I plan to use on my site. This reduces the amount of data returned to me and will speed up server processing.
+
 - - -
 
 ## Deployment & Local Development
