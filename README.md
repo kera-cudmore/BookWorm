@@ -195,11 +195,15 @@ HTML, CSS, Javascript, Python
 
 [Shields.io](https://shields.io/) To add badges to the README.
 
+[Postman](https://web.postman.co/) To test the API request parameters for Google Books API.
+
 ### Google Books API
 
-I have used the Google Books API to allow users of the site to search for books. As I was only searching for books I was able to utilise the Google Books API key instead of using OAuth.
+I have used the Google Books API to allow users of the site to search for books.
 
 I made use of the Google Books API [documentation](https://developers.google.com/books) to learn how to fetch data from the API. The documentation also allowed me to amend my request to only fetch the fields I plan to use on my site. This reduces the amount of data returned to me and will speed up server processing.
+
+As I am only using the API to search for books, and won't be accessing google books shelves or user login data I have chosen to use an API key for access rather than OAuth. My requests to the API contain my API key, the search term the user has created and the fields that I would like to be returned. I have chosen to only receive the books title, authors, description and thumbnail of the book.
 
 - - -
 
