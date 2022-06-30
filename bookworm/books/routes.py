@@ -24,7 +24,8 @@ def search():
         results = book_request.json()
 
         print(results)
-
+        return render_template("search.html", results=results)
+       
     return render_template("search.html")
 
 
