@@ -11,6 +11,47 @@
         </div>
     </div>
     </div>
+
+    <!-- Add Bookshelf Button-->
+    <button type="button" class="btn btn-secondary btn-lg">
+        <i class="bi bi-bookshelf"></i>Add a Bookshelf
+    </button>
+
+    <!-- Bookshelves -->
+
+    <div class="row">
+        <div class="col-10 mx-auto">
+
+            <!-- Accordian -->
+            <div class="accordion" id="accordionExample">
+                {% for bookshelf in bookshelves %}
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    {{ bookshelves.shelf_name }}
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>Edit or delete a bookshelf here - put a button for editing and a button for deleting</p>
+                        <button type="button" class="btn btn-outline-secondary">Edit</button>
+                        <button type="button" class="btn btn-outline-secondary">Delete</button>
+                   </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
     </section>
 
 
