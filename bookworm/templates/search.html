@@ -33,25 +33,29 @@
             </form>
 
             <div>
-                {{ results }}
+
+
+
                 <!-- Jinja for loop to go here to iterate over the results from the api request and display
                 the book title, author, description and thumbnail together with a button to add review-->
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     <!-- Put for loop here -->
+                    {% for result in results %}
                     <div class="col">
                       <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="..."><!-- book thumbnail here-->
+                        <img src="{{ result.volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="..."><!-- book thumbnail here-->
                         <div class="card-body">
-                          <h5 class="card-title">Book title to go here</h5>
-                          <h6 class="card-title">Book author to go here</h6>
-                          <p class="card-text">Book description to go here </p>
+                          <h5 class="card-title">{{ result.volumeInfo.title }}</h5>
+                          <h6 class="card-title">{{ result.volumeInfo.authors }}</h6>
+                          <p class="card-text">{{ result.volumeInfo.description }} </p>
                         </div>
                         <div class="card-footer">
                           Put add review button here
                         </div>
                       </div>
                     </div>
-                    <!-- end for loop here -->
+                    {% endfor %}
+
 
                     <!-- delete these when I add the jinja templating
                     <div class="col">
