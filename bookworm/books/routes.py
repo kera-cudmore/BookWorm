@@ -23,8 +23,8 @@ def search():
         book_request = requests.get("https://www.googleapis.com/books/v1/volumes?fields=items.volumeInfo(title,authors,description,imageLinks/thumbnail)", params=payload)
         results = book_request.json()
         print(results)
-    
-        return render_template("search.html", results=results)
+
+        return render_template("search.html", results=results['items'])
 
     return render_template("search.html")
 
