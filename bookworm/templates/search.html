@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="col-10 col-lg-8 mx-auto mb-5 panel">
+    <div class="col-10 mx-auto mb-5 panel">
         <div class="col-12 text-center">
             <p>Bookworm is a site for booklovers to keep track of their books!
             </p>
@@ -33,11 +33,53 @@
             </form>
 
             <div>
-                <h3>{{ results }}</h3>
-                <h4></h4>
-                <p></p>
-                
-            </div>
+                {{ results }}
+                <!-- Jinja for loop to go here to iterate over the results from the api request and display
+                the book title, author, description and thumbnail together with a button to add review-->
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Put for loop here -->
+                    <div class="col">
+                      <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="..."><!-- book thumbnail here-->
+                        <div class="card-body">
+                          <h5 class="card-title">Book title to go here</h5>
+                          <h6 class="card-title">Book author to go here</h6>
+                          <p class="card-text">Book description to go here </p>
+                        </div>
+                        <div class="card-footer">
+                          Put add review button here
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end for loop here -->
+
+                    <!-- delete these when I add the jinja templating
+                    <div class="col">
+                      <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                        <div class="card-footer">
+                          <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        </div>
+                        <div class="card-footer">
+                          <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                      </div>
+                    </div>
+                     delete above here -->
+                  </div>
 
 
         </div>
