@@ -34,5 +34,13 @@ def bookshelves():
     """
     BOOKSHELVES FUNCTION
     """
-
     return render_template("bookshelves.html")
+
+
+@books.route("/add_bookshelf", methods=["GET", "POST"])
+def add_bookshelf():
+    """ 
+    ADD BOOKSHELF FUNCTION
+    """
+    
+    return render_template("add_bookshelf.html")
