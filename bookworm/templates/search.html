@@ -13,10 +13,6 @@
 
     <div class="col-10 mx-auto mb-5 card panel">
         <div class="col-12 text-center">
-            <p>Bookworm is a site for booklovers to keep track of their books!
-            </p>
-            <p>So how does bookworm work?</p>
-            <p>Use the search to find a book you would like to shelve...</p>
 
             <!-- Google Books Search -->
 
@@ -35,10 +31,10 @@
             <div>
                 <!-- Jinja for loop to go here to iterate over the results from the api request and display
                 the book title, author, description and thumbnail together with a button to add review-->
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     <!-- Put for loop here -->
                     {% for result in results %}
-                    <div class="col">
+                    <div class="col mt-5">
                       <div class="card h-100">
                         <img src="{{ result.volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="..."><!-- book thumbnail here-->
                         <div class="card-body">
