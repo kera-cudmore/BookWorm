@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="container-fluid">
+    <!-- Page Heading -->
+    <div class="col-12">
+    <div class="row hero">
+        <div class="bg-image h-150 ">
+            <h1 class="text-center">Add a Bookshelf</h1>   
+        </div>
+    </div>
+    </div>
+
+
+    <div class="row">
+        <form class="col-10 mx-auto" method="POST" action="{{ url_for('add_bookshelf') }}">
+                <!-- Bookshelf Name-->
+                <div class="row">
+                    <div>
+                        <input id="bookshelf_name" name="bookshelf_name" minlength="3"
+                            maxlength="25" type="text" class="validate" required />
+                        <label for="bookshelf_name">Bookshelf Name</label>
+                    </div>
+                </div>
+        
+                <!-- Submit Button -->
+                <div class="row">
+                    <div>
+                        <button type="submit">
+                            Add Bookshelf
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+{% endblock %}
