@@ -81,6 +81,9 @@ h1 {
     padding-bottom:2 rem; */
 }
 
+.card {
+    padding: 2rem;
+}
 a {
     text-decoration: none;
 }
