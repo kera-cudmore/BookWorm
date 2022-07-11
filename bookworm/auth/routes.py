@@ -34,7 +34,7 @@ def register():
 
         # # add the user to the session and redirect to the login page
         flash('Registration successful!')
-        return redirect(url_for('auth./login', username=username))
+        return redirect(url_for('auth.login'))
 
     # renders the register page
     return render_template("register.html")
@@ -51,7 +51,7 @@ LOGIN FUNCTION
         if existing_user:
             if check_password_hash(existing_user[0].password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
+                flash("Welcome back, {}".format(request.form.get("username")))
                 return redirect(url_for("auth.profile", username=session["user"]))
 
             else:
