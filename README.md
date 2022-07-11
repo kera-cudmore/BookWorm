@@ -1,3 +1,5 @@
+![Welcome to Bookworm](documentation/welcome-to-bookworm.png)
+
 # BookWorm
 
 BookWorm was created as my third milestone project for the Code Institutes Level 5 Diploma in Web Application Development.
