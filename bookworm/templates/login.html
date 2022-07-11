@@ -1,55 +1,47 @@
 {% extends "base.html" %} {% block content %}
 <section class="container-fluid">
-  
-    <!-- Page Heading -->
+
+    <!-- Page Heading Banner -->
     <div class="col-12">
         <div class="row hero">
-            <div class="bg-image h-150 ">
-                <h1 class="text-center">Login</h1>   
+            <div class="bg-image h-150">
+                <h1 class="text-center">Login</h1>
             </div>
         </div>
-        </div>
-
-  <div class="col-10 col-lg-8 mx-auto mb-5 card panel">
-    <div class="col-12 text-center">
-      <p>Log into your account and get tracking!</p>
     </div>
-    <form action="#" method="POST">
-      <div class="mx-5 mb-4">
-        <label class="form-label">Username </label>
-        <input
-          class="form-control"
-          type="text"
-          name="username"
-          placeholder="Username"
-        />
-      </div>
-      <div class="mx-5 mb-4">
-        <label class="form-label">Password </label>
-        <input
-          class="form-control"
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
-      </div>
-      <div class="mx-5 mb-4 text-center">
-        <label class="form-check-label" for="rememberMe"> Remember me</label>
-        <input
-          class="form-check-input"
-          type="checkbox"
-          name="rememberMe"
-          id="rememberMe"
-        />
-      </div>
-      <div class="text-center">
-        <button class="btn btn-light btn-lg mb-3" type="submit">Sign In</button>
-      </div>
-      <p class="text-center mt-3">
-        Don't have an account yet? Wiggle on over to the
-        <a class="text-reset" href="{{ url_for('auth.register') }}">Register Page.</a>
-      </p>
-    </form>
-  </div>
+
+    <!-- Login Card Panel -->
+    <div class="col-10 mx-auto mb-5 card panel">
+        <div class="col-12 text-center">
+            <h2 class="mb-3">Log into your account and get tracking!</h2>
+        </div>
+        <form action="#" method="POST">
+            <div class="mx-5 mb-4">
+                <label class="form-label">Username </label>
+                <input class="form-control" type="text" name="username"
+                    placeholder="Username" />
+            </div>
+            <div class="mx-5 mb-4">
+                <label class="form-label">Password </label>
+                <input class="form-control" type="password" name="password"
+                    placeholder="Password" />
+            </div>
+            <div class="mx-5 mb-4 text-center">
+                <label class="form-check-label" for="rememberMe"> Remember
+                    me</label>
+                <input class="form-check-input" type="checkbox"
+                    name="rememberMe" id="rememberMe" />
+            </div>
+            <div class="text-center">
+                <button class="btn btn-light btn-lg mb-3" type="submit">Sign
+                    In</button>
+            </div>
+            <p class="text-center mt-3">
+                Don't have an account yet? Wiggle on over to the
+                <a class="text-reset"
+                    href="{{ url_for('auth.register') }}">Register Page.</a>
+            </p>
+        </form>
+    </div>
 </section>
 {% endblock %}
