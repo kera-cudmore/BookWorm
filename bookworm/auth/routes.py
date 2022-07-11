@@ -71,3 +71,13 @@ LOGIN FUNCTION
 @auth.route("/profile")
 def profile():
     return render_template("profile.html")
+
+
+@auth.route("/logout")
+def logout():
+    """
+    LOGOUT FUNCTION
+    """
+    flash("You have been logged out.")
+    session.pop("user")
+    return render_template("index.html")
