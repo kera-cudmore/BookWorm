@@ -25,7 +25,6 @@ def register():
         # gather info from the form to enter into db
         newuser = Users(
             username=request.form.get("username").lower(),
-            name=request.form.get("name"),
             email=request.form.get("email").lower(),
             password=generate_password_hash(request.form.get("password")),
         )
