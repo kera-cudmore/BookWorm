@@ -48,10 +48,11 @@
 
 <body class="d-flex flex-column min-vh-100">
     <header>
+
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ url_for('main.home') }}">
                     <img src="{{ url_for('static', filename='images/booklogo.webp') }}"
                         alt="Line art illustration of an open book" width="50"
                         height="50" class="d-inline-block align-text-center" />
@@ -69,6 +70,7 @@
 
                     <!-- Navbar Links -->
                     <ul class="navbar-nav me-0 mb-2 mb-lg-0">
+                        <!-- Home & Search - to be displayed to all -->
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
                                 href="{{ url_for('main.home') }}">
@@ -76,24 +78,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                                href="{{ url_for('auth.login') }}">
-                                <i class="bi bi-box-arrow-in-right"></i> Login</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('auth.register') }}">
-                                <i class="bi bi-person-plus"></i> Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
                                 href="{{ url_for('books.search') }}">
                                 <i class="bi bi-search-heart"></i> Search</a>
                         </li>
-
+                        <!-- Bookshelves, books, profile & logout only to be shown to logged in users -->
+                        {% if session.user %}
                         <li class="nav-item">
                             <a class="nav-link"
-                            href="{{ url_for('books.bookshelves') }}">
+                                href="{{ url_for('books.bookshelves') }}">
                                 <i class="bi bi-bookshelf"></i> Bookshelves</a>
                         </li>
                         <li class="nav-item">
@@ -102,22 +94,30 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                            href="{{ url_for('auth.profile') }}">
+                                href="{{ url_for('auth.profile') }}">
                                 <i class="bi bi-person"></i> Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">
-                                <i class="bi bi-box-arrow-right"></i> Log Out</a>
+                            <a class="nav-link"
+                                href="{{ url_for('auth.logout') }}">
+                                <i class="bi bi-box-arrow-right"></i> Log
+                                Out</a>
                         </li>
+                        <!-- Login & Register only to be shown if not logged in -->
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ url_for('auth.login') }}">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ url_for('auth.register') }}">
+                                <i class="bi bi-person-plus"></i> Register</a>
+                        </li>
+                        {% endif %}
                     </ul>
-                    <!-- Search Bar
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search"
-                            placeholder="Search" aria-label="Search" />
-                        <button class="btn" type="submit">
-                            <i class="bi bi-search-heart"></i>
-                        </button>
-                    </form> -->
                 </div>
             </div>
         </nav>
@@ -128,16 +128,15 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                <div class="row flashes">
-                    <h4>{{ message }}</h4>
-                </div>
+                    <div class="row flashes">
+                        <h4>{{ message }}</h4>
+                    </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
     </section>
 
     <!-- Main page Content -->
-
     {% block content %}
     {% endblock %}
 
@@ -145,7 +144,7 @@
     <footer class="mt-auto">
         <nav class="navbar bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Bookworm</a>
+                <a class="navbar-brand" href="{{ url_for('main.home') }}">Bookworm</a>
             </div>
         </nav>
     </footer>
