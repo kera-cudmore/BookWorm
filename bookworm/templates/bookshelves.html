@@ -5,57 +5,37 @@
 <section class="container-fluid">
     <!-- Page Heading -->
     <div class="col-12">
-    <div class="row hero">
-        <div class="bg-image h-150 ">
-            <h1 class="text-center">Bookshelves</h1>   
-        </div>
-    </div>
-    </div>
-
-    <!-- Add Bookshelf Button-->
-        <a href="{{ url_for('books.add_bookshelf')}}" class="btn btn-outline-secondary btn-lg">
-            <i class="bi bi-bookshelf"></i>
-            Add a Bookshelf</a>
-
-
-    <!-- Bookshelves -->
-
-    <div class="row">
-        <div class="col-10 mx-auto">
-
-            <!-- Accordian -->
-            <div class="accordion">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapseWidthExample" data-bs-target="#collapseWidthExample" aria-expanded="true" aria-controls="collapseWidthExample">
-                    </button>
-                </h2>
-                <div id="collapseWidthExample" class="accordion-collapse collapse collapse-horizontal" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <p>Edit or delete a bookshelf here - put a button for editing and a button for deleting</p>
-                        <button type="button" class="btn btn-outline-secondary">Edit</button>
-                        <button type="button" class="btn btn-outline-secondary">Delete</button>
-                   </div>
-                </div>
+        <div class="row hero">
+            <div class="bg-image h-150 ">
+                <h1 class="text-center">Bookshelves</h1>
             </div>
-
-
         </div>
     </div>
 
+    <div class="col-10 mx-auto mb-5 card panel">
+        <div class="col-12 text-center">
 
+            <!-- Add Bookshelf Button-->
+            <a href="{{ url_for('books.add_bookshelf')}}"
+                class="btn btn-outline-secondary btn-lg mb-5">
+                <i class="bi bi-bookshelf"></i>
+                Add a Bookshelf</a>
 
+            <!-- Bookshelves -->
+            <ul class="list-group">
+                {% for bookshelf in bookshelves %}
 
+                <li class="list-group-item">{{ bookshelf.shelf_name }}
+                    <a href="" class="btn btn-outline-secondary">
+                        <i class="bi bi-pencil-square"></i> Edit Shelf</a>
+                    <a href="" class="btn btn-outline-secondary">
+                        <i class="bi bi-trash3"></i> Delete Shelf</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-
-
-
-    </section>
-
-
-
-
-
-
+</section>
 
 {% endblock %}
