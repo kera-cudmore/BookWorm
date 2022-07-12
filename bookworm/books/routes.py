@@ -61,6 +61,7 @@ def add_bookshelf():
 def edit_bookshelf(bookshelf_id):
     """
     EDIT BOOKSHELF FUNCTION
+    retrieves the bookshelf id or throws 404 error if there isn't one
     """
     bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     if request.method == "POST":
@@ -69,3 +70,16 @@ def edit_bookshelf(bookshelf_id):
         return redirect(url_for("books.bookshelves"))
 
     return render_template("edit_bookshelf.html", bookshelf=bookshelf)
+
+
+@books.route("/delete_bookshelf/<int:bookshelf_id>")
+def delete_bookshelf(bookshelf_id):
+    """ DELETE BOOKSHELF FUNCTION
+    retrieves the bookshelf id or throws 404 error if there isn't one
+    deletes the bookshelf & commits to the db
+    redirects the user to the bookshelves page
+    """
+    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
+    db.session.delete(bookshelf)
+    db.session.commit()
+    return redirect(url_for("books.bookshelves"))
