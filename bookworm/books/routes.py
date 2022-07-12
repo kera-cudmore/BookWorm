@@ -34,7 +34,9 @@ def bookshelves():
     """
     BOOKSHELVES FUNCTION
     """
-    return render_template("bookshelves.html")
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
+
+    return render_template("bookshelves.html", bookshelves=bookshelves)
 
 
 @books.route("/add_bookshelf", methods=["GET", "POST"])
