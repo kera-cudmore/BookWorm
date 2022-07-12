@@ -5,50 +5,40 @@
 <section class="container-fluid">
     <!-- Page Heading -->
     <div class="col-12">
-    <div class="row hero">
-        <div class="bg-image h-150 ">
-            <h1 class="text-center">Add a Bookshelf</h1>   
+        <div class="row hero">
+            <div class="bg-image h-150 ">
+                <h1 class="text-center">Add a Bookshelf</h1>
+            </div>
         </div>
-    </div>
     </div>
 
     <div class="col-10 mx-auto mb-5 card panel">
         <div class="col-12 text-center">
             <h2 class="mb-3">Create a new bookshelf</h2>
-            <!--
-        <form class="col-10 mx-auto" method="POST" action="{{ url_for('books.add_bookshelf') }}">
-                <!-- Bookshelf Name--
-                    <div class="mx-5 mb-4">
-                        <label for="bookshelf_name">Bookshelf Name</label>
-                        <input id="bookshelf_name" name="bookshelf_name" minlength="3"
-                            maxlength="25" type="text" class="validate" placeholder="Bookshelf Name" required />
-                    </div>
-                </div>
-            -->
-                <form class="col-10 mx-auto" action="{{ url_for('books.add_bookshelf') }}" method="POST">
-                    <div class="input-group input-group-lg mb-3">
-                        <input type="text" class="form-control ms-5 validate"
-                            id="bookshelf_name" name="bookshelf_name"
-                            placeholder="Bookshelf Name" minlength="3" maxlength="25" required>
-                        <button class="btn btn-outline-secondary me-5" type="submit">
-                            <i class="bi bi-plus"></i>
-                        </button>
-                    </div>
-                </form>
 
-                <!-- Submit Button
-                <div class="row">
-                    <div>
-                        <button type="submit" class="btn btn-secondary">
-                            Create New Shelf
-                        </button>-->
-                    </div>
+            <!-- Add bookshelf form -->
+            <form class="col-10 mx-auto"
+                action="{{ url_for('books.add_bookshelf') }}" method="POST">
+                <div class="input-group input-group-lg mb-3">
+                    <input type="text" class="form-control ms-5 validate"
+                        id="new_shelf" name="new_shelf"
+                        placeholder="Bookshelf Name" minlength="3"
+                        maxlength="25" required>
+                    <button class="btn btn-outline-secondary me-5"
+                        type="submit">
+                        <i class="bi bi-plus"></i>
+                    </button>
                 </div>
             </form>
-</div>
 
 
         </div>
+    </div>
+    </form>
+    </div>
+
+
+    </div>
     </div>
 
 
@@ -58,7 +48,7 @@
 
 
 
-    </section>
+</section>
 
 
 
