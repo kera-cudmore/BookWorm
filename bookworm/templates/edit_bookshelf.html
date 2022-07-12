@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="container-fluid">
+    <!-- Page Heading -->
+    <div class="col-12">
+        <div class="row hero">
+            <div class="bg-image h-150 ">
+                <h1 class="text-center">Edit a Bookshelf</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-10 mx-auto mb-5 card panel">
+        <div class="col-12 text-center">
+
+            <!-- Edit bookshelf form -->
+            <form class="col-10 mx-auto"
+                action="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}" method="POST">
+                <div class="input-group input-group-lg mb-3">
+                    <input type="text" class="form-control ms-5 validate"
+                        id="edit_shelf" name="edit_shelf"
+                        value="{{ bookshelf.shelf_name }}" minlength="3"
+                        maxlength="25" required>
+                    <button class="btn btn-outline-secondary me-5"
+                        type="submit">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+    </form>
+    </div>
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+{% endblock %}
