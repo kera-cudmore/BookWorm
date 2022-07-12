@@ -42,5 +42,15 @@ def add_bookshelf():
     """ 
     ADD BOOKSHELF FUNCTION
     """
-    
+    if request.method == "POST":
+        # gather info from the form to enter into db
+        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"))
+        # Add to db
+        db.session.add(newshelf)
+        db.session.commit()
+
+        # # flash success message & redirect to the bookshelf page
+        flash('Bookshelf Created!')
+        return redirect(url_for('books.bookshelves'))
+
     return render_template("add_bookshelf.html")
