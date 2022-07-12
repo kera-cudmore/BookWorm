@@ -64,9 +64,8 @@ def edit_bookshelf(bookshelf_id):
     """
     bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     if request.method == "POST":
-        Bookshelves.shelf_name = request.form.get("edit_shelf")
+        bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
-        return redirect(url_for("bookshelves"))
+        return redirect(url_for("books.bookshelves"))
 
-
-    return render_template("edit_bookshelf.html")
+    return render_template("edit_bookshelf.html", bookshelf=bookshelf)
