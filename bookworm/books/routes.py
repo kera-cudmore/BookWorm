@@ -1,5 +1,4 @@
 """ IMPORTS """
-# import json
 from flask import render_template, request, Blueprint, url_for, flash, redirect, session
 import requests
 from bookworm import os, db
@@ -56,3 +55,18 @@ def add_bookshelf():
         return redirect(url_for('books.bookshelves'))
 
     return render_template("add_bookshelf.html")
+
+
+@books.route("/edit_bookshelf/<int:bookshelf_id>", methods=["GET", "POST"])
+def edit_bookshelf(bookshelf_id):
+    """
+    EDIT BOOKSHELF FUNCTION
+    """
+    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
+    if request.method == "POST":
+        Bookshelves.shelf_name = request.form.get("edit_shelf")
+        db.session.commit()
+        return redirect(url_for("bookshelves"))
+
+
+    return render_template("edit_bookshelf.html")
