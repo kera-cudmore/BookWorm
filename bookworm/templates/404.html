@@ -1,14 +1,29 @@
 {% extends "base.html" %}
 
-{% block content %}
-<section class="container-fluid">
-    <!-- Page Heading -->
-    <div class="col-12">
-    <div class="row hero">
-        <div class="bg-image h-150 ">
-            <h1 class="text-center">404 Error</h1>   
-        </div>
-    </div>
-    </div>
-    </section>
-{% endblock %}
+    {% block content %}
+        <section class="container-fluid">
+
+            <!-- PAGE HEADING -->
+            <div class="col-12">
+                <div class="row hero">
+                    <div class="bg-image h-150 ">
+                        <h1 class="text-center">404 Error</h1>   
+                    </div>
+                </div>
+            </div>
+        
+            <!-- PAGE CONTENTS CARD PANEL -->
+            <div class="col-10 mx-auto mb-5 card panel">
+                <div class="col-12 text-center">
+                    <p>Oh No!</p>
+                    <p>It looks like the page you're looking for hasn't been shelved properly.</p>
+                    <p>Use the navigation bar above to try again, or go 
+                        <a href="{{ url_for('main.home') }}">home</a>
+                    </p>
+                
+                </div>
+            </div>
+
+        </section>
+
+    {% endblock %}
