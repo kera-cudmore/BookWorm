@@ -83,3 +83,12 @@ def delete_bookshelf(bookshelf_id):
     db.session.delete(bookshelf)
     db.session.commit()
     return redirect(url_for("books.bookshelves"))
+
+
+@books.route("/add_review")
+def add_review():
+    """
+    ADD REVIEW ROUTE
+    """
+
+    return render_template("add_review.html")
