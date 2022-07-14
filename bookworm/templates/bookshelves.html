@@ -3,7 +3,8 @@
 {% block content %}
 
 <section class="container-fluid">
-    <!-- Page Heading -->
+
+    <!-- PAGE HEADING -->
     <div class="col-12">
         <div class="row hero">
             <div class="bg-image h-150 ">
@@ -12,31 +13,66 @@
         </div>
     </div>
 
+    <!-- PAGE CONTENTS CARD PANEL -->
     <div class="col-10 mx-auto mb-5 card panel">
         <div class="col-12 text-center">
 
-            <!-- Add Bookshelf Button-->
+            <!-- ADD BOOKSHELF BUTTON -->
             <a href="{{ url_for('books.add_bookshelf')}}"
                 class="btn btn-outline-secondary btn-lg mb-5">
                 <i class="bi bi-bookshelf"></i>
                 Add a Bookshelf</a>
 
-            <!-- Bookshelves -->
+            <!-- BOOKSHELVES -->
             <ul class="list-group">
+                <!-- Jinja for loop that loops through each bookshelf and displays in the list group -->
                 {% for bookshelf in bookshelves %}
-
-                <li class="list-group-item d-flex justify-content-between align-items-start">{{ bookshelf.shelf_name }}
-                    <span>
-                    <a href="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}" class="btn btn-outline-secondary">
-                        <i class="bi bi-pencil-square"></i> Edit Shelf</a>
-                    <a href="{{ url_for('books.delete_bookshelf', bookshelf_id=bookshelf.id) }}" class="btn btn-outline-secondary">
-                        <i class="bi bi-trash3"></i> Delete Shelf</a>
+                
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        {{ bookshelf.shelf_name }}
+                        <span>
+                            <a href="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}"
+                                class="btn btn-outline-secondary">
+                                <i class="bi bi-pencil-square"></i> Edit Shelf</a>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="bi bi-trash3"></i> Delete Shelf
+                                  </button>
+                                
                         </span>
-                </li>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
+
+<!-- 
+TO DO
+Figure out the best place to position the modal so that it pulls the bookshelf id from the correct shelf to allow deleting,
+does it need to be placed in the for loop? unable to click on the modals buttons when it is 
+-->
+
+    <!-- DELETE BOOKSHELF MODAL -->
+    <!-- Defensive programming, creates an extra check before the bookshelf is deleted from the db -->  
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">
+                        Are you sure you want to delete this bookshelf?
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <a href="{{ url_for('books.delete_bookshelf', bookshelf_id=bookshelf.id) }}"
+                    class="btn btn-outline-secondary">
+                    <i class="bi bi-trash3"></i> Delete Shelf</a>
+                <button type="button" class="btn btn-outline-secondary"
+                    data-bs-dismiss="modal"><i
+                        class="bi bi-x-circle"></i> Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
 
 </section>
 
