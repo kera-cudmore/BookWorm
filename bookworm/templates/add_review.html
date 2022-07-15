@@ -1,57 +1,71 @@
 {% extends "base.html" %}
 
-{% block content %}
+    {% block content %}
 
-<section class="container-fluid">
-    <!-- Page Heading -->
-    <div class="col-12">
-        <div class="row hero">
-            <div class="bg-image h-150 ">
-                <h1 class="text-center">Add a Review</h1>
-            </div>
-        </div>
-    </div>
+        <section class="container-fluid">
 
-    <div class="col-10 mx-auto mb-5 card panel">
-        <div class="col-12 text-center">
-            <h2 class="mb-3">Create a new bookshelf</h2>
-
-            <!-- Add bookshelf form -->
-            <form class="col-10 mx-auto"
-                action="" method="POST">
-
-            <!-- INPUTS FOR THE REVIEW SECTION TO GO HERE -->
-
-                <button class="btn btn-outline-secondary me-5"
-                        type="submit">
-                        <i class="bi bi-plus"></i>
-                    </button>
+            <!-- PAGE HEADING -->
+            <div class="col-12">
+                <div class="row hero">
+                    <div class="bg-image h-150 ">
+                        <h1 class="text-center">Add a Review</h1>
+                    </div>
                 </div>
-            </form>
+            </div>
 
+            <!-- PAGE CONTENTS CARD PANEL -->
+            <div class="col-10 mx-auto mb-5 card panel">
+                <div class="col-12 text-center">
 
-        </div>
-    </div>
-    </form>
-    </div>
+                    <!-- ADD BOOKSHELF FORM -->
+                    <form class="col-10 mx-auto" action="" method="POST">
 
+                        <!-- INPUTS FOR THE REVIEW SECTION TO GO HERE - change the layout for smaller screens so they stack, 
+                            and larger side by side - use bootstrap form grid -->
+                        
+                        <!-- Book Title - pull from the search REQ-->
+                        <label for="bookTitle">Book Title: </label>
+                        <input type="text" name="bookTitle" id="bookTitle">
 
-    </div>
-    </div>
+                        <!-- Book Author - pull from the search REQ-->
+                        <label for="bookAuthor">Book Author: </label>
+                        <input type="text" name="bookAuthor" id="bookAuthor">
+                        
+                        <!-- Book Thumbnail - pull from the search-->
+                        <img>
 
+                        <!-- Rating - stars that you click on-->
+                        <div class="rating"> 
+                            <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
+                            <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
+                            <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
+                            <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
+                            <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                        </div>
 
+                        <!-- Shelf - select REQ jinja for loop to look through each bookshelf to go here -->
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Choose a Shelf</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
 
+                        <!-- Review - text area-->
+                        <textarea placeholder="Add your Review Here">Book Review: </textarea>
 
+                        <!-- Notes -text area -->
+                        <textarea placeholder="Add any notes here">Notes: </textarea>
 
+                        <!-- Submit Button -->
+                        <button class="btn btn-outline-secondary me-5" type="submit">
+                            Add Book
+                            <i class="bi bi-book"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
 
+        </section>
 
-
-</section>
-
-
-
-
-
-
-
-{% endblock %}
+    {% endblock %}
