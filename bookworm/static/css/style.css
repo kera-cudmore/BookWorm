@@ -40,25 +40,23 @@
     background-repeat: repeat; 
     background-position: center;
     background-size: contain;
-    height: 250px;
+    height: 150px;
 }
 
 /*---------- BODY ----------*/
 body {
     background-color: #ac957585;
     font-family: var(--content-text);
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 }
 
 h1 {
     color: var(--white);
     text-shadow: 8px 8px 6px #000000a0;
     font-family: var(--header-text);
-    font-size: 7rem;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
+    font-size: 3rem;
+    
 }
-
 
 /*---------- PANEL ----------*/
 .panel {
@@ -100,6 +98,7 @@ a {
     padding: 1rem;
 }
 
+
 /*---------- BOOK REVIEW STAR RATINGS ----------*/
 /* Code Source: https://bbbootstrap.com/snippets/bootstrap-rate-your-experience-template-star-ratings-30972576 */
 
@@ -139,4 +138,28 @@ a {
 
 .rating:hover>input:checked~label:before {
     opacity: 0.4
+}
+
+
+/*---------- MEDIA QUERIES ----------*/
+/* Tablets */
+@media only screen and (min-width : 481px) {
+    h1 {
+        font-size: 4rem;
+        
+    }
+
+    body {
+        font-size: 1rem;
+    }
+}
+
+/* Laptops */
+@media only screen and (min-width : 769px) {
+
+    h1 {
+        font-size: 5rem;
+        
+    }
+        
 }
