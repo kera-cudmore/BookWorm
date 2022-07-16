@@ -15,15 +15,20 @@ def search():
     SEARCH FUNCTION
     """
     if request.method == "POST":
-        payload = {}
-        payload["q"] = request.form.get("searchquery")
-        payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
+        
+        try:
+            payload = {}
+            payload["q"] = request.form.get("searchquery")
+            payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
 
-        book_request = requests.get("https://www.googleapis.com/books/v1/volumes?fields=items.volumeInfo(title,authors,description,imageLinks/thumbnail)", params=payload)
-        results = book_request.json()
-        print(results)
+            book_request = requests.get("https://www.googleapis.com/books/v1/volumes?fields=items.volumeInfo(title,authors,description,imageLinks/thumbnail)&maxResults=30", params=payload)
+            results = book_request.json()
+            print(results)
+        
+            return render_template("search.html", results=results['items'])
 
-        return render_template("search.html", results=results['items'])
+        except:
+            flash('There was an error. Please try another search term')
 
     return render_template("search.html")
 
@@ -45,7 +50,8 @@ def add_bookshelf():
     """
     if request.method == "POST":
         # gather info from the form to enter into db
-        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"))
+        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"),
+                                created_by=session["user"])
         # Add to db
         db.session.add(newshelf)
         db.session.commit()
