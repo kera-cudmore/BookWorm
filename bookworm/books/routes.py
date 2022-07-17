@@ -91,7 +91,7 @@ def add_review():
     ADD REVIEW FUNCTION
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
-    if request.method == POST:
-        return redirect(url_for('books.bookshelves'))
+    # if request.method == POST:
+    #    return redirect(url_for('books.bookshelves'))
 
     return render_template("add_review.html", bookshelves=bookshelves)
