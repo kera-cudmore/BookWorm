@@ -1,60 +1,62 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+    {% block content %}
 
-<section class="container-fluid">
-    <!-- Page Heading -->
-    <div class="col-12">
-    <div class="row hero">
-        <div class="bg-image h-150 ">
-            <h1 class="text-center">Register</h1>   
-        </div>
-    </div>
-    </div>
-
-    <!-- Register Panel -->
-    <div class="col-10 mx-auto mb-5 card panel">
-        <div class="col-12 text-center">
-            <h2 class="mb-3">Register an account on Bookworm</h2>
-        </div>
-        <form method="POST" action="{{ url_for('auth.register') }}">
-
-            <!-- USERNAME -->
-            <!-- Defensive programming - minlength 5 maxlength 15, 
-                RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long -->
-            <div class="mx-5 mb-4">
-                <label for="username" class="form-label">Username: </label>
-                <input class="form-control" type="text" name="username"
-                    id="username" placeholder="Username" minlength="5"
-                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
+        <section class="container-fluid">
+    
+            <!-- PAGE HEADING BANNER -->
+            <div class="col-12">
+                <div class="row hero">
+                    <div class="bg-image h-150 ">
+                        <h1 class="text-center">Register</h1>   
+                    </div>
+                </div>
             </div>
 
-            <!-- EMAIL -->
-            <div class="mx-5 mb-4">
-                <label for="email" class="form-label">Email: </label>
-                <input class="form-control" type="email" name="email"
-                    id="email" placeholder="Email" required/>
+            <!-- PAGE CONTENTS CARD PANEL -->
+            <div class="col-10 mx-auto mb-5 card panel">
+                <div class="col-12 text-center">
+                    <h2 class="mb-3">Register an account on Bookworm</h2>
+                </div>
+                
+                <-- Register Form -->
+                <form method="POST" action="{{ url_for('auth.register') }}">
+                    <!-- Username Input using defensive programming - minlength 5 maxlength 15, 
+                        RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long -->
+                    <div class="mx-5 mb-4">
+                        <label for="username" class="form-label">Username: </label>
+                        <input class="form-control" type="text" name="username"
+                            id="username" placeholder="Username" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
+                    </div>
 
-            <!-- PASSWORD -->
-            <!-- Defensive programming - minlength 5 maxlength 15,
-                RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long-->
-            <div class="my-4">
-                <label for="password" class="form-label">Password: </label>
-                <input class="form-control" type="password" name="password"
-                    id="password" placeholder="Password" minlength="5" 
-                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
-            </div>
+                    <!-- Email Input -->
+                    <div class="mx-5 mb-4">
+                        <label for="email" class="form-label">Email: </label>
+                        <input class="form-control" type="email" name="email"
+                            id="email" placeholder="Email" required/>
+                    </div>
 
-            <!-- SIGN UP BUTTON -->
+                    <!-- Password Input using defensive programming - minlength 5 maxlength 15,
+                        RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long-->
+                    <div class="my-4">
+                        <label for="password" class="form-label">Password: </label>
+                            <input class="form-control" type="password" name="password"
+                                id="password" placeholder="Password" minlength="5" 
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
+                    </div>
+
+                    <!-- Sign Up Button -->
+                    <div class="text-center">
+                        <button class="btn btn-outline-secondary btn-lg mb-3" type="submit">Register</button>
+                    </div>
+
+                    <p class="text-center mt-3">Already have an account? Wiggle on over to the
+                        <a class="text-reset" href="{{ url_for('auth.login') }}">Login Page.</a>
+                    </p>
+                </form>
             
-            <div class="text-center">
-                <button class="btn btn-outline-secondary btn-lg mb-3" type="submit">Register</button>
             </div>
 
-            <p class="text-center mt-3">
-                Already have an account? Wiggle on over to the
-                <a class="text-reset" href="{{ url_for('auth.login') }}">Login Page.</a>
-            </p>
-        </form>
-    </div>
-</section>
+        </section>
 
-{% endblock %}
+    {% endblock %}
