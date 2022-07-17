@@ -262,7 +262,7 @@ Content for this project was written by Kera Cudmore.
 
 * Favicon image - [Hand drawn illustration of open book](https://www.rawpixel.com/image/6475209/png-aesthetic-sticker)
 * Background image used for the site header - [Pile of open books](https://www.rawpixel.com/image/5921249/photo-image-paper-book-public-domain)
-* Index page image - (Book with heart pages)[https://unsplash.com/photos/f6UX-It1N7g]
+* Index page image - [Book with heart pages](https://unsplash.com/photos/f6UX-It1N7g)
 
 ### Acknowledgments
 
