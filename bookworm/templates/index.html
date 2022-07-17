@@ -1,26 +1,28 @@
 {% extends "base.html" %}
+    {% block content %}
 
-{% block content %}
+        <section class="container-fluid">
 
-<section class="container-fluid">
-    <!-- Page Heading -->
-    <div class="col-12">
-        <div class="row hero">
-            <div class="bg-image h-150 ">
-                <h1 class="text-center">Welcome to Bookworm!</h1>
+            <!-- PAGE HEADING BANNER -->
+            <div class="col-12">
+                <div class="row hero">
+                    <div class="bg-image h-150 d-flex align-items-center justify-content-center">
+                        <h1>Welcome to Bookworm!</h1>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="col-10 mx-auto mb-5 panel">
-        <div class="col-12 text-center">
-            <p>Hello and Welcome to Bookworm, a site that allows bibliophiles to keep track of their books!</p>
-            <p>So how does bookworm work?</p>
-            <p>Use the search function to find books you would like to shelve on your own bookshelves.</p>
-            <p>Bookworm also allows you to leave a review or some notes on any of your shelved books</p>
-        </div>
-    </div>
+            <!-- PAGE CONTENTS CARD PANEL -->
+            <div class="col-10 mx-auto mb-5 panel">
+                <div class="col-12 text-center">
+                    <img src="{{ url_for('static', filename='images/book-heart.webp') }}" id="homeImage" class="img-fluid p-5">
+                    <h2 class="pb-1">Bookworm: A site for Bibliophiles to keep track of their books!</h2>
+                    <p>So how does Bookworm work?</p>
+                    <p>Register for an account with Bookworm and you'll be able to create your own personalised bookshelf system to help you keep track of your reading.</p>
+                    <p>You can Use the search function to find books to shelves, and then you can leave a review or some notes on the book.</p>
+                </div>
+            </div>
 
-</section>
+        </section>
 
-{% endblock %}
+    {% endblock %}
