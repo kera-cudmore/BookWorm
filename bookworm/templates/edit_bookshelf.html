@@ -1,10 +1,9 @@
 {% extends "base.html" %}
-
     {% block content %}
 
         <section class="container-fluid">
 
-            <!-- PAGE HEADING -->
+            <!-- PAGE HEADING BANNER -->
             <div class="col-12">
                 <div class="row hero">
                     <div class="bg-image h-150 ">
@@ -17,18 +16,23 @@
             <div class="col-10 mx-auto mb-5 card panel">
                 <div class="col-12 text-center">
 
-                    <!-- EDIT BOOKSHELF FORM -->
+                    <!-- Edit bookshelf form -->
                     <form class="col-10 mx-auto" method="POST"
                         action="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}">
                         <div class="input-group input-group-lg mb-3">
+                            
+                            <!-- Edit shelf name input -->
                             <input type="text" class="form-control ms-5 validate"
                                 id="edit_shelf" name="edit_shelf"
                                 value="{{ bookshelf.shelf_name }}" minlength="3"
                                 maxlength="25" required>
+                            
+                            <!-- Submit button-->
                             <button class="btn btn-outline-secondary me-5"
                                 type="submit">
                                 <i class="bi bi-pencil-square"></i>
                             </button>
+                            
                         </div>
                     </form>
                     
