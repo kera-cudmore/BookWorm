@@ -92,6 +92,6 @@ def add_review():
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
     if request.method == POST:
-        return redirect(url_for('books.edit_review'))
+        return redirect(url_for('books.bookshelves'))
 
     return render_template("add_review.html", bookshelves=bookshelves)
