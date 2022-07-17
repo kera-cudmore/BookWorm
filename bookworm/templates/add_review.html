@@ -1,10 +1,9 @@
 {% extends "base.html" %}
-
     {% block content %}
 
         <section class="container-fluid">
 
-            <!-- PAGE HEADING -->
+            <!-- PAGE HEADING BANNER -->
             <div class="col-12">
                 <div class="row hero">
                     <div class="bg-image h-150 ">
@@ -17,8 +16,9 @@
             <div class="col-10 mx-auto mb-5 card panel">
                 <div class="col-12 text-center">
 
-                    <!-- ADD BOOKSHELF FORM -->
-                    <form class="col-10 mx-auto" action="" method="POST">
+                    <!-- Add Book review form -->
+                    <form class="col-10 mx-auto" action="{{ url_for('books.add_review') }}" 
+                        method="POST">
 
                         <!-- INPUTS FOR THE REVIEW SECTION TO GO HERE - change the layout for smaller screens so they stack, 
                             and larger side by side - use bootstrap form grid -->
@@ -32,9 +32,9 @@
                         <input type="text" name="bookAuthor" id="bookAuthor">
                         
                         <!-- Book Thumbnail - pull from the search-->
-                        <img>
+                        <img src="" alt="">
 
-                        <!-- Rating - stars that you click on-->
+                        <!-- Star Rating (click on stars to leave a rating from 1 to 5)-->
                         <div class="rating"> 
                             <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
                             <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
@@ -43,13 +43,14 @@
                             <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
                         </div>
 
-                        <!-- Shelf - select REQ jinja for loop to look through each bookshelf to go here -->
+                        <!-- Shelf - select REQ -->
+                        <!-- jinja for loop to look through each bookshelf to go here -->
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Choose a Shelf</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
+                            {% for bookshelf in bookshelves %}
+                                <option value="1">{{ bookshelf.shelf_name }}</option>
+                            {% endfor %}
+                        </select>
 
                         <!-- Review - text area-->
                         <textarea placeholder="Add your Review Here">Book Review: </textarea>
