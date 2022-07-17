@@ -30,7 +30,7 @@
 }
 
 
-/*---------- Hero Image behind headings ----------*/
+/*---------- HEADINGS ----------*/
 .hero {
     margin-bottom: 4rem;
 }
@@ -42,6 +42,7 @@
     background-size: contain;
     height: 150px;
 }
+
 
 /*---------- BODY ----------*/
 body {
@@ -55,8 +56,8 @@ h1 {
     text-shadow: 8px 8px 6px #000000a0;
     font-family: var(--header-text);
     font-size: 3rem;
-    
 }
+
 
 /*---------- PANEL ----------*/
 .panel {
@@ -67,16 +68,6 @@ h1 {
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 25px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
-    /* grey coloured panel */
-    /* background: rgba( 220, 220, 220, 0.5 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 2px );
-    -webkit-backdrop-filter: blur( 2px );
-    border-radius: 25px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    padding-top: 2rem;
-    padding-bottom:2 rem; */
 }
 
 .card {
@@ -84,12 +75,14 @@ h1 {
 }
 
 .card-footer {
-    background-color: #ffffff;
+    background-color: var(--white);
     border-top: none;
 }
+
 a {
     text-decoration: none;
 }
+
 
 /*---------- FLASH MESSAGES ----------*/
 .flashes h4 {
@@ -145,21 +138,20 @@ a {
 /* Tablets */
 @media only screen and (min-width : 481px) {
     h1 {
-        font-size: 4rem;
-        
+        font-size: 4rem; 
     }
 
     body {
         font-size: 1rem;
     }
+
 }
 
 /* Laptops */
 @media only screen and (min-width : 769px) {
 
     h1 {
-        font-size: 5rem;
-        
+        font-size: 5rem;  
     }
         
 }
