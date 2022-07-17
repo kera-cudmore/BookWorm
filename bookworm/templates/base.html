@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-gb">
 
 <head>
     <!-- META TAGS -->
@@ -12,37 +12,29 @@
     <!-- Facebook, LinkedIn, Google -->
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Bookworm" />
-    <meta property="og:description" content="" />
-    <meta name="image" property="og:image" content="" />
-    <meta property="og:image:alt" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" /><!-- ADD -->
+    <meta name="image" property="og:image" content="" /><!-- ADD -->
+    <meta property="og:image:alt" content="" /><!-- ADD -->
+    <meta property="og:url" content="" /><!-- ADD -->
+    <meta property="og:site_name" content="" /><!-- ADD -->
     <meta name="author" content="Kera Cudmore" />
 
     <!-- FAVICON -->
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
-    <link rel="manifest"
-        href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}" />
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}" />
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap v5.2.0 -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-        crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" />
     <!-- Stylesheet -->
-    <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
+    <!-- PAGE TITLE-->
     <title>Bookworm</title>
 </head>
 
@@ -53,67 +45,53 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url_for('main.home') }}">
-                    <img src="{{ url_for('static', filename='images/booklogo.webp') }}"
-                        alt="Line art illustration of an open book" width="50"
-                        height="50" class="d-inline-block align-text-center" />
-                    Bookworm</a>
+                    <img src="{{ url_for('static', filename='images/booklogo.webp') }}" alt="Line art illustration of an open book" 
+                        width="50" height="50" class="d-inline-block align-text-center" />Bookworm
+                </a>
                 <!-- Mobile View Toggler -->
-                <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end"
-                    id="navbarSupportedContent">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
                     <!-- Navbar Links -->
                     <ul class="navbar-nav me-0 mb-2 mb-lg-0">
                         <!-- Home & Search - to be displayed to all -->
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="{{ url_for('main.home') }}">
+                            <a class="nav-link" href="{{ url_for('main.home') }}">
                                 <i class="bi bi-house-heart"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('books.search') }}">
+                            <a class="nav-link" href="{{ url_for('books.search') }}">
                                 <i class="bi bi-search-heart"></i> Search</a>
                         </li>
                         <!-- Bookshelves, books, profile & logout only to be shown to logged in users -->
                         {% if session.user %}
                         <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('books.bookshelves') }}">
+                            <a class="nav-link" href="{{ url_for('books.bookshelves') }}">
                                 <i class="bi bi-bookshelf"></i> Bookshelves</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">
+                            <a class="nav-link" href="">
                                 <i class="bi bi-book"></i> Books</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('auth.profile') }}">
+                            <a class="nav-link" href="{{ url_for('auth.profile') }}">
                                 <i class="bi bi-person"></i> Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('auth.logout') }}">
-                                <i class="bi bi-box-arrow-right"></i> Log
-                                Out</a>
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}">
+                                <i class="bi bi-box-arrow-right"></i> Log Out</a>
                         </li>
                         <!-- Login & Register only to be shown if not logged in -->
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('auth.login') }}">
-                                <i class="bi bi-box-arrow-in-right"></i>
-                                Login</a>
+                            <a class="nav-link" href="{{ url_for('auth.login') }}">
+                                <i class="bi bi-box-arrow-in-right"></i> Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ url_for('auth.register') }}">
+                            <a class="nav-link" href="{{ url_for('auth.register') }}">
                                 <i class="bi bi-person-plus"></i> Register</a>
                         </li>
                         {% endif %}
@@ -124,7 +102,7 @@
     </header>
 
     <!-- FLASH MESSAGES -->
-    <section class="text-center">
+    <div class="text-center">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -134,9 +112,9 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-    </section>
+    </div>
 
-    <!-- Main page Content -->
+    <!-- MAIN PAGE CONTENT -->
     {% block content %}
     {% endblock %}
 
@@ -150,14 +128,9 @@
     </footer>
 
     <!-- JAVASCRIPT -->
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
     <!-- Bootstrap JavaScript Bundle with Popper -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>
