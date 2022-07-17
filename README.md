@@ -252,6 +252,7 @@ Please see [testing.md](TESTING.md) for all testing performed
 ### Code Used
 
 * [Star Rating Code.](https://bbbootstrap.com/snippets/bootstrap-rate-your-experience-template-star-ratings-30972576) The following code was used and adapted for the star rating system in the book reviews.
+* [glassmorphism-generator](https://hype4.academy/tools/glassmorphism-generator). Used to create the coloured card panels.
 
 ### Content
 
