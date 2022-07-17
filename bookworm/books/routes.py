@@ -15,21 +15,19 @@ def search():
     SEARCH FUNCTION
     """
     if request.method == "POST":
-        
         try:
             payload = {}
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
-
+            # API Request
             book_request = requests.get("https://www.googleapis.com/books/v1/volumes?fields=items.volumeInfo(title,authors,description,imageLinks/thumbnail)&maxResults=30", params=payload)
+            # Results returned from the request
             results = book_request.json()
+            # Prints results to the terminal
             print(results)
-        
             return render_template("search.html", results=results['items'])
-
         except:
             flash('There was an error. Please try another search term')
-
     return render_template("search.html")
 
 
@@ -39,7 +37,6 @@ def bookshelves():
     BOOKSHELVES FUNCTION
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
-
     return render_template("bookshelves.html", bookshelves=bookshelves)
 
 
@@ -55,11 +52,9 @@ def add_bookshelf():
         # Add to db
         db.session.add(newshelf)
         db.session.commit()
-
-        # # flash success message & redirect to the bookshelf page
+        # flash success message & redirect to the bookshelf page
         flash('Bookshelf Created!')
         return redirect(url_for('books.bookshelves'))
-
     return render_template("add_bookshelf.html")
 
 
@@ -74,7 +69,6 @@ def edit_bookshelf(bookshelf_id):
         bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
         return redirect(url_for("books.bookshelves"))
-
     return render_template("edit_bookshelf.html", bookshelf=bookshelf)
 
 
@@ -91,10 +85,13 @@ def delete_bookshelf(bookshelf_id):
     return redirect(url_for("books.bookshelves"))
 
 
-@books.route("/add_review")
+@books.route("/add_review", methods=["GET", "POST"])
 def add_review():
     """
-    ADD REVIEW ROUTE
+    ADD REVIEW FUNCTION
     """
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
+    if request.method == POST:
+        return redirect(url_for('books.edit_review'))
 
-    return render_template("add_review.html")
+    return render_template("add_review.html", bookshelves=bookshelves)
