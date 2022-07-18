@@ -91,6 +91,15 @@ a {
     padding: 1rem;
 }
 
+/*---------- Index page Image ----------*/
+
+#homeImage {
+    width: 75%;
+    border-radius: 25px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 
 /*---------- BOOK REVIEW STAR RATINGS ----------*/
 /* Code Source: https://bbbootstrap.com/snippets/bootstrap-rate-your-experience-template-star-ratings-30972576 */
@@ -138,7 +147,7 @@ a {
 /* Tablets */
 @media only screen and (min-width : 481px) {
     h1 {
-        font-size: 4rem; 
+        font-size: 3.5rem; 
     }
 
     body {
@@ -154,4 +163,11 @@ a {
         font-size: 5rem;  
     }
         
+}
+
+#homeImage {
+    width: 75%;
+    border-radius: 25px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
