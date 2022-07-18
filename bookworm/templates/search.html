@@ -6,7 +6,7 @@
             <!-- PAGE HEADING BANNER -->
             <div class="col-12">
                 <div class="row hero">
-                    <div class="bg-image h-150 d-flex align-items-center justify-content-center">
+                    <div class="bg-image d-flex align-items-center justify-content-center">
                         <h1 class="text-center">Search</h1>
                     </div>
                 </div>
@@ -14,14 +14,14 @@
 
             <!-- PAGE CONTENTS CARD PANEL -->
             <div class="col-10 mx-auto mb-5 card panel">
-                <div class="col-12 text-center">
+                <div class="col-10 mx-auto text-center">
 
                     <!-- Google Books Search -->
                     <form action="{{ url_for('books.search') }}" method="POST">
                         <div class="input-group input-group-lg mb-3">
-                            <input type="text" class="form-control ms-5" placeholder="Search for a book"
+                            <input type="text" class="form-control" placeholder="Search"
                             aria-label="Search for a book" id="searchquery" name="searchquery">
-                            <button class="btn btn-outline-secondary me-5" type="submit">
+                            <button class="btn btn-outline-secondary" type="submit">
                             <i class="bi bi-search-heart"></i>
                             </button>
                         </div>
@@ -39,10 +39,10 @@
                                         <!-- Accordion -->
                                         <div class="accordion accordion-flush" id="accordion">
                                             <div class="accordion-item">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ result.volumeInfo.title }}.replace(' ','')" aria-expanded="true" aria-controls="collapseOne">
                                                     <h5 class="card-title">{{ result.volumeInfo.title }}</h5>
                                                 </button>
-                                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                                <div id="{{ result.volumeInfo.title }}.replace(' ','')" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
                                                     <div class="accordion-body">
                                                         <h6 class="card-title">{{ result.volumeInfo.authors }}</h6>
                                                         <p>{{ result.volumeInfo.description }} </p>
