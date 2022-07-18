@@ -15,7 +15,7 @@ def search():
     SEARCH FUNCTION
     """
     if request.method == "POST":
-        try:
+        #try:
             payload = {}
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
@@ -26,8 +26,8 @@ def search():
             # Prints results to the terminal
             print(results)
             return render_template("search.html", results=results['items'])
-        except:
-            flash('There was an error. Please try another search term')
+        #except:
+        #    flash('There was an error. Please try another search term')
     return render_template("search.html")
 
 
@@ -85,7 +85,7 @@ def delete_bookshelf(bookshelf_id):
     return redirect(url_for("books.bookshelves"))
 
 
-@books.route("/add_review/<int:bookshelf_id>", methods=["GET", "POST"])
+@books.route("/add_review", methods=["GET", "POST"])
 def add_review():
     """
     ADD REVIEW FUNCTION
@@ -106,4 +106,4 @@ def add_review():
         flash("Book Successfully Shelved")
         return redirect(url_for('books.bookshelves'))
 
-    return render_template("add_review.html", bookshelves=bookshelves)
+    return render_template("add_review.html")
