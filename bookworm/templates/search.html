@@ -28,7 +28,6 @@
                     </form>
 
                     <!-- Book Search Results -->
-                    <div>
                         <!-- Cards to display book results - 3 cols on Lg, 2 cols on med & 1 col on small screens-->
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                             <!-- Jinja for loop iterates over the results from the api request & displays
@@ -37,19 +36,27 @@
                                 <div class="col mt-5">
                                     <div class="card h-100">
                                         <img src="{{ result.volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ result.volumeInfo.title }}</h5>
-                                            <h6 class="card-title">{{ result.volumeInfo.authors }}</h6>
-                                            <!-- <p class="card-text">{{ result.volumeInfo.description }} </p> -->
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="{{ url_for('books.add_review') }}" class="btn btn-outline-secondary">Shelve this book</a>
+                                        <!-- Accordion -->
+                                        <div class="accordion accordion-flush" id="accordion">
+                                            <div class="accordion-item">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <h5 class="card-title">{{ result.volumeInfo.title }}</h5>
+                                                </button>
+                                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                                    <div class="accordion-body">
+                                                        <h6 class="card-title">{{ result.volumeInfo.authors }}</h6>
+                                                        <p>{{ result.volumeInfo.description }} </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a href="{{ url_for('books.add_review') }}" class="btn btn-outline-secondary">Shelve this book</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             {% endfor %}
                         </div>
-                    </div>
                     
                 </div>
             </div>
