@@ -85,13 +85,25 @@ def delete_bookshelf(bookshelf_id):
     return redirect(url_for("books.bookshelves"))
 
 
-@books.route("/add_review", methods=["GET", "POST"])
+@books.route("/add_review/<int:bookshelf_id>", methods=["GET", "POST"])
 def add_review():
     """
     ADD REVIEW FUNCTION
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
-    # if request.method == POST:
-    #    return redirect(url_for('books.bookshelves'))
+    if request.method == POST:
+        review = {
+            "title": request.form.get("bookTitle"),
+            "author": request.form.get("bookAuthor"),
+            "cover": request.form.get(""),
+            "rating": request.form.get(""),
+            "review": request.form.get("bookReview"),
+            "notes": request.form.get("bookNotes"),
+            "created_by": session["user"],
+            "shelf_name": request.form.get("bookshelf_id")
+        }
+        mongo.db.books.insert_one(review)
+        flash("Book Successfully Shelved")
+        return redirect(url_for('books.bookshelves'))
 
     return render_template("add_review.html", bookshelves=bookshelves)
