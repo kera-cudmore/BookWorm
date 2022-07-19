@@ -39,10 +39,10 @@
                                         <!-- Accordion -->
                                         <div class="accordion accordion-flush" id="accordion">
                                             <div class="accordion-item">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ result.volumeInfo.title }}.replace(' ','')" aria-expanded="true" aria-controls="collapseOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#book-{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne">
                                                     <h5 class="card-title">{{ result.volumeInfo.title }}</h5>
                                                 </button>
-                                                <div id="{{ result.volumeInfo.title }}.replace(' ','')" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                                <div id="book-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
                                                     <div class="accordion-body">
                                                         <h6 class="card-title">{{ result.volumeInfo.authors }}</h6>
                                                         <p>{{ result.volumeInfo.description }} </p>
