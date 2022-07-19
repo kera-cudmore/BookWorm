@@ -11,7 +11,7 @@
     --white: #ffffff;
     --black: #000000;
     --rose: #BC8F8F;
-    --slate: #778899;
+    --slate: #6C757D;
     --grey: #DCDCDC;
     --bronze: #CD853F;
     --brown: #90522D;
@@ -58,9 +58,14 @@ h1 {
     font-size: 3rem;
 }
 
+h5, h6 {
+    text-align: center;
+}
 
-/*---------- PANEL ----------*/
+/*---------- PAGE CARD PANEL ----------*/
 .panel {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     /* Rose coloured Panel */
     background: rgba( 188, 143, 143, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -68,19 +73,6 @@ h1 {
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 25px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-}
-
-.card {
-    padding: 2rem;
-}
-
-.card-footer {
-    background-color: var(--white);
-    border-top: none;
-}
-
-a {
-    text-decoration: none;
 }
 
 
@@ -98,6 +90,35 @@ a {
     border-radius: 25px;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+
+/*---------- BOOK SEARCH ----------*/
+/* Accordion button */
+.accordion-button:not(.collapsed) {
+    color: var(--slate);
+    background-color: var(--white);
+}
+
+.accordion-btn-color {
+    color: var(--slate);
+}
+
+.accordion {
+    --bs-accordion-border-color: var(--white);
+}
+
+.card-img-top {
+    height: 300px;
+}
+
+.card-footer {
+    background-color: var(--white);
+    border-top: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 
