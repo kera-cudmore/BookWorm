@@ -112,9 +112,34 @@ I have used [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mont
 
 ### Wireframes
 
-Wireframes were created for mobile, tablet and desktop using ...
+Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
-Wireframes links/images to go here
+#### __Home Page__
+[Home Page]()
+
+#### __Register Page__
+![Register Page](documentation/wireframes/register.png)
+
+#### __Login Page__
+![Login Page](documentation/wireframes/login.png)
+
+#### __Profile Page__
+![Profile Page](documentation/wireframes/profile.png)
+
+#### __Search Page__
+![Search Page](documentation/wireframes/search.png)
+
+#### __Bookshelves Page__
+![Bookshelves Page](documentation/wireframes/bookshelves.png)
+
+#### __Add Bookshelf Page__
+![Add Bookshelf Page](documentation/wireframes/add-bookshelf.png)
+
+#### __Add Review Page__
+![Add Review Page](documentation/wireframes/add-review.png)
+
+#### __404 Page__
+[404 Page]()
 
 ### Database Structure
 
