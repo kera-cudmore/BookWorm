@@ -247,9 +247,48 @@ As I am only using the API to search for books, and won't be accessing google bo
 
 ### Deployment
 
-The site is deployed using Heroku
+The site is deployed using Heroku. To deploy to Heroku:
 
-Add instructions on how to deploy to heroku here
+1. To successfully deploy on Heroku we first need to create some files: a requirements.txt file and a Procfile.
+
+2. The requirements.txt file contains all the applications and dependencies that are required to run the app. To create the requirements.txt file run the following command in the terminal:
+
+    ```
+    pip3 freeze --local > requirements.txt
+    ```
+
+3. The Procfile tells Heroku which files run the app and how to run it. To create the Procfile run the following command in the terminal:
+
+    ```
+    echo web: python run.py > Procfile
+    ```
+
+    NOTE: The Procfile uses a capital P and doesn't have a file extension on the end.
+
+4. If the Procfile has been created correctly it will have the Heroku logo next to it. It is also important to check the Procfile contents, as sometimes on creation a blank line will be added at the end of the file. This can sometimes cause problems when deploying to Heroku, so if the file contains a blank line at the end, delete this and save the file. Make sure to save both these files and then add, commit and push them to GitHub.
+
+5. Login (or sign up) to [Heroku.com](https://www.heroku.com).
+
+6. Click the new button and then click create new app.
+
+7. You will then be asked to give your app a name (these must be unique so you cannot reuse bookworm) and select a region. Once these are completed click create app.
+
+8. You will now need to connect the Heroku app to the GitHub repository for the site. Select GitHub in the deployment section, find the correct repository for the project and then click connect.
+
+9. Once the repository is connected, you will need to provide Heroku some config variables it needs to build the app. Click on the settings tab and then click reveal config vars button. You will now need to add the environment key/value variables that were used in the env.py file:
+
+    | KEY | VALUE |
+    | :-- | :-- |
+    | IP | 0.0.0.0 |
+    | PORT | 5000 |
+    | SECRET_KEY| YOUR_SECRET_KEY* |
+    | MONGO_URI | MONGO_URI* |
+    | MONGO_DBNAME | MONGO_DB* |
+    | DATABASE_URL | POSTGRES_DB* |
+
+    *Denotes a value that is specific to your app.
+
+10. You're now ready to click the enable automatic deploys button. Heroku will start building the app. Once complete click the open app button on the dashboard.
 
 ### Local Development
 
@@ -258,7 +297,9 @@ Add instructions on how to deploy to heroku here
 To fork the repository:
 
 1. Log in (or sign up) to Github.
+
 2. Go to the repository for this project, [BookWorm](https://github.com/kera-cudmore/BookWorm).
+
 3. Click the Fork button in the top right corner.
 
 #### How to Clone
@@ -266,13 +307,24 @@ To fork the repository:
 To clone the repository:
 
 1. Log in (or sign up) to GitHub.
+
 2. Go to the repository for this project, [BookWorm](https://github.com/kera-cudmore/BookWorm).
+
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
-5. Type `git clone` into the terminal and then paste the link you copied in step 3. Press enter.
-6. Set up a virtual environment.
-7. Install the packages from the requirments.txt file by running the following command in the Terminal `pip3 install -r requirements.txt`
-8. Set the IP address to 127.0.0.1 and the PORT to 5000.
+
+5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above):
+    ```
+    git clone { & THE LINK FROM STEP 3 }
+    ```
+
+6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
+
+7. Install the packages from the requirements.txt file by running the following command in the Terminal:
+    ```
+    pip3 install -r requirements.txt
+    ```
 
 - - -
 
