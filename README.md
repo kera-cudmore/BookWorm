@@ -33,7 +33,10 @@ Link to deployed site to go here []()
 
 * [Technologies Used](#Technologies-Used)
   * [Languages Used](#Languages-Used)
-  * [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)
+  * [Databases Used](#Databases-Used)
+  * [Frameworks Used](#Frameworks-Used)
+  * [Libraries Used](#Libraries-Used)
+  * [Programs Used](#Programs_Used)
   * [Google Books API](#Google-Books-API)
 
 * [Deployment & Local Development](#Deployment-&-Local-Development)
@@ -182,23 +185,29 @@ I have been mindful during coding to ensure that the website is as accessible fr
 
 HTML, CSS, Javascript, Python
 
-### Frameworks, Libraries & Programs Used
-
-[Flask](https://pypi.org/project/Flask/) - A microframework.
+### Databases Used
 
 [MongoDB](https://www.mongodb.com/) - Non-relational database used to store the book information.
 
-[PyMongo](https://pypi.org/project/pymongo/) - Python Driver for MongoDB.
-
 [PostgreSQL](https://www.postgresql.org/) - Relational database used to store the users and the bookshelves.
 
+### Frameworks Used
+
+[Flask](https://pypi.org/project/Flask/) - A microframework.
+
+[Bootstrap](https://getbootstrap.com/) - version 5.2.0 - CSS Framework.
+
+### Libraries Used
+
+[PyMongo](https://pypi.org/project/pymongo/) - Python Driver for MongoDB.
+
 [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) - Database abstraction library, used to interact with PostgreSQL.
+
+### Programs Used
 
 [Pip](https://pypi.org/project/pip/) - Tool for installing python packages.
 
 [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) - Templating engine.
-
-[Bootstrap](https://getbootstrap.com/) - version 5.2.0 - CSS Framework.
 
 [Balsamiq](https://balsamiq.com/) - Used to create wireframes.
 
@@ -230,7 +239,7 @@ I have used the Google Books API to allow users of the site to search for books.
 
 I made use of the Google Books API [documentation](https://developers.google.com/books) to learn how to fetch data from the API. The documentation also allowed me to amend my request to only fetch the fields I plan to use on my site. This reduces the amount of data returned to me and will speed up server processing.
 
-As I am only using the API to search for books, and won't be accessing google books shelves or user login data I have chosen to use an API key for access rather than OAuth. My requests to the API contain my API key, the search term the user has created and the fields that I would like to be returned. I have chosen to only receive the books title, authors, description and thumbnail of the book.
+As I am only using the API to search for books, and won't be accessing google books shelves or user login data I have chosen to use an API key for access rather than OAuth. My requests to the API contain my API key, the search term the user has created and the fields that I would like to be returned. I have chosen to only receive the books title, authors, description and thumbnail of the book. I have set up the API request to ask for 30 results maximum.
 
 - - -
 
