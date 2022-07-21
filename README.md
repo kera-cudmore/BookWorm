@@ -65,11 +65,11 @@ I felt that the project could then be taken a step further, and could also provi
 
 ### User Stories
 
-#### Target Audience
+#### __Target Audience__
 
 The target audience for Bookworm are book lovers all around the world who would like to keep track of their reading and their books.
 
-#### First Time Visitor Goals
+#### __First Time Visitor Goals__
 
 As a first time user of the site I want to be able to:
 
@@ -77,7 +77,7 @@ As a first time user of the site I want to be able to:
 * Register for an account.
 * Search for books.
 
-#### Returning Visitor Goals
+#### __Returning Visitor Goals__
 
 As a returning registered user of the site I want to be able to:
 
@@ -85,7 +85,7 @@ As a returning registered user of the site I want to be able to:
 * Create, edit, delete and view my bookshelves.
 * Create, edit, delete and view my book reviews.
 
-#### Admin User
+#### __Admin User__
 
 As an administrator for the site I want to be able to:
 
@@ -253,13 +253,13 @@ The site is deployed using Heroku. To deploy to Heroku:
 
 2. The requirements.txt file contains all the applications and dependencies that are required to run the app. To create the requirements.txt file run the following command in the terminal:
 
-    ```
+    ```bash
     pip3 freeze --local > requirements.txt
     ```
 
 3. The Procfile tells Heroku which files run the app and how to run it. To create the Procfile run the following command in the terminal:
 
-    ```
+    ```bash
     echo web: python run.py > Procfile
     ```
 
@@ -315,14 +315,14 @@ To clone the repository:
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 
 5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above):
-    ```
+    ```bash
     git clone { & THE LINK FROM STEP 3 }
     ```
 
 6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
 
 7. Install the packages from the requirements.txt file by running the following command in the Terminal:
-    ```
+    ```bash
     pip3 install -r requirements.txt
     ```
 
