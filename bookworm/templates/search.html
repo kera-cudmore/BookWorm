@@ -44,7 +44,9 @@
                                                 </button>
                                                 <div id="book-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
                                                     <div class="accordion-body">
-                                                        <h6 class="card-title">{{ result.volumeInfo.authors }}</h6>
+                                                        {% for author in result.volumeInfo.authors %}
+                                                            <h6 class="card-title">{{ author }}</h6>
+                                                        {% endfor %}
                                                         <p>{{ result.volumeInfo.description }} </p>
                                                     </div>
                                                 </div>
