@@ -17,6 +17,9 @@ Visit the deployed site: site link here
 * [MANUAL TESTING](#MANUAL-TESTING)
   * [Testing User Stories](#Testing-User-Stories)
   * [Full Testing](#Full-Testing)
+* [BUGS](#BUGS)
+  * [Solved Bugs](#Solved-Bugs)
+  * [Known Bugs](#Known-Bugs)
 
 Testing was ongoing throughout the entire build. I utilised Chrome developer tools whilst building to pinpoint and troubleshoot any issues as I went along.
 
@@ -115,7 +118,7 @@ Each device tested the site using the following browsers:
 * Safari
 * Firefox
 
-Additional testing was taken by friends and family on a variety of devices and screen sizes. 
+Additional testing was taken by friends and family on a variety of devices and screen sizes.
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -124,3 +127,16 @@ Additional testing was taken by friends and family on a variety of devices and s
 | `Footer` |
 | --- | --- | --- | --- | --- |
 
+ - - -
+
+## BUGS
+
+### Solved Bugs
+
+| No | Bug | How I solved the issue |
+| :--- | :--- | :--- |
+| 1 | When I added the accordion to the book search results, the accordion would open and close on all books together when triggered due to the accordion being created in the for loop, the id was identical for all results. | To enable each accordion to open and close indivually I needed to find a way to create a unique ID on every iteration of the for loop. Initally I considered taking the title and using the python method replace to remove any spaces in the title. However this would have been a problem if there were two books with identical names. I posed my question on slack and Daisy suggested using a loop.counter. On researching this I discovered it is only applicable to Django, however something very similar exists in Jinja - a loop.index. By using the loop.index in the id attribute I was able to create a unique ID for each book and this allowed the accordion to be opened and closed on each book individually.  |
+
+- - -
+
+### Known Bugs
