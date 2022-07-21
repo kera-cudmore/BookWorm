@@ -356,3 +356,5 @@ I would like to acknowledge the following people who helped me along the way in 
 
 * My family, for their patience while I worked on this project.
 * My Code Institute Mentor, [Adegbenga Adeye](https://github.com/deye9)
+* Daisy McGirr, for taking the time to respond to my slack post about creating a unique ID in my for loop.
+* Naiose Gaffney, for talking through and troubleshooting with me ways to pull data from the search to the add review page.
