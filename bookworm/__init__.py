@@ -39,6 +39,8 @@ mongo = PyMongo(app)
 from bookworm.auth.routes import auth
 from bookworm.books.routes import books
 from bookworm.main.routes import main
+from bookworm.error_handlers.routes import error
 app.register_blueprint(auth)
 app.register_blueprint(books)
 app.register_blueprint(main)
+app.register_blueprint(error)

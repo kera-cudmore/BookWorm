@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="row hero">
                     <div class="bg-image d-flex align-items-center justify-content-center">
-                        <h1 class="text-center">404 Error</h1>   
+                        <h1 class="text-center">{{ error_number }} Error</h1>   
                     </div>
                 </div>
             </div>
@@ -15,8 +15,8 @@
             <!-- PAGE CONTENTS CARD PANEL -->
             <div class="col-10 mx-auto mb-5 card panel">
                 <div class="col-10 mx-auto text-center">
-                    <p>Oh No!</p>
-                    <p>It looks like the page you're looking for hasn't been shelved properly.</p>
+                    <h2 class="mb-4">Oh Dear!</h2>
+                    <p>{{ error_message }}</p>
                     <p>Use the navigation bar above to try again, or go 
                         <a href="{{ url_for('main.home') }}">home</a>
                     </p>
