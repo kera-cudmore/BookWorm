@@ -24,18 +24,22 @@
                             and larger side by side - use bootstrap form grid -->
                         
                         <!-- Book Title - pull from the search REQ-->
-                        <label for="bookTitle">Book Title: </label>
-                        <input type="text" name="bookTitle" id="bookTitle">
+                        <div class="mx-5 mb-3">
+                            <label for="bookTitle">Book Title: </label>
+                            <input type="text" name="bookTitle" id="bookTitle">
+                        </div>
 
                         <!-- Book Author - pull from the search REQ-->
-                        <label for="bookAuthor">Book Author: </label>
-                        <input type="text" name="bookAuthor" id="bookAuthor">
-                        
+                        <div class="mx-5 mb-3">
+                            <label for="bookAuthor">Book Author: </label>
+                            <input type="text" name="bookAuthor" id="bookAuthor">
+                        </div>
+
                         <!-- Book Thumbnail - pull from the search-->
                         <img src="" alt="">
 
-                        <!-- Star Rating (click on stars to leave a rating from 1 to 5)-->
-                        <div class="rating"> 
+                        <!-- Star Rating (click on stars to leave a rating from 1 to 5) DOES THIS NEED CHANGING ORDER? ROW REVERSE IN CSS? -->
+                        <div class="rating mx-5 mb-3" > 
                             <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
                             <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
                             <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
@@ -45,19 +49,22 @@
 
                         <!-- Shelf - select REQ -->
                         <!-- jinja for loop to look through each bookshelf to go here -->
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Choose a Shelf</option>
-                            {% for bookshelf in bookshelves %}
-                                <option value="1">{{ bookshelf.shelf_name }}</option>
-                            {% endfor %}
-                        </select>
-
+                        <div class="mx-5 mb-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Choose a Shelf</option>
+                                {% for bookshelf in bookshelves %}
+                                    <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                         <!-- Review - text area-->
-                        <textarea id="bookReview" name="bookReview" placeholder="Add your Review Here">Book Review: </textarea>
-
+                        <div class="mb-3">
+                            <textarea id="bookReview" name="bookReview" placeholder="Add your Review Here">Book Review: </textarea>
+                        </div>
                         <!-- Notes -text area -->
-                        <textarea id="bookNotes" name="bookNotes" placeholder="Add any notes here">Notes: </textarea>
-
+                        <div class="mb-3">
+                            <textarea id="bookNotes" name="bookNotes" placeholder="Add any notes here">Notes: </textarea>
+                        </div>
                         <!-- Submit Button -->
                         <button class="btn btn-outline-secondary me-5" type="submit">
                             Add Book
