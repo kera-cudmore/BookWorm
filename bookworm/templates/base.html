@@ -123,14 +123,17 @@
         <nav class="navbar bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url_for('main.home') }}">Bookworm</a>
+                <p><i class="bi bi-c-circle"></i> <span id="current-year"></span></p>
             </div>
         </nav>
     </footer>
 
     <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <!-- Bootstrap JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
