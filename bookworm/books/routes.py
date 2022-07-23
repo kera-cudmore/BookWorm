@@ -20,7 +20,7 @@ def search():
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
             # API Request
-            book_request = requests.get("https://www.googleapis.com/books/v1/volumes?fields=items.volumeInfo(title,authors,description,imageLinks/thumbnail)&maxResults=30", params=payload)
+            book_request = requests.get("https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite", params=payload)
             # Results returned from the request
             results = book_request.json()
             # Prints results to the terminal
@@ -85,6 +85,17 @@ def delete_bookshelf(bookshelf_id):
     return redirect(url_for("books.bookshelves"))
 
 
+# @books.route("/populate_review", methods=["GET", "POST"])
+# def populate_review():
+#     """
+#     POPULATE REVIEW FUNCTION
+#     this function takes the id from the book button & calls the api to populate the add review inputs with title, author & cover
+#     """
+#     if request.method = POST:
+        
+#     return render_template("add_review.html")
+
+
 @books.route("/add_review", methods=["GET", "POST"])
 def add_review():
     """
@@ -106,4 +117,15 @@ def add_review():
         flash("Book Successfully Shelved")
         return redirect(url_for('books.bookshelves'))
 
-    return render_template("add_review.html")
+    else:
+        payload = {}
+        payload["/"] = ("book_id")
+        payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
+        # API Request
+        single_request = requests.get("https://www.googleapis.com/books/v1/volumes", params=payload)
+        # Results returned from the request
+        review_book = single_request.json()
+        # Prints results to the terminal
+        print(review_book)
+
+    return render_template("add_review.html", book_id={{ result.id }})
