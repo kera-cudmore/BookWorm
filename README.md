@@ -241,6 +241,8 @@ I made use of the Google Books API [documentation](https://developers.google.com
 
 As I am only using the API to search for books, and won't be accessing google books shelves or user login data I have chosen to use an API key for access rather than OAuth. My requests to the API contain my API key, the search term the user has created and the fields that I would like to be returned. I have chosen to only receive the books title, authors, description and thumbnail of the book. I have set up the API request to ask for 30 results maximum.
 
+Update - to enable me to get the books unique ID I have had to pull the complete light version when performing a search. This unfortunately means that I am requesting more information than I need, however currently there is no way to pull in the ID with other fields. In future implementations I would look into using graphql as an alternative to calling the api as this will allow me to specify the exact data I would like to have returned.
+
 - - -
 
 ## Deployment & Local Development
