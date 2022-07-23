@@ -85,47 +85,28 @@ def delete_bookshelf(bookshelf_id):
     return redirect(url_for("books.bookshelves"))
 
 
-# @books.route("/populate_review", methods=["GET", "POST"])
-# def populate_review():
-#     """
-#     POPULATE REVIEW FUNCTION
-#     this function takes the id from the book button & calls the api to populate the add review inputs with title, author & cover
-#     """
-#     if request.method = POST:
-        
-#     return render_template("add_review.html")
-
-
 @books.route("/add_review", methods=["GET", "POST"])
 def add_review():
     """
     ADD REVIEW FUNCTION
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
-    if request.method == POST:
-        review = {
-            "title": request.form.get("bookTitle"),
-            "author": request.form.get("bookAuthor"),
-            "cover": request.form.get(""),
-            "rating": request.form.get(""),
-            "review": request.form.get("bookReview"),
-            "notes": request.form.get("bookNotes"),
-            "created_by": session["user"],
-            "shelf_name": request.form.get("bookshelf_id")
-        }
-        mongo.db.books.insert_one(review)
-        flash("Book Successfully Shelved")
-        return redirect(url_for('books.bookshelves'))
+    # if request.method == POST:
+    #     review = {
+    #         "title": request.form.get("bookTitle"),
+    #         "author": request.form.get("bookAuthor"),
+    #         "cover": request.form.get(""),
+    #         "rating": request.form.get(""),
+    #         "review": request.form.get("bookReview"),
+    #         "notes": request.form.get("bookNotes"),
+    #         "created_by": session["user"],
+    #         "shelf_name": request.form.get("bookshelf_id")
+    #     }
+    #     mongo.db.books.insert_one(review)
+    #     flash("Book Successfully Shelved")
+    #     return redirect(url_for('books.bookshelves'))
 
-    else:
-        payload = {}
-        payload["/"] = ("book_id")
-        payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
-        # API Request
-        single_request = requests.get("https://www.googleapis.com/books/v1/volumes", params=payload)
-        # Results returned from the request
-        review_book = single_request.json()
-        # Prints results to the terminal
-        print(review_book)
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
 
-    return render_template("add_review.html", book_id={{ result.id }})
+    return render_template("add_review.html", bookshelves=bookshelves)
+
