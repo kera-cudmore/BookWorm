@@ -37,7 +37,9 @@ Link to deployed site to go here []()
   * [Frameworks Used](#Frameworks-Used)
   * [Libraries Used](#Libraries-Used)
   * [Programs Used](#Programs_Used)
-  * [Google Books API](#Google-Books-API)
+    * [Google Books API](#Google-Books-API)
+    * [Flask Blueprints](#Flask-Blueprints)
+    *[Error Handling](#Error-Handling)
 
 * [Deployment & Local Development](#Deployment-&-Local-Development)
   * [Deployment](#Deployment)
@@ -243,6 +245,14 @@ As I am only using the API to search for books, and won't be accessing google bo
 
 Update - to enable me to get the books unique ID I have had to pull the complete light version when performing a search. This unfortunately means that I am requesting more information than I need, however currently there is no way to pull in the ID with other fields. In future implementations I would look into using graphql as an alternative to calling the api as this will allow me to specify the exact data I would like to have returned.
 
+### Flask Blueprints
+
+I wanted to push myself a little with this project and decided that I would like to use Flask Blueprints. Flask Blueprints are a way of logically storing and organising similar routes of the app in their own section, rather than having one large file with all the routes of the app.
+
+### Error Handling
+
+While researching the best way to handle errors in a Flask application using blueprints I came across the following [article](https://nrodrig1.medium.com/flask-blueprints-error-handling-and-config-file-example-d1a031070763). I really liked how this solution allowed me to create a blueprint to custom handle a number of different errors, rather than just creating a single 404 error page.
+
 - - -
 
 ## Deployment & Local Development
@@ -343,6 +353,7 @@ Please see [testing.md](TESTING.md) for all testing performed
 
 * [Star Rating Code.](https://bbbootstrap.com/snippets/bootstrap-rate-your-experience-template-star-ratings-30972576) The following code was used and adapted for the star rating system in the book reviews.
 * [glassmorphism-generator](https://hype4.academy/tools/glassmorphism-generator). Used to create the coloured card panels.
+* [Error Handling](https://nrodrig1.medium.com/flask-blueprints-error-handling-and-config-file-example-d1a031070763) I used the following code mentioned in this article as a basis for creating my custom error handling.
 
 ### Content
 
