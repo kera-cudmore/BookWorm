@@ -317,6 +317,7 @@ To clone the repository:
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 
 5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above):
+
     ```bash
     git clone { & THE LINK FROM STEP 3 }
     ```
@@ -324,6 +325,7 @@ To clone the repository:
 6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
 
 7. Install the packages from the requirements.txt file by running the following command in the Terminal:
+
     ```bash
     pip3 install -r requirements.txt
     ```
