@@ -112,12 +112,12 @@ def add_review(review_book):
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
     # if request.method == POST:
     #     review = {
-    #         "title": request.form.get("bookTitle"),
-    #         "author": request.form.get("bookAuthor"),
-    #         "cover": request.form.get(""),
+    #         "title": request.form.get("book_title"),
+    #         "author": request.form.get("book_author"),
+    #         "cover": request.form.get("cover_url"),
     #         "rating": request.form.get(""),
-    #         "review": request.form.get("bookReview"),
-    #         "notes": request.form.get("bookNotes"),
+    #         "review": request.form.get("book_review"),
+    #         "notes": request.form.get("book_notes"),
     #         "created_by": session["user"],
     #         "shelf_name": request.form.get("bookshelf_id")
     #     }

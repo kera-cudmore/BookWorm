@@ -2,7 +2,7 @@
     {% block content %}
 
         <section class="container-fluid">
-
+{{ review_book }}
             <!-- PAGE HEADING BANNER -->
             <div class="col-12">
                 <div class="row hero">
@@ -23,20 +23,23 @@
                         <!-- INPUTS FOR THE REVIEW SECTION TO GO HERE - change the layout for smaller screens so they stack, 
                             and larger side by side - use bootstrap form grid -->
                         
-                        <!-- Book Title - pull from the search REQ-->
-                        <div class="mx-5 mb-3">
-                            <label for="bookTitle">Book Title: </label>
-                            <input type="text" name="bookTitle" id="bookTitle">
-                        </div>
+                        <!-- Jinja used to inject the title, authors and image into the review from the review_book variable passed into the template-->
 
-                        <!-- Book Author - pull from the search REQ-->
-                        <div class="mx-5 mb-3">
-                            <label for="bookAuthor">Book Author: </label>
-                            <input type="text" name="bookAuthor" id="bookAuthor">
-                        </div>
+                            <!-- Book Title - pull from the search REQ-->
+                            <div class="mx-5 mb-3">
+                                <label for="bookTitle">Book Title: </label>
+                                <input type="text" name="book_title" id="book_title" value="{{  }}">
+                            </div>
 
-                        <!-- Book Thumbnail - pull from the search-->
-                        <img src="" alt="">
+                            <!-- Book Author - pull from the search REQ-->
+                            <div class="mx-5 mb-3">
+                                <label for="bookAuthor">Book Author: </label>
+                                <input type="text" name="book_author" id="book_author" value="{{ }}">
+                            </div>
+
+                            <!-- Book Thumbnail - pull from the search-->
+                            <input type="hidden" value="{{  }}" name="cover_url" />
+                            <img src="{{ }}" alt="">
 
                         <!-- Star Rating (click on stars to leave a rating from 1 to 5) DOES THIS NEED CHANGING ORDER? ROW REVERSE IN CSS? -->
                         <div class="rating mx-5 mb-3" > 
@@ -59,11 +62,11 @@
                         </div>
                         <!-- Review - text area-->
                         <div class="mb-3">
-                            <textarea id="bookReview" name="bookReview" placeholder="Add your Review Here">Book Review: </textarea>
+                            <textarea id="book_review" name="book_review" placeholder="Add your Review Here">Book Review: </textarea>
                         </div>
                         <!-- Notes -text area -->
                         <div class="mb-3">
-                            <textarea id="bookNotes" name="bookNotes" placeholder="Add any notes here">Notes: </textarea>
+                            <textarea id="book_notes" name="book_notes" placeholder="Add any notes here">Notes: </textarea>
                         </div>
                         <!-- Submit Button -->
                         <button class="btn btn-outline-secondary me-5" type="submit">
