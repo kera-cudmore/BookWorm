@@ -23,23 +23,21 @@
                         <!-- INPUTS FOR THE REVIEW SECTION TO GO HERE - change the layout for smaller screens so they stack, 
                             and larger side by side - use bootstrap form grid -->
                         
-                        <!-- Jinja used to inject the title, authors and image into the review from the review_book variable passed into the template-->
-
                             <!-- Book Title - pull from the search REQ-->
                             <div class="mx-5 mb-3">
                                 <label for="bookTitle">Book Title: </label>
-                                <input type="text" name="book_title" id="book_title" value="{{  }}">
+                                <input type="text" name="book_title" id="book_title" value="">
                             </div>
 
                             <!-- Book Author - pull from the search REQ-->
                             <div class="mx-5 mb-3">
                                 <label for="bookAuthor">Book Author: </label>
-                                <input type="text" name="book_author" id="book_author" value="{{ }}">
+                                <input type="text" name="book_author" id="book_author" value="">
                             </div>
 
                             <!-- Book Thumbnail - pull from the search-->
-                            <input type="hidden" value="{{  }}" name="cover_url" />
-                            <img src="{{ }}" alt="">
+                            <input type="hidden" value="" name="cover_url" />
+                            <img src="" alt="">
 
                         <!-- Star Rating (click on stars to leave a rating from 1 to 5) DOES THIS NEED CHANGING ORDER? ROW REVERSE IN CSS? -->
                         <div class="rating mx-5 mb-3" > 
