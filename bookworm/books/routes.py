@@ -95,6 +95,8 @@ def populate_review():
     this function should take the id from the book button on search page, run an api request for that id
     and pass that variable onto the add_review page so the book title, author & cover can be pre-populated
     """
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
+
     book_id = request.args.get('book_id')
     book = {}
     book["q"] = (book_id)
@@ -105,7 +107,7 @@ def populate_review():
     review_book = book_request.json()
     # Prints results to the terminal
     print(review_book)
-    return render_template("add_review.html", review_book=review_book['items'])
+    return render_template("add_review.html", review_book=review_book['items'], bookshelves=bookshelves)
 
 
 @books.route("/add_review", methods=["GET", "POST"])
@@ -114,6 +116,7 @@ def add_review(review_book):
     ADD REVIEW FUNCTION
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
+
     # if request.method == POST:
     #     review = {
     #         "title": request.form.get("book_title"),
