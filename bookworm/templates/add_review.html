@@ -2,7 +2,6 @@
     {% block content %}
 
         <section class="container-fluid">
-{{ review_book }}
             <!-- PAGE HEADING BANNER -->
             <div class="col-12">
                 <div class="row hero">
@@ -11,61 +10,71 @@
                     </div>
                 </div>
             </div>
+           
+            {{ review_book }}
 
             <!-- PAGE CONTENTS CARD PANEL -->
             <div class="col-10 mx-auto mb-5 card panel">
                 <div class="col-10 mx-auto text-center">
 
                     <!-- Add Book review form -->
-                    <form class="col-10 mx-auto" action="{{ url_for('books.add_review') }}" 
-                        method="POST">
+                    <form class="mx-auto" action="{{ url_for('books.add_review') }}" method="POST">
 
-                        <!-- INPUTS FOR THE REVIEW SECTION TO GO HERE - change the layout for smaller screens so they stack, 
-                            and larger side by side - use bootstrap form grid -->
-                        
-                            <!-- Book Title - pull from the search REQ-->
-                            <div class="mx-5 mb-3">
-                                <label for="bookTitle">Book Title: </label>
-                                <input type="text" name="book_title" id="book_title" value="">
+                        <div class="row row-cols-1">
+                            <div class="col">
+                                <!-- Book Cover Image-->
+                                <input type="hidden" value="" name="cover_url" />
+                                <img src="../static/images/book-heart.webp" class="mb-5" width="80%" alt="IMAGE HERE">
+                            </div>
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <!-- Book Title -->
+                            <div class="col mb-3">
+                                <input type="text" name="book_title" id="book_title" placeholder="Title" value="" required />
                             </div>
 
-                            <!-- Book Author - pull from the search REQ-->
-                            <div class="mx-5 mb-3">
-                                <label for="bookAuthor">Book Author: </label>
-                                <input type="text" name="book_author" id="book_author" value="">
+                            <!-- Book Author -->
+                            <div class="col mb-3">
+                                <input type="text" name="book_author" placeholder="Author" id="book_author" value="" required />
+                            </div>
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <!-- Bookshelf -->
+                            <div class=" col mb-3">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Choose a Shelf</option>
+                                        {% for bookshelf in bookshelves %}
+                                            <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
+                                        {% endfor %}
+                                </select>
                             </div>
 
-                            <!-- Book Thumbnail - pull from the search-->
-                            <input type="hidden" value="" name="cover_url" />
-                            <img src="" alt="">
-
-                        <!-- Star Rating (click on stars to leave a rating from 1 to 5) DOES THIS NEED CHANGING ORDER? ROW REVERSE IN CSS? -->
-                        <div class="rating mx-5 mb-3" > 
-                            <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
-                            <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
-                            <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
-                            <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
-                            <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                            <!-- Star Rating (click on stars to leave a rating from 1 to 5) -->
+                            <div class=" col mb-3 rating" >
+                                <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
+                                <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
+                                <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
+                                <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
+                                <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                            </div>   
                         </div>
 
-                        <!-- Shelf - select REQ -->
-                        <!-- jinja for loop to look through each bookshelf to go here -->
-                        <div class="mx-5 mb-3">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Choose a Shelf</option>
-                                {% for bookshelf in bookshelves %}
-                                    <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
-                                {% endfor %}
-                            </select>
+                        <div class="row row-cols-1">
+                            <!-- Review - text area-->
+                            <div class="col mb-3">
+                                <textarea id="book_review" name="book_review" rows="5" placeholder="Add your Review Here">Add your book review here...</textarea>
+                            </div>
                         </div>
-                        <!-- Review - text area-->
-                        <div class="mb-3">
-                            <textarea id="book_review" name="book_review" placeholder="Add your Review Here">Book Review: </textarea>
+
+                        <div class="row row-cols-1 ">
+                            <!-- Notes -text area -->
+                            <div class="col mb-3">
+                                <textarea id="book_notes" name="book_notes" rows="5" placeholder="Add any notes here">Want to make notes? Here's the perfect spot...</textarea>
+                            </div>
                         </div>
-                        <!-- Notes -text area -->
-                        <div class="mb-3">
-                            <textarea id="book_notes" name="book_notes" placeholder="Add any notes here">Notes: </textarea>
-                        </div>
+
                         <!-- Submit Button -->
                         <button class="btn btn-outline-secondary me-5" type="submit">
                             Add Book
