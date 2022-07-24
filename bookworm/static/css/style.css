@@ -62,6 +62,7 @@ h5, h6 {
     text-align: center;
 }
 
+
 /*---------- PAGE CARD PANEL ----------*/
 .panel {
     padding-top: 2rem;
@@ -83,6 +84,7 @@ h5, h6 {
     padding: 1rem;
 }
 
+
 /*---------- Index page Image ----------*/
 
 #homeImage {
@@ -90,6 +92,14 @@ h5, h6 {
     border-radius: 25px;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+
+/*---------- MODALS ----------*/
+
+/* bug fix - no overlay - Documented in readme bugs section */
+.modal-backdrop {
+    display: none;    
 }
 
 
@@ -192,3 +202,4 @@ a {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
