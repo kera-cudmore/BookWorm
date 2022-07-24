@@ -127,13 +127,13 @@ def add_review(review_book):
     #     }
     #     mongo.db.books.insert_one(review)
     #     flash("Book Successfully Shelved")
-    #     return redirect(url_for('books.books'))
+    #     return redirect(url_for('books.view_books'))
 
     return render_template("add_review.html", bookshelves=bookshelves, review_book=review_book['items'])
 
 
-@books.route("/books")
-def books():
+@books.route("/view_books")
+def view_books():
     """
     BOOKS FUNCTION
     """
