@@ -15,7 +15,7 @@ def search():
     SEARCH FUNCTION
     """
     if request.method == "POST":
-        #try:
+        # try:
             payload = {}
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
@@ -26,7 +26,7 @@ def search():
             # Prints results to the terminal
             print(results)
             return render_template("search.html", results=results['items'])
-        #except:
+        # except:
         #    flash('There was an error. Please try another search term')
     return render_template("search.html")
 
@@ -47,8 +47,7 @@ def add_bookshelf():
     """
     if request.method == "POST":
         # gather info from the form to enter into db
-        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"),
-                                created_by=session["user"])
+        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), created_by=session["user"])
         # Add to db
         db.session.add(newshelf)
         db.session.commit()
@@ -85,8 +84,28 @@ def delete_bookshelf(bookshelf_id):
     return redirect(url_for("books.bookshelves"))
 
 
+@books.route("/populate_review", methods=["GET", "POST"])
+def populate_review():
+    """
+    POPULATE REVIEW FUNCTION
+    this function should take the id from the book button on search page, run an api request for that id
+    and pass that variable onto the add_review page so the book title, author & cover can be pre-populated
+    """
+    book_id = request.args.get('book_id')
+    book = {}
+    book["q"] = (book_id)
+    book["key"] = os.environ.get("GOOGLE_BOOKS_API")
+    # API Request
+    book_request = requests.get("https://www.googleapis.com/books/v1/volumes", params=book)
+    # Results returned from the request
+    review_book = book_request.json()
+    # Prints results to the terminal
+    print(review_book)
+    return render_template("add_review.html", review_book=review_book)
+
+
 @books.route("/add_review", methods=["GET", "POST"])
-def add_review():
+def add_review(review_book):
     """
     ADD REVIEW FUNCTION
     """
@@ -106,7 +125,4 @@ def add_review():
     #     flash("Book Successfully Shelved")
     #     return redirect(url_for('books.bookshelves'))
 
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
-
-    return render_template("add_review.html", bookshelves=bookshelves)
-
+    return render_template("add_review.html", bookshelves=bookshelves, review_book=review_book)
