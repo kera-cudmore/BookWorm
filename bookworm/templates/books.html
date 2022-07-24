@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <section class="container-fluid">
+        
+            <!-- PAGE HEADING BANNER -->
+            <div class="col-12">
+                <div class="row hero">
+                    <div class="bg-image d-flex align-items-center justify-content-center">
+                        <h1 class="text-center">Books</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE CONTENTS CARD PANEL -->
+            <div class="col-10 mx-auto mb-5 card panel">
+                <div class="col-10 mx-auto text-center">
+
+                    <!-- Book Results -->
+                        <!-- Cards to display book results - 2 cols on Lg, 1 cols on med -->
+                        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 g-4">
+                            <!-- Jinja for loop iterates over the books & display
+                            book title, author, ** and thumbnail on card -->
+                            
+<!-- JINJA LOOP TO ITERATE OVER BOOKS HERE -->
+
+                                <div class="col mt-5">
+                                    <div class="card h-100">
+                                        <img src="" class="card-img-top" alt="...">
+                                        <!-- Accordion -->
+                                        <div class="accordion accordion-flush" id="accordion">
+                                            <div class="accordion-item">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="" aria-expanded="true" aria-controls="collapseOne">
+                                                    <h5 class="card-title">BOOK TITLE TO GO HERE</h5>
+                                                </button>
+                                                <div id="" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                                    <div class="accordion-body">
+                                                            <h6 class="card-title">BOOK AUTHOR TO GO HERE</h6>
+                                                        <p>RATING TO GO HERE</p>
+                                                        <p>REVIEW TO GO HERE</p>
+                                                        <p>NOTES TO GO HERE</p>
+                                                        <p>BOOKSHELF ON</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a href="" id="" class="btn btn-outline-secondary">EDIT REVIEW BUTTON TO GO HERE</a>
+                                                <a href="" id="" class="btn btn-outline-secondary">DELETE REVIEW TO GO HERE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+<!-- MODAL FOR DELETION TO BE ADDED -->
+
+<!-- END JINJA LOOP HERE -->
+                        </div>
+                    
+                </div>
+            </div>
+
+        </section>
+    {% endblock %}

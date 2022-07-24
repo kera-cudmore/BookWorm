@@ -47,7 +47,9 @@ def add_bookshelf():
     """
     if request.method == "POST":
         # gather info from the form to enter into db
-        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), created_by=session["user"])
+        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), 
+                               # created_by=session["user"]
+                               )
         # Add to db
         db.session.add(newshelf)
         db.session.commit()
@@ -84,6 +86,8 @@ def delete_bookshelf(bookshelf_id):
     return redirect(url_for("books.bookshelves"))
 
 
+
+
 @books.route("/populate_review", methods=["GET", "POST"])
 def populate_review():
     """
@@ -101,7 +105,7 @@ def populate_review():
     review_book = book_request.json()
     # Prints results to the terminal
     print(review_book)
-    return render_template("add_review.html", review_book=review_book)
+    return render_template("add_review.html", review_book=review_book['items'])
 
 
 @books.route("/add_review", methods=["GET", "POST"])
@@ -123,6 +127,14 @@ def add_review(review_book):
     #     }
     #     mongo.db.books.insert_one(review)
     #     flash("Book Successfully Shelved")
-    #     return redirect(url_for('books.bookshelves'))
+    #     return redirect(url_for('books.books'))
 
-    return render_template("add_review.html", bookshelves=bookshelves, review_book=review_book)
+    return render_template("add_review.html", bookshelves=bookshelves, review_book=review_book['items'])
+
+
+@books.route("/books")
+def books():
+    """
+    BOOKS FUNCTION
+    """
+    return render_template("books.html")
