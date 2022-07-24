@@ -132,13 +132,13 @@ a {
 }
 
 
-/*---------- BOOK REVIEW STAR RATINGS ----------*/
+/*---------- REVIEW FORM INPUTS ----------*/
+/* Book Review Star Ratings */
 /* Code Source: https://bbbootstrap.com/snippets/bootstrap-rate-your-experience-template-star-ratings-30972576 */
-
 .rating {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: center
+    justify-content: space-around;
 }
 
 .rating>input {
@@ -173,6 +173,15 @@ a {
     opacity: 0.4
 }
 
+input {
+    width: 100%;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    border-radius: 5px;
+}
 
 /*---------- MEDIA QUERIES ----------*/
 /* Tablets */
