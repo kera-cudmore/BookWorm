@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <section class="container-fluid">
+            <!-- PAGE HEADING BANNER -->
+            <div class="col-12">
+                <div class="row hero">
+                    <div class="bg-image d-flex align-items-center justify-content-center">
+                        <h1 class="text-center">Edit Your Review</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE CONTENTS CARD PANEL -->
+            <div class="col-10 mx-auto mb-5 card panel">
+                <div class="col-10 mx-auto">
+
+                    <!-- Edit review form -->
+                    <form class="mx-auto" action="{{ url_for('books.edit_review', books_id=book_review._id) }}" method="POST">
+
+                        <!-- Book Cover-->
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col text-center">
+
+                                <!-- Book Cover Image-->
+                                <input type="hidden" value="" name="cover_url" />
+                                <img src="{{ book_review.cover }}" alt="{{ book_review.title }} book cover" />
+                            
+                            </div>
+
+                            <!-- Book Title (REQUIRED)-->
+                            <div class="col">
+                                <label for="book_title">Title: </label>
+                                <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" value="{{ book_review.title }}" required />
+
+                                <!-- Book Author (REQUIRED) -->
+                                    <label for="book_title">Author: </label>
+                                    <input class=" reviewInput mb-4" type="text" name="book_author" id="book_author" value="{{ book_review.author }}" required />
+
+                                <!-- Bookshelf -->
+
+                                <select class="form-select mb-3" aria-label="Default select example">
+                                    <option selected>Choose a Shelf</option>
+                                        {% for bookshelf in bookshelves %}
+                                            <option value="">{{ bookshelf.shelf_name }}</option>
+                                        {% endfor %}
+                                </select>
+
+                                <!-- Star Rating (click on stars to leave a rating from 1 to 5) -->
+                                <div class=" col mb-3 rating" >
+                                    <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                                </div>   
+                            </div>   
+                        </div>
+
+                        <div class="row row-cols-1">
+                            <!-- Review - text area-->
+                            <div class="col mb-3">
+                                <label for="book_review">Review: </label>
+                                <textarea class="reviewTextarea" id="book_review" name="book_review" rows="5">{{ book_review.review }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="row row-cols-1 ">
+                            <!-- Notes -text area -->
+                            <div class="col mb-3">
+                                <label for="book_notes">Notes: </label>
+                                <textarea class="reviewTextarea" id="book_notes" name="book_notes" rows="5">{{ book_review.notes }}</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="row row-cols-2 row-cols-md-4 mx-auto ">
+                            <button class="btn btn-outline-secondary mx-auto" type="submit">
+                                Edit Review
+                                <i class="bi bi-book"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+    {% endblock %}
