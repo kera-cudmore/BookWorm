@@ -18,46 +18,45 @@
                     <!-- Add Book review form -->
                     <form class="mx-auto" action="{{ url_for('books.add_review') }}" method="POST">
 
-                        <!-- Column 1 - Book Cover-->
+                        <!-- Book Cover-->
                         <div class="row row-cols-1 row-cols-md-2">
                             <div class="col text-center">
+
                                 <!-- Book Cover Image-->
                                 <input type="hidden" value="{{ shelve_book.thumbnail }}" name="cover_url" />
                                 <img src="{{ shelve_book.thumbnail }}" alt="{{ shelve_book.title }} book cover" />
-
-
-                                
-                        </div>
+                            
+                            </div>
 
                             <!-- Book Title -->
                             <div class="col">
                                 <label for="book_title">Title: </label>
                                 <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required />
 
-                            <!-- Book Author -->
+                                <!-- Book Author -->
                                 {% for author in shelve_book.authors %}
-                                <label for="book_title">Author: </label>
-                                <input class=" reviewInput mb-4" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ author }}" required />
-                            {% endfor %}
-                            <!-- Bookshelf -->
+                                    <label for="book_title">Author: </label>
+                                    <input class=" reviewInput mb-4" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ author }}" required />
+                                {% endfor %}
 
-                            <select class="form-select mb-3" aria-label="Default select example">
-                                <option selected>Choose a Shelf</option>
-                                    {% for bookshelf in bookshelves %}
-                                        <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
-                                    {% endfor %}
-                            </select>
-                        <!-- </div> -->
+                                <!-- Bookshelf -->
 
-                    <!-- Star Rating (click on stars to leave a rating from 1 to 5) -->
-                    <div class=" col mb-3 rating" >
-                        <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
-                        <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
-                        <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
-                        <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
-                        <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
-                    </div>   
-                         </div>   
+                                <select class="form-select mb-3" aria-label="Default select example">
+                                    <option selected>Choose a Shelf</option>
+                                        {% for bookshelf in bookshelves %}
+                                            <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
+                                        {% endfor %}
+                                </select>
+
+                                <!-- Star Rating (click on stars to leave a rating from 1 to 5) -->
+                                <div class=" col mb-3 rating" >
+                                    <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
+                                    <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                                </div>   
+                            </div>   
                         </div>
 
                         <div class="row row-cols-1">
@@ -78,10 +77,10 @@
 
                         <!-- Submit Button -->
                         <div class="row row-cols-2 row-cols-md-4 mx-auto ">
-                        <button class="btn btn-outline-secondary mx-auto" type="submit">
-                            Add Book
-                            <i class="bi bi-book"></i>
-                        </button>
+                            <button class="btn btn-outline-secondary mx-auto" type="submit">
+                                Add Book
+                                <i class="bi bi-book"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
