@@ -205,7 +205,7 @@ textarea {
         
 }
 
-#homeImage {
+.contentImage {
     width: 75%;
     border-radius: 25px;
     margin-top: 2rem;
