@@ -100,9 +100,9 @@ def populate_review():
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
 
-    book_id = request.args.get('book_id')
+    gbook_id = request.args.get('gbook_id')
     book = {}
-    book["q"] = (book_id)
+    book["q"] = (gbook_id)
     book["key"] = os.environ.get("GOOGLE_BOOKS_API")
     # API Request
     book_request = requests.get("https://www.googleapis.com/books/v1/volumes", params=book)
@@ -126,7 +126,7 @@ def add_review():
     takes the information from the input fields and saves them to mongodb
     """
     if request.method == "POST":
-        add_book_review = {
+        book_review = {
             "title": request.form.get("book_title"),
             "author": request.form.get("book_author"),
             "cover": request.form.get("cover_url"),
@@ -137,7 +137,7 @@ def add_review():
             "shelf_name": request.form.get("bookshelf_id")
         }
 
-        mongo.db.books.insert_one(add_book_review)
+        mongo.db.books.insert_one(book_review)
         flash("Book Successfully Shelved")
         return redirect(url_for("books.view_books"))
        
@@ -145,17 +145,46 @@ def add_review():
     return render_template("add_review.html", bookshelves=bookshelves)
 
 
-@books.route("/edit_review")
-def edit_review():
+@books.route("/edit_review/<books_id>", methods=["GET", "POST"])
+def edit_review(books_id):
     """
     EDIT REVIEW FUNCTION
-    """        
-    return render_template("template_name_or_list")
+    """
+    if request.method == "POST":
+        submit = {
+            "title": request.form.get("book_title"),
+            "author": request.form.get("book_author"),
+            "cover": request.form.get("cover_url"),
+            "rating": request.form.get("rating"),
+            "review": request.form.get("book_review"),
+            "notes": request.form.get("book_notes"),
+            "created_by": session["user"],
+            "shelf_name": request.form.get("bookshelf_id")
+        }
+
+        mongo.db.books.update_one({"_id": ObjectId(books_id)}, {"$set": submit})
+        flash("Review Successfully Updated")
+        return redirect(url_for("books.view_books"))
+
+    book_review = mongo.db.books.find_one({"_id": ObjectId(books_id)})
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all()) 
+    return render_template("edit_review.html", book_review=book_review, bookshelves=bookshelves)
 
 
 @books.route("/view_books")
 def view_books():
     """
-    BOOKS FUNCTION
+    VIEW BOOKS FUNCTION
     """
-    return render_template("books.html")
+    display_books = list(mongo.db.books.find())
+    return render_template("books.html", display_books=display_books)
+
+
+@books.route("/delete_book/<books_id>")
+def delete_book(books_id):
+    """
+    DELETE BOOK FUNCTION
+    """
+    mongo.db.books.delete_one({"_id": ObjectId(books_id)})
+    flash("Review Successfully Deleted")
+    return redirect(url_for("books.view_books"))
