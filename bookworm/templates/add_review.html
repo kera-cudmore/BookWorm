@@ -10,8 +10,6 @@
                     </div>
                 </div>
             </div>
-           
-            <!-- {{ review_book }} -->
 
             <!-- PAGE CONTENTS CARD PANEL -->
             <div class="col-10 mx-auto mb-5 card panel">
@@ -20,58 +18,57 @@
                     <!-- Add Book review form -->
                     <form class="mx-auto" action="{{ url_for('books.add_review') }}" method="POST">
 
-                        <div class="row row-cols-1">
+                        <!-- Column 1 - Book Cover-->
+                        <div class="row row-cols-1 row-cols-md-2">
                             <div class="col">
                                 <!-- Book Cover Image-->
-                                <input type="hidden" value="" name="cover_url" />
-                                <img src="" class="mb-5" alt="">
-                            </div>
+                                <input type="hidden" value="{{ shelve_book.thumbnail }}" name="cover_url" />
+                                <img src="{{ shelve_book.thumbnail }}" class="mb-5" alt="{{ shelve_book.title }} book cover" />
+
+
+                                
                         </div>
 
-                        <div class="row row-cols-1 row-cols-md-2">
                             <!-- Book Title -->
-                            <div class="col mb-3">
-                                <input type="text" name="book_title" id="book_title" placeholder="Title" value="" required />
-                            </div>
+                            <div class="col">
+                                <input class="mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required />
 
                             <!-- Book Author -->
-                            <div class="col mb-3">
-                                <input type="text" name="book_author" placeholder="Author" id="book_author" value="" required />
-                            </div>
-                        </div>
-
-                        <div class="row row-cols-1 row-cols-md-2">
+                                {% for author in shelve_book.authors %}
+                                <input class="mb-3" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ author }}" required />
+                            {% endfor %}
                             <!-- Bookshelf -->
-                            <div class=" col mb-3">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Choose a Shelf</option>
-                                        {% for bookshelf in bookshelves %}
-                                            <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
-                                        {% endfor %}
-                                </select>
-                            </div>
 
-                            <!-- Star Rating (click on stars to leave a rating from 1 to 5) -->
-                            <div class=" col mb-3 rating" >
-                                <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
-                                <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
-                                <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
-                                <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
-                                <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
-                            </div>   
+                            <select class="form-select mb-3" aria-label="Default select example">
+                                <option selected>Choose a Shelf</option>
+                                    {% for bookshelf in bookshelves %}
+                                        <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
+                                    {% endfor %}
+                            </select>
+                        <!-- </div> -->
+
+                    <!-- Star Rating (click on stars to leave a rating from 1 to 5) -->
+                    <div class=" col mb-3 rating" >
+                        <input type="radio" name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
+                        <input type="radio" name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
+                        <input type="radio" name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
+                        <input type="radio" name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
+                        <input type="radio" name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                    </div>   
+                         </div>   
                         </div>
 
                         <div class="row row-cols-1">
                             <!-- Review - text area-->
                             <div class="col mb-3">
-                                <textarea id="book_review" name="book_review" rows="5" placeholder="Add your Review Here">Add your book review here...</textarea>
+                                <textarea id="book_review" name="book_review" rows="5" placeholder="Add your Review Here"></textarea>
                             </div>
                         </div>
 
                         <div class="row row-cols-1 ">
                             <!-- Notes -text area -->
                             <div class="col mb-3">
-                                <textarea id="book_notes" name="book_notes" rows="5" placeholder="Add any notes here">Want to make notes? Here's the perfect spot...</textarea>
+                                <textarea id="book_notes" name="book_notes" rows="5" placeholder="Add any notes here"></textarea>
                             </div>
                         </div>
 
