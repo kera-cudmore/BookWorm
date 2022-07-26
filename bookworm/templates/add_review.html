@@ -28,12 +28,12 @@
                             
                             </div>
 
-                            <!-- Book Title -->
+                            <!-- Book Title (REQUIRED)-->
                             <div class="col">
                                 <label for="book_title">Title: </label>
                                 <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required />
 
-                                <!-- Book Author -->
+                                <!-- Book Author (REQUIRED) -->
                                 {% for author in shelve_book.authors %}
                                     <label for="book_title">Author: </label>
                                     <input class=" reviewInput mb-4" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ author }}" required />
