@@ -15,7 +15,7 @@ def search():
     SEARCH FUNCTION
     """
     if request.method == "POST":
-        # try:
+        try:
             payload = {}
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
@@ -26,8 +26,10 @@ def search():
             # Prints results to the terminal
             print(results)
             return render_template("search.html", results=results['items'])
-        # except:
-        #    flash('There was an error. Please try another search term')
+        except:
+           flash('There was an error. Please try another search term')
+           return redirect (url_for("books.search"))
+           
     return render_template("search.html")
 
 
@@ -54,7 +56,7 @@ def add_bookshelf():
         db.session.add(newshelf)
         db.session.commit()
         # flash success message & redirect to the bookshelf page
-        flash('Bookshelf Created!')
+        flash('New Bookshelf Created!')
         return redirect(url_for('books.bookshelves'))
     return render_template("add_bookshelf.html")
 
@@ -105,9 +107,15 @@ def populate_review():
     book_request = requests.get("https://www.googleapis.com/books/v1/volumes", params=book)
     # Results returned from the request
     review_book = book_request.json()
-    # Prints results to the terminal
-    print(review_book)
-    return render_template("add_review.html", review_book=review_book['items'], bookshelves=bookshelves)
+    
+    # Create new dictionary for book with only the information needed to be displayed in the review section
+    shelve_book = {
+        "title": review_book['items'][0]['volumeInfo']['title'],
+        "authors": review_book['items'][0]['volumeInfo']['authors'],
+        "thumbnail": review_book['items'][0]['volumeInfo']['imageLinks']['thumbnail']
+    }
+
+    return render_template("add_review.html", shelve_book=shelve_book, bookshelves=bookshelves)
 
 
 @books.route("/add_review", methods=["GET", "POST"])
@@ -132,7 +140,7 @@ def add_review(review_book):
     #     flash("Book Successfully Shelved")
     #     return redirect(url_for('books.view_books'))
 
-    return render_template("add_review.html", bookshelves=bookshelves, review_book=review_book['items'])
+    return render_template("add_review.html", bookshelves=bookshelves, shelve_book=shelve_book)
 
 
 @books.route("/view_books")
