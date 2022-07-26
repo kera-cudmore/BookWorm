@@ -85,9 +85,9 @@ h5, h6 {
 }
 
 
-/*---------- Index page Image ----------*/
+/*---------- Content Images ----------*/
 
-#homeImage {
+.contentImage {
     width: 75%;
     border-radius: 25px;
     margin-top: 2rem;
@@ -125,10 +125,6 @@ h5, h6 {
 .card-footer {
     background-color: var(--white);
     border-top: none;
-}
-
-a {
-    text-decoration: none;
 }
 
 
@@ -173,12 +169,12 @@ a {
     opacity: 0.4
 }
 
-input {
+.reviewInput {
     width: 100%;
     border-radius: 5px;
 }
 
-textarea {
+.reviewTextarea {
     width: 100%;
     border-radius: 5px;
 }
@@ -203,12 +199,5 @@ textarea {
         font-size: 5rem;  
     }
         
-}
-
-.contentImage {
-    width: 75%;
-    border-radius: 25px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
 }
 
