@@ -1,7 +1,8 @@
 """ IMPORTS """
 from flask import render_template, request, Blueprint, url_for, flash, redirect, session
+from bson.objectid import ObjectId
 import requests
-from bookworm import os, db
+from bookworm import os, db, mongo
 from bookworm.models import Users, Bookshelves
 
 api_key = os.environ.get("GOOGLE_BOOKS_API")
@@ -119,28 +120,37 @@ def populate_review():
 
 
 @books.route("/add_review", methods=["GET", "POST"])
-def add_review(review_book):
+def add_review():
     """
     ADD REVIEW FUNCTION
+    takes the information from the input fields and saves them to mongodb
     """
+    if request.method == "POST":
+        add_book_review = {
+            "title": request.form.get("book_title"),
+            "author": request.form.get("book_author"),
+            "cover": request.form.get("cover_url"),
+            "rating": request.form.get("rating"),
+            "review": request.form.get("book_review"),
+            "notes": request.form.get("book_notes"),
+            "created_by": session["user"],
+            "shelf_name": request.form.get("bookshelf_id")
+        }
+
+        mongo.db.books.insert_one(add_book_review)
+        flash("Book Successfully Shelved")
+        return redirect(url_for("books.view_books"))
+       
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
+    return render_template("add_review.html", bookshelves=bookshelves)
 
-    # if request.method == POST:
-    #     review = {
-    #         "title": request.form.get("book_title"),
-    #         "author": request.form.get("book_author"),
-    #         "cover": request.form.get("cover_url"),
-    #         "rating": request.form.get(""),
-    #         "review": request.form.get("book_review"),
-    #         "notes": request.form.get("book_notes"),
-    #         "created_by": session["user"],
-    #         "shelf_name": request.form.get("bookshelf_id")
-    #     }
-    #     mongo.db.books.insert_one(review)
-    #     flash("Book Successfully Shelved")
-    #     return redirect(url_for('books.view_books'))
 
-    return render_template("add_review.html", bookshelves=bookshelves, shelve_book=shelve_book)
+@books.route("/edit_review")
+def edit_review():
+    """
+    EDIT REVIEW FUNCTION
+    """        
+    return render_template("template_name_or_list")
 
 
 @books.route("/view_books")
