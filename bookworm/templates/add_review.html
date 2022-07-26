@@ -13,17 +13,17 @@
 
             <!-- PAGE CONTENTS CARD PANEL -->
             <div class="col-10 mx-auto mb-5 card panel">
-                <div class="col-10 mx-auto text-center">
+                <div class="col-10 mx-auto">
 
                     <!-- Add Book review form -->
                     <form class="mx-auto" action="{{ url_for('books.add_review') }}" method="POST">
 
                         <!-- Column 1 - Book Cover-->
                         <div class="row row-cols-1 row-cols-md-2">
-                            <div class="col">
+                            <div class="col text-center">
                                 <!-- Book Cover Image-->
                                 <input type="hidden" value="{{ shelve_book.thumbnail }}" name="cover_url" />
-                                <img src="{{ shelve_book.thumbnail }}" class="mb-5" alt="{{ shelve_book.title }} book cover" />
+                                <img src="{{ shelve_book.thumbnail }}" alt="{{ shelve_book.title }} book cover" />
 
 
                                 
@@ -31,11 +31,13 @@
 
                             <!-- Book Title -->
                             <div class="col">
-                                <input class="mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required />
+                                <label for="book_title">Title: </label>
+                                <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required />
 
                             <!-- Book Author -->
                                 {% for author in shelve_book.authors %}
-                                <input class="mb-3" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ author }}" required />
+                                <label for="book_title">Author: </label>
+                                <input class=" reviewInput mb-4" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ author }}" required />
                             {% endfor %}
                             <!-- Bookshelf -->
 
@@ -61,14 +63,16 @@
                         <div class="row row-cols-1">
                             <!-- Review - text area-->
                             <div class="col mb-3">
-                                <textarea id="book_review" name="book_review" rows="5" placeholder="Add your Review Here"></textarea>
+                                <label for="book_review">Review: </label>
+                                <textarea class="reviewTextarea" id="book_review" name="book_review" rows="5" placeholder="Add your Review Here"></textarea>
                             </div>
                         </div>
 
                         <div class="row row-cols-1 ">
                             <!-- Notes -text area -->
                             <div class="col mb-3">
-                                <textarea id="book_notes" name="book_notes" rows="5" placeholder="Add any notes here"></textarea>
+                                <label for="book_notes">Notes: </label>
+                                <textarea class="reviewTextarea" id="book_notes" name="book_notes" rows="5" placeholder="Add any notes here"></textarea>
                             </div>
                         </div>
 
