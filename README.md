@@ -287,7 +287,7 @@ The site is deployed using Heroku. To deploy to Heroku:
 3. The Procfile tells Heroku which files run the app and how to run it. To create the Procfile run the following command in the terminal:
 
     ```bash
-    echo web: python run.py > Procfile
+    echo web: python app.py > Procfile
     ```
 
     NOTE: The Procfile uses a capital P and doesn't have a file extension on the end.
