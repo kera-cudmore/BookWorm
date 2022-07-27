@@ -38,11 +38,10 @@
                                     <input class=" reviewInput mb-4" type="text" name="book_author" placeholder="Author" id="book_author" {% for author in shelve_book.authors %} value="{{ author }}"{% endfor %} required />
 
                                 <!-- Bookshelf -->
-
                                 <select class="form-select mb-3" aria-label="Default select example">
                                     <option selected>Choose a Shelf</option>
                                         {% for bookshelf in bookshelves %}
-                                            <option name="{{ bookshelf_id }}" value="{{ bookshelf_id }}">{{ bookshelf.shelf_name }}</option>
+                                            <option name="{{ bookshelf.id }}" value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
                                         {% endfor %}
                                 </select>
 
