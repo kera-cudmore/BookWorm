@@ -48,10 +48,13 @@ def add_bookshelf():
     """ 
     ADD BOOKSHELF FUNCTION
     """
+    if "user" not in session:
+        flash("You need to be logged in to create a bookshelf")
+        return redirect(url_for("auth.login"))
+
     if request.method == "POST":
         # gather info from the form to enter into db
-        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), 
-                               # created_by=session["user"]
+        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), created_by=session["user"]
                                )
         # Add to db
         db.session.add(newshelf)
@@ -125,6 +128,11 @@ def add_review():
     ADD REVIEW FUNCTION
     takes the information from the input fields and saves them to mongodb
     """
+    if "user" not in session:
+        flash("You need to be logged in to add a review")
+        return redirect(url_for("auth.login"))
+
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
     if request.method == "POST":
         book_review = {
             "title": request.form.get("book_title"),
@@ -134,14 +142,13 @@ def add_review():
             "review": request.form.get("book_review"),
             "notes": request.form.get("book_notes"),
             "created_by": session["user"],
-            "shelf_name": request.form.get("bookshelf_id")
+            "shelf_name": request.form.get("bookshelf.id")
         }
 
         mongo.db.books.insert_one(book_review)
         flash("Book Successfully Shelved")
         return redirect(url_for("books.view_books"))
        
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
     return render_template("add_review.html", bookshelves=bookshelves)
 
 
