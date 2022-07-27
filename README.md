@@ -35,10 +35,11 @@ Link to deployed site to go here []()
   * [Languages Used](#Languages-Used)
   * [Databases Used](#Databases-Used)
   * [Frameworks Used](#Frameworks-Used)
-  * [Libraries Used](#Libraries-Used)
+  * [Libraries & Packages Used](#Libraries-&-Packages-Used)
   * [Programs Used](#Programs_Used)
     * [Google Books API](#Google-Books-API)
     * [Flask Blueprints](#Flask-Blueprints)
+    * [Flask Migrate](#Flask-Migrate)
     *[Error Handling](#Error-Handling)
 
 * [Deployment & Local Development](#Deployment-&-Local-Development)
@@ -199,11 +200,13 @@ HTML, CSS, Javascript, Python
 
 [Bootstrap](https://getbootstrap.com/) - version 5.2.0 - CSS Framework.
 
-### Libraries Used
+### Libraries & Packages Used
 
 [PyMongo](https://pypi.org/project/pymongo/) - Python Driver for MongoDB.
 
 [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) - Database abstraction library, used to interact with PostgreSQL.
+
+[Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/) - Used to migrate changes to the relational database.
 
 ### Programs Used
 
@@ -248,6 +251,10 @@ Update - to enable me to get the books unique ID I have had to pull the complete
 ### Flask Blueprints
 
 I wanted to push myself a little with this project and decided that I would like to use Flask Blueprints. Flask Blueprints are a way of logically storing and organising similar routes of the app in their own section, rather than having one large file with all the routes of the app.
+
+### Flask Migrate
+
+Flask-Migrate is an extension that handles SQLAlchemy database migrations for Flask applications using Alembic. The database operations are made available through the Flask command-line interface.I am using Flask Migrate to enable me to migrate changes to my relational database, as I initially forgot to add the created by column to the bookshelves table.
 
 ### Error Handling
 
