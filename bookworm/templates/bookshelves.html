@@ -31,10 +31,10 @@
                                     <!-- Edit Bookshelf Button -->
                                     <a id="{{ bookshelf.id }}" href="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}"
                                         class="btn btn-outline-secondary">
-                                        <i class="bi bi-pencil-square"></i></a>
+                                        <i class="bi bi-pencil-square" aria-label="Edit Bookshelf"></i></a>
                                         <!-- Delete Bookshelf Button -->
                                         <a href="#deleteModal-{{ bookshelf.id }}" class="btn btn-outline-secondary" data-bs-toggle="modal">
-                                            <i class="bi bi-trash3"></i>
+                                            <i class="bi bi-trash3" aria-label="Delete Bookshelf"></i>
                                         </a>  
                                 </span>
                             </li>
@@ -52,10 +52,10 @@
                                         <div class="modal-body">
                                             <a href="{{ url_for('books.delete_bookshelf', bookshelf_id=bookshelf.id) }}"
                                             class="btn btn-outline-secondary">
-                                            <i class="bi bi-trash3"></i> Delete Shelf
+                                            <i class="bi bi-trash3" aria-label="Confirm Delete Bookshelf"></i> Delete Shelf
                                             </a>
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                                <i class="bi bi-x-circle"></i> Cancel
+                                                <i class="bi bi-x-circle" aria-label="Cancel"></i> Cancel
                                             </button>
                                         </div>
                                     </div>
