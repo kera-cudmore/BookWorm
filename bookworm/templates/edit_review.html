@@ -40,9 +40,9 @@
                                 <!-- Bookshelf -->
 
                                 <select class="form-select mb-3" aria-label="Default select example">
-                                    <option selected>Choose a Shelf</option>
+                                    <option name="{{ bookshelf_id }}" selected>{{ book_review.shelf_name }}</option>
                                         {% for bookshelf in bookshelves %}
-                                            <option value="">{{ bookshelf.shelf_name }}</option>
+                                            <option value="{{ bookshelf_id }}">{{ bookshelf.shelf_name }}</option>
                                         {% endfor %}
                                 </select>
 
