@@ -2,6 +2,7 @@
 import os
 import re
 from flask import Flask
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_pymongo import PyMongo
 # IMPORT env if there is an env.py file
@@ -28,6 +29,7 @@ else:
 
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 mongo = PyMongo(app)
 
 
