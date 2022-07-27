@@ -121,7 +121,7 @@ I have used [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mont
 Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
 #### __Home Page__
-[Home Page]()
+![Home Page](documentation/wireframes/home.png)
 
 #### __Register Page__
 ![Register Page](documentation/wireframes/register.png)
@@ -141,11 +141,14 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 #### __Add Bookshelf Page__
 ![Add Bookshelf Page](documentation/wireframes/add-bookshelf.png)
 
-#### __Add Review Page__
+#### __Add/Edit Review Page__
 ![Add Review Page](documentation/wireframes/add-review.png)
 
-#### __404 Page__
-[404 Page]()
+#### __Books Page__
+![Books Page](documentation/wireframes/books.png)
+
+#### __Error Page__
+![Error Page](documentation/wireframes/error.png)
 
 ### Database Structure
 
@@ -165,11 +168,16 @@ The website is comprised of …
 
 IMAGE OF NAVBAR TO GO HERE
 
-* Footer - A footer is displayed on all pages of the website and contains ***
+* Footer - A footer is displayed on all pages of the website and contains the copyright year, this is updated to the current year using [JavaScript](bookworm/static/js/script.js). 
 
 IMAGE OF FOOTER TO GO HERE
 
 ### Future Implementations
+
+In future implementations I would like to:
+
+* Add change and reset password functionality to the profile section.
+* Give users the option to delete their account in the profile section.
 
 ### Accessibility
 
@@ -364,7 +372,7 @@ Please see [testing.md](TESTING.md) for all testing performed
 
 ### Content
 
-Content for this project was written by Kera Cudmore.
+Content for this project was written by Kera Cudmore, and the book descriptions were provided through the Google Books API.
 
 ### Media
 
@@ -381,3 +389,4 @@ I would like to acknowledge the following people who helped me along the way in 
 * My Code Institute Mentor, [Adegbenga Adeye](https://github.com/deye9)
 * Daisy McGirr, for taking the time to respond to my slack post about creating a unique ID in my for loop.
 * Naiose Gaffney, for talking through and troubleshooting with me ways to pull data from the search to the add review page.
+* The fantastic Tutor Support team at Code Institute.
