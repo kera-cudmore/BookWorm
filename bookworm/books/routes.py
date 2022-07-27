@@ -142,7 +142,7 @@ def add_review():
             "review": request.form.get("book_review"),
             "notes": request.form.get("book_notes"),
             "created_by": session["user"],
-            "shelf_name": request.form.get("bookshelf.id")
+            "shelf_name": request.form.get("bookshelf_id")
         }
 
         mongo.db.books.insert_one(book_review)
