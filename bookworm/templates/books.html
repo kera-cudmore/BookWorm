@@ -16,11 +16,22 @@
             <div class="col-10 mx-auto mb-5 card panel">
                 <div class="col-10 mx-auto text-center">
 
+                    <!-- MONGO DB SEARCH FOR BOOKS ? -->
+                    <!-- <form action="" method="POST">
+                        <div class="input-group input-group-lg mb-3">
+                            <input type="text" class="form-control" placeholder="Search"
+                            aria-label="Search saved books" id="searchdb" name="searchdb">
+                            <button class="btn btn-outline-secondary" type="submit">
+                            <i class="bi bi-search-heart"></i>
+                            </button>
+                        </div>
+                    </form> -->
+
                     <!-- Books -->
                         <!-- Cards to display books - 3 cols on Lg, 2 cols on med, 1 on small -->
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                                             
-<!-- JINJA LOOP TO ITERATE OVER BOOKS HERE -->
+                            <!-- Jinja Loop that iterates over the books in the db -->
                             {% for book in display_books %}
                                 <div class="col mt-5">
                                     <div class="card h-100">
