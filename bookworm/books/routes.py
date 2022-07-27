@@ -75,6 +75,7 @@ def edit_bookshelf(bookshelf_id):
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
+        flash("Your Bookshelf has been edited successfully")
         return redirect(url_for("books.bookshelves"))
     return render_template("edit_bookshelf.html", bookshelf=bookshelf)
 
@@ -89,6 +90,7 @@ def delete_bookshelf(bookshelf_id):
     bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     db.session.delete(bookshelf)
     db.session.commit()
+    flash("Bookshelf Deleted")
     return redirect(url_for("books.bookshelves"))
 
 
@@ -142,7 +144,7 @@ def add_review():
             "review": request.form.get("book_review"),
             "notes": request.form.get("book_notes"),
             "created_by": session["user"],
-            "shelf_name": request.form.get("bookshelf_id")
+            "bookshelf.id": request.form.get("bookshelf.id")
         }
 
         mongo.db.books.insert_one(book_review)
