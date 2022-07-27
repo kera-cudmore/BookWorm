@@ -22,22 +22,28 @@
                     </a>
 
                     <!-- BOOKSHELVES -->
-                    <ul class="list-group">
-                        <!-- Jinja for loop that loops through & displays each bookshelf in the list group -->
+                    <div class="accordion" id="bookshelfAccordion">
                         {% for bookshelf in bookshelves %}
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                {{ bookshelf.shelf_name }}
-                                <span>
-                                    <!-- Edit Bookshelf Button -->
-                                    <a id="{{ bookshelf.id }}" href="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}"
-                                        class="btn btn-outline-secondary">
-                                        <i class="bi bi-pencil-square" aria-label="Edit Bookshelf"></i></a>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-{{ loop.index }}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#shelf-{{loop.index }}" aria-expanded="true" aria-controls="collapseOne">
+                                        {{ bookshelf.shelf_name }} 
+                                    </button>
+                                </h2>
+                                <div id="shelf-{{loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#bookshelfAccordion">
+                                    <div class="accordion-body">
+                                        <a id="{{ bookshelf.id }}" href="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}"
+                                            class="btn btn-outline-secondary">
+                                            <i class="bi bi-pencil-square" aria-label="Edit Bookshelf"></i>Edit
+                                        </a>
                                         <!-- Delete Bookshelf Button -->
                                         <a href="#deleteModal-{{ bookshelf.id }}" class="btn btn-outline-secondary" data-bs-toggle="modal">
-                                            <i class="bi bi-trash3" aria-label="Delete Bookshelf"></i>
+                                            <i class="bi bi-trash3" aria-label="Delete Bookshelf"></i>Delete
                                         </a>  
-                                </span>
-                            </li>
+                                    </div>
+                                </div>
+                            </div>
+                    
 
                             <!-- DELETE BOOKSHELF MODAL -->
                             <!-- Defensive programming, creates an extra check before the bookshelf is deleted from the db -->  
@@ -49,7 +55,7 @@
                                                 Are you sure you want to delete this bookshelf?
                                             </h5>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body text-center">
                                             <a href="{{ url_for('books.delete_bookshelf', bookshelf_id=bookshelf.id) }}"
                                             class="btn btn-outline-secondary">
                                             <i class="bi bi-trash3" aria-label="Confirm Delete Bookshelf"></i> Delete Shelf
@@ -64,7 +70,7 @@
                             <!-- End of Delete Modal -->
 
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
             </div>
 
