@@ -10,7 +10,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- PAGE CONTENTS CARD PANEL -->
             <div class="col-10 mx-auto mb-5 card panel">
                 <div class="col-10 mx-auto">
@@ -37,11 +36,11 @@
                                     <label for="book_author">Author: </label>
                                     <input class=" reviewInput mb-4" type="text" name="book_author" placeholder="Author" id="book_author" {% for author in shelve_book.authors %} value="{{ author }}"{% endfor %} required />
 
-                                <!-- Bookshelf -->
-                                <select class="form-select mb-3" aria-label="Default select example">
+                                    <!-- Bookshelf -->
+                                <select class="form-select mb-3" name="bookshelf_id" aria-label="Default select example">
                                     <option selected>Choose a Shelf</option>
                                         {% for bookshelf in bookshelves %}
-                                            <option name="{{ bookshelf.id }}" value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
+                                            <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
                                         {% endfor %}
                                 </select>
 
