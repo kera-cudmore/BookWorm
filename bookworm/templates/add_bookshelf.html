@@ -19,13 +19,11 @@
 
                     <!-- Add bookshelf form -->
                     <form class="col-10 mx-auto" action="{{ url_for('books.add_bookshelf') }}" method="POST">
-                        <div class="input-group input-group-lg mb-3">
-                            <input type="text" class="form-control ms-5 validate" id="new_shelf" name="new_shelf"
-                                placeholder="Bookshelf Name" minlength="3" maxlength="25" required>
-                            <button class="btn btn-outline-secondary me-5" type="submit">
-                                <i class="bi bi-plus"></i>
+                            <input type="text" class="form-control validate mb-3" id="new_shelf" name="new_shelf"
+                                placeholder="Shelf Name" minlength="3" maxlength="25" required>
+                            <button class="btn btn-outline-secondary" type="submit">
+                                <i class="bi bi-plus"></i> Add Bookshelf
                             </button>
-                        </div>
                     </form>
                 </div>
             </div>
