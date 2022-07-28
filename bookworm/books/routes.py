@@ -27,6 +27,7 @@ def search():
             book_request = requests.get("https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite", params=payload)
             # Results returned from the request
             results = book_request.json()
+            
             return render_template("search.html", results=results['items'])
         except:
             flash('There was an error. Please try another search term')
@@ -82,11 +83,12 @@ def edit_bookshelf(bookshelf_id):
 
     # Defensive Programming - only the user who created a bookshelf can edit
     # if logged in
-    if "user" not in session or session["user"] != ["created_by"]:
+    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
+
+    if "user" not in session or session["user"] != bookshelf.created_by:
         flash("You can only edit your own bookshelves")
         return redirect(url_for("books.bookshelves"))
 
-    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
 
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
@@ -109,11 +111,12 @@ def delete_bookshelf(bookshelf_id):
 
     # Defensive Programming - only user who created bookshelf can delete if
     # logged in
-    if "user" not in session or session["user"] != ["created_by"]:
+    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
+
+    if "user" not in session or session["user"] != bookshelf.created_by:
         flash("You can only delete your own bookshelves")
         return redirect(url_for("books.bookshelves"))
 
-    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     db.session.delete(bookshelf)
     db.session.commit()
     mongo.db.books.delete_many({"bookshelf_id": str(bookshelf_id)})
@@ -203,7 +206,9 @@ def edit_review(books_id):
 
     # Defensive programming - allows only the user who created review to edit
     # if they are logged in
-    if "user" not in session or session["user"] != ["created_by"]:
+    book_review = mongo.db.books.find_one({"_id": ObjectId(books_id)})
+
+    if "user" not in session or session["user"] != book_review["created_by"]:
         flash("You can only edit your own book reviews")
         return redirect(url_for("books.view_books"))
 
@@ -224,7 +229,6 @@ def edit_review(books_id):
         flash("Review Successfully Updated")
         return redirect(url_for("books.view_books"))
 
-    book_review = mongo.db.books.find_one({"_id": ObjectId(books_id)})
     bookshelves = list(
         Bookshelves.query.order_by(
             Bookshelves.shelf_name).all())
