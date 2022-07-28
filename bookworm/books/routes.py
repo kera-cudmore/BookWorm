@@ -73,6 +73,12 @@ def edit_bookshelf(bookshelf_id):
     Gets bookshelf id or gives 404 error if there isn't one
     Takes form data and updates the db then redirects to bookshelves page
     """
+
+    # Defensive Programming - only the user who created a bookshelf can edit if logged in
+    if "user" not in session or session["user"] != ["created_by"]:
+        flash("You can only edit your own bookshelves")
+        return redirect(url_for("books.bookshelves"))
+        
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
@@ -91,6 +97,12 @@ def delete_bookshelf(bookshelf_id):
     Deletes all books that have that bookshelf ID (cascade deletion)
     Flash message to confirm deletion & redirects the user to the bookshelves page
     """
+
+    # Defensive Programming - only user who created bookshelf can delete if logged in
+    if "user" not in session or session["user"] != ["created_by"]:
+        flash("You can only delete your own bookshelves")
+        return redirect(url_for("books.bookshelves"))
+
     bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     db.session.delete(bookshelf)
     db.session.commit()
@@ -170,7 +182,10 @@ def edit_review(books_id):
     Flash success message and redirects to books page
     """
 
-    # Defensive programming 
+    # Defensive programming - allows only the user who created review to edit if they are logged in
+    if "user" not in session or session["user"] != ["created_by"]:
+        flash("You can only edit your own book reviews")
+        return redirect(url_for("books.view_books"))
 
     if request.method == "POST":
         submit = {
