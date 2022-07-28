@@ -14,6 +14,9 @@ books = Blueprint('books', __name__)
 def search():
     """
     SEARCH FUNCTION
+    Creates an API request to google books API using form input
+    Saves request to variable that is passed back to the template
+    If error returning request flash message & redirect to search
     """
     if request.method == "POST":
         try:
@@ -24,13 +27,10 @@ def search():
             book_request = requests.get("https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite", params=payload)
             # Results returned from the request
             results = book_request.json()
-            # Prints results to the terminal
-            print(results)
             return render_template("search.html", results=results['items'])
         except:
            flash('There was an error. Please try another search term')
-           return redirect (url_for("books.search"))
-           
+           return redirect (url_for("books.search"))      
     return render_template("search.html")
 
 
@@ -38,6 +38,8 @@ def search():
 def bookshelves():
     """
     BOOKSHELVES FUNCTION
+    Returns all bookshelves from the db in alphabetical order to a variable
+    and passes to the template
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
     return render_template("bookshelves.html", bookshelves=bookshelves)
@@ -47,19 +49,18 @@ def bookshelves():
 def add_bookshelf():
     """ 
     ADD BOOKSHELF FUNCTION
+    Creates a new entry in bookshelves table with data from form
+    flash message confirming successful creation & redirects to bookshelf page
     """
+    # Defensive programming - prevents users creating bookshelf unless signed in
     if "user" not in session:
         flash("You need to be logged in to create a bookshelf")
         return redirect(url_for("auth.login"))
 
     if request.method == "POST":
-        # gather info from the form to enter into db
-        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), created_by=session["user"]
-                               )
-        # Add to db
+        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), created_by=session["user"])
         db.session.add(newshelf)
         db.session.commit()
-        # flash success message & redirect to the bookshelf page
         flash('New Bookshelf Created!')
         return redirect(url_for('books.bookshelves'))
     return render_template("add_bookshelf.html")
@@ -69,40 +70,41 @@ def add_bookshelf():
 def edit_bookshelf(bookshelf_id):
     """
     EDIT BOOKSHELF FUNCTION
-    retrieves the bookshelf id or throws 404 error if there isn't one
+    Gets bookshelf id or gives 404 error if there isn't one
+    Takes form data and updates the db then redirects to bookshelves page
     """
-    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
         flash("Your Bookshelf has been edited successfully")
         return redirect(url_for("books.bookshelves"))
+    
+    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     return render_template("edit_bookshelf.html", bookshelf=bookshelf)
 
 
 @books.route("/delete_bookshelf/<int:bookshelf_id>")
 def delete_bookshelf(bookshelf_id):
     """ DELETE BOOKSHELF FUNCTION
-    retrieves the bookshelf id or throws 404 error if there isn't one
-    deletes the bookshelf & commits to the db
-    redirects the user to the bookshelves page
+    Gets bookshelf id or gives 404 error if there isn't one
+    Deletes the bookshelf & commits to the db
+    Deletes all books that have that bookshelf ID (cascade deletion)
+    Flash message to confirm deletion & redirects the user to the bookshelves page
     """
     bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
     db.session.delete(bookshelf)
     db.session.commit()
-    mongo.db.books.delete_many({"bookshelf_id": str(bookshelf_id)}) # need to figure out how to delete all books that belong to the bookshelf being deleted
+    mongo.db.books.delete_many({"bookshelf_id": str(bookshelf_id)})
     flash("Bookshelf Deleted")
     return redirect(url_for("books.bookshelves"))
-
-
 
 
 @books.route("/populate_review", methods=["GET", "POST"])
 def populate_review():
     """
     POPULATE REVIEW FUNCTION
-    this function should take the id from the book button on search page, run an api request for that id
-    and pass that variable onto the add_review page so the book title, author & cover can be pre-populated
+    Takes gbook_id from chosen book and runs request to API for that books data
+    API request saved as a dictionary which is then passed to the the add review function to allow fields to be prepopulated
     """
     bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
 
@@ -115,7 +117,7 @@ def populate_review():
     # Results returned from the request
     review_book = book_request.json()
     
-    # Create new dictionary for book with only the information needed to be displayed in the review section
+    # Dictionary containing information needed to prepopulate add review form
     shelve_book = {
         "title": review_book['items'][0]['volumeInfo']['title'],
         "authors": review_book['items'][0]['volumeInfo']['authors'],
@@ -129,13 +131,15 @@ def populate_review():
 def add_review():
     """
     ADD REVIEW FUNCTION
-    takes the information from the input fields and saves them to mongodb
+    queries the bookshelves db and passes results to the template
+    Inserts a new document in books collection with data from form
+    flash message confirming success & redirects to books page
     """
+    # Defensive programming - prevents users creating review unless signed in
     if "user" not in session:
         flash("You need to be logged in to add a review")
         return redirect(url_for("auth.login"))
 
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
     if request.method == "POST":
         book_review = {
             "title": request.form.get("book_title"),
@@ -151,7 +155,8 @@ def add_review():
         mongo.db.books.insert_one(book_review)
         flash("Book Successfully Shelved")
         return redirect(url_for("books.view_books"))
-       
+    
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all()) 
     return render_template("add_review.html", bookshelves=bookshelves)
 
 
@@ -159,7 +164,14 @@ def add_review():
 def edit_review(books_id):
     """
     EDIT REVIEW FUNCTION
+    Queries the bookshelves db and passes results to the template
+    Finds the document with the books_id in the collection and passes it to the template
+    Updates the document with the form data
+    Flash success message and redirects to books page
     """
+
+    # Defensive programming 
+
     if request.method == "POST":
         submit = {
             "title": request.form.get("book_title"),
@@ -177,7 +189,7 @@ def edit_review(books_id):
         return redirect(url_for("books.view_books"))
 
     book_review = mongo.db.books.find_one({"_id": ObjectId(books_id)})
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all()) 
+    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
     return render_template("edit_review.html", book_review=book_review, bookshelves=bookshelves)
 
 
@@ -185,6 +197,7 @@ def edit_review(books_id):
 def view_books():
     """
     VIEW BOOKS FUNCTION
+    queries the books collection & passes the results to the template
     """
     display_books = list(mongo.db.books.find())
     return render_template("books.html", display_books=display_books)
@@ -194,6 +207,9 @@ def view_books():
 def delete_book(books_id):
     """
     DELETE BOOK FUNCTION
+    Uses the books_id from the chosen book to query the books collection
+    Deletes the document from the collection
+    Flash success message & redirects to books page
     """
     mongo.db.books.delete_one({"_id": ObjectId(books_id)})
     flash("Review Successfully Deleted")
