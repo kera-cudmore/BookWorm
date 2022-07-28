@@ -144,9 +144,9 @@ def add_review():
             "review": request.form.get("book_review"),
             "notes": request.form.get("book_notes"),
             "created_by": session["user"],
-            "bookshelf.id": request.form.get("bookshelf.id")
+            "bookshelf_id": request.form.get("bookshelf_id")
         }
-
+        
         mongo.db.books.insert_one(book_review)
         flash("Book Successfully Shelved")
         return redirect(url_for("books.view_books"))
@@ -168,7 +168,7 @@ def edit_review(books_id):
             "review": request.form.get("book_review"),
             "notes": request.form.get("book_notes"),
             "created_by": session["user"],
-            "shelf_name": request.form.get("bookshelf_id")
+            "bookshelf_id": request.form.get("bookshelf_id")
         }
 
         mongo.db.books.update_one({"_id": ObjectId(books_id)}, {"$set": submit})
