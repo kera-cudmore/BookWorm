@@ -55,13 +55,13 @@ Inspector Tools to ensure that each page is responsive on a variety of different
 
 [jshint](https://jshint.com/) was used to validate the JavaScript.
 
-* script.js
+* [script.js](documentation/testing/validation/jshint-script.png)
 
 - - -
 
 ### Python Validator
 
-[PEP8]()was used to validate the python files.
+[PEP8]() was used to validate the python files.
 
 * app.py
 
