@@ -316,6 +316,7 @@ The site is deployed using Heroku. To deploy to Heroku:
     | DEBUG | TRUE** |
 
     *Denotes a value that is specific to your app.
+    
     **This is set to true while deploying to enable us to see any bugs. Please change to FALSE after deployment.
 
 10. You're now ready to click the enable automatic deploys and create button. Heroku will start building the app.
