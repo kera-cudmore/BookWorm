@@ -20,12 +20,12 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 # if false it will use the db on heroku
 # if the heroku db has postgres:// it will update it with the correct value
 if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL") # local db
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://",  "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri # heroku
 
 
 db = SQLAlchemy(app)
