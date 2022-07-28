@@ -1,6 +1,7 @@
 """ IMPORTS """
 from flask import render_template, request, Blueprint, url_for, flash, redirect, session
 from bson.objectid import ObjectId
+import requests
 from bookworm import os, db, mongo
 from bookworm.models import Bookshelves
 
