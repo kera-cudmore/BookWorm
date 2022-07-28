@@ -92,7 +92,7 @@ As a returning registered user of the site I want to be able to:
 
 As an administrator for the site I want to be able to:
 
-* Remove any reviews that are offensive.
+* Remove any content that could be offensive.
 
 - - -
 
@@ -312,10 +312,31 @@ The site is deployed using Heroku. To deploy to Heroku:
     | MONGO_URI | MONGO_URI* |
     | MONGO_DBNAME | MONGO_DB* |
     | DATABASE_URL | POSTGRES_DB* |
+    | GOOGLE_BOOKS_API | GOOGLE_API_KEY* |
+    | DEBUG | TRUE** |
 
     *Denotes a value that is specific to your app.
+    **This is set to true while deploying to enable us to see any bugs. Please change to FALSE after deployment.
 
-10. You're now ready to click the enable automatic deploys button. Heroku will start building the app. Once complete click the open app button on the dashboard.
+10. You're now ready to click the enable automatic deploys and create button. Heroku will start building the app.
+
+11. As this project utilises a relational database, there are a few more steps to set this up.
+
+12. On the heroku dashboard go to resources tab and then select add-ons. You will need to search for and select heroku postgres. For this project the hobby dev free tier is fine.
+
+13. Go back into settings and reveal config vars. You should now see a new key called DATABASE_UL and the value should have been pre-populated.
+
+14. We will now need to go the more button on the dashboard and select run console. This is where we will set up the tables in the database we have just created.
+
+15. Type python3 and then once the python interpretor opens, we can run the following:
+    
+    ```bash
+    from bookworm import db
+    db.create_all()
+    exit()
+    ```
+
+16. Now that the relational database has been set up and the tables created, we can now click open app and the bookworm application should now open in a new tab.
 
 ### Local Development
 
