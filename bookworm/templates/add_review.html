@@ -34,11 +34,11 @@
 
                                 <!-- Book Author (REQUIRED) -->
                                     <label for="book_author">Author: </label>
-                                    <input class=" reviewInput mb-4" type="text" name="book_author" placeholder="Author" id="book_author" {% for author in shelve_book.authors %} value="{{ author }}"{% endfor %} required />
+                                    <input class=" reviewInput mb-3" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ shelve_book.authors|join(', ') }}" required />
 
                                     <!-- Bookshelf -->
-                                <select class="form-select mb-3" name="bookshelf_id" aria-label="Default select example">
-                                    <option selected>Choose a Shelf</option>
+                                <label for="bookshelf_id">Choose a Bookshelf</label>
+                                    <select class="form-select mb-3" name="bookshelf_id" title="Choose a Shelf" aria-label="Default select example">
                                         {% for bookshelf in bookshelves %}
                                             <option value="{{ bookshelf.shelf_name }}">{{ bookshelf.shelf_name }}</option>
                                         {% endfor %}
