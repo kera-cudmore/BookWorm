@@ -10,5 +10,6 @@ main = Blueprint('main', __name__)
 def home():
     """
     HOME FUNCTION
+    Renders template for the home page
     """
     return render_template("index.html")
