@@ -3,7 +3,7 @@ from flask import render_template, request, Blueprint, url_for, flash, redirect,
 from bson.objectid import ObjectId
 import requests
 from bookworm import os, db, mongo
-from bookworm.models import Users, Bookshelves
+from bookworm.models import Bookshelves
 
 api_key = os.environ.get("GOOGLE_BOOKS_API")
 
@@ -24,13 +24,15 @@ def search():
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
             # API Request
-            book_request = requests.get("https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite", params=payload)
+            book_request = requests.get(
+                "https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite",
+                params=payload)
             # Results returned from the request
             results = book_request.json()
             return render_template("search.html", results=results['items'])
-        except:
-           flash('There was an error. Please try another search term')
-           return redirect (url_for("books.search"))      
+        except BaseException:
+            flash('There was an error. Please try another search term')
+            return redirect(url_for("books.search"))
     return render_template("search.html")
 
 
@@ -41,24 +43,30 @@ def bookshelves():
     Returns all bookshelves from the db in alphabetical order to a variable
     and passes to the template
     """
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
+    bookshelves = list(
+        Bookshelves.query.order_by(
+            Bookshelves.shelf_name).all())
     return render_template("bookshelves.html", bookshelves=bookshelves)
 
 
 @books.route("/add_bookshelf", methods=["GET", "POST"])
 def add_bookshelf():
-    """ 
+    """
     ADD BOOKSHELF FUNCTION
     Creates a new entry in bookshelves table with data from form
     flash message confirming successful creation & redirects to bookshelf page
     """
-    # Defensive programming - prevents users creating bookshelf unless signed in
+    # Defensive programming - prevents users creating bookshelf unless signed
+    # in
     if "user" not in session:
         flash("You need to be logged in to create a bookshelf")
         return redirect(url_for("auth.login"))
 
     if request.method == "POST":
-        newshelf = Bookshelves(shelf_name=request.form.get("new_shelf"), created_by=session["user"])
+        newshelf = Bookshelves(
+            shelf_name=request.form.get("new_shelf"),
+            created_by=session["user"])
+
         db.session.add(newshelf)
         db.session.commit()
         flash('New Bookshelf Created!')
@@ -74,18 +82,20 @@ def edit_bookshelf(bookshelf_id):
     Takes form data and updates the db then redirects to bookshelves page
     """
 
-    # Defensive Programming - only the user who created a bookshelf can edit if logged in
+    # Defensive Programming - only the user who created a bookshelf can edit
+    # if logged in
     if "user" not in session or session["user"] != ["created_by"]:
         flash("You can only edit your own bookshelves")
         return redirect(url_for("books.bookshelves"))
-        
+
+    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
+
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
         flash("Your Bookshelf has been edited successfully")
         return redirect(url_for("books.bookshelves"))
-    
-    bookshelf = Bookshelves.query.get_or_404(bookshelf_id)
+
     return render_template("edit_bookshelf.html", bookshelf=bookshelf)
 
 
@@ -95,10 +105,12 @@ def delete_bookshelf(bookshelf_id):
     Gets bookshelf id or gives 404 error if there isn't one
     Deletes the bookshelf & commits to the db
     Deletes all books that have that bookshelf ID (cascade deletion)
-    Flash message to confirm deletion & redirects the user to the bookshelves page
+    Flash message to confirm deletion & redirects the user to
+    the bookshelves page
     """
 
-    # Defensive Programming - only user who created bookshelf can delete if logged in
+    # Defensive Programming - only user who created bookshelf can delete if
+    # logged in
     if "user" not in session or session["user"] != ["created_by"]:
         flash("You can only delete your own bookshelves")
         return redirect(url_for("books.bookshelves"))
@@ -116,27 +128,34 @@ def populate_review():
     """
     POPULATE REVIEW FUNCTION
     Takes gbook_id from chosen book and runs request to API for that books data
-    API request saved as a dictionary which is then passed to the the add review function to allow fields to be prepopulated
+    API request saved as a dictionary which is then passed to the the
+    add review function to allow fields to be prepopulated
     """
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
+    bookshelves = list(
+        Bookshelves.query.order_by(
+            Bookshelves.shelf_name).all())
 
     gbook_id = request.args.get('gbook_id')
     book = {}
     book["q"] = (gbook_id)
     book["key"] = os.environ.get("GOOGLE_BOOKS_API")
     # API Request
-    book_request = requests.get("https://www.googleapis.com/books/v1/volumes", params=book)
+    book_request = requests.get(
+        "https://www.googleapis.com/books/v1/volumes",
+        params=book)
     # Results returned from the request
     review_book = book_request.json()
-    
+
     # Dictionary containing information needed to prepopulate add review form
     shelve_book = {
         "title": review_book['items'][0]['volumeInfo']['title'],
         "authors": review_book['items'][0]['volumeInfo']['authors'],
-        "thumbnail": review_book['items'][0]['volumeInfo']['imageLinks']['thumbnail']
-    }
+        "thumbnail": review_book['items'][0]['volumeInfo']['imageLinks']['thumbnail']}
 
-    return render_template("add_review.html", shelve_book=shelve_book, bookshelves=bookshelves)
+    return render_template(
+        "add_review.html",
+        shelve_book=shelve_book,
+        bookshelves=bookshelves)
 
 
 @books.route("/add_review", methods=["GET", "POST"])
@@ -163,12 +182,14 @@ def add_review():
             "created_by": session["user"],
             "bookshelf_id": request.form.get("bookshelf_id")
         }
-        
+
         mongo.db.books.insert_one(book_review)
         flash("Book Successfully Shelved")
         return redirect(url_for("books.view_books"))
-    
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all()) 
+
+    bookshelves = list(
+        Bookshelves.query.order_by(
+            Bookshelves.shelf_name).all())
     return render_template("add_review.html", bookshelves=bookshelves)
 
 
@@ -177,12 +198,13 @@ def edit_review(books_id):
     """
     EDIT REVIEW FUNCTION
     Queries the bookshelves db and passes results to the template
-    Finds the document with the books_id in the collection and passes it to the template
+    Finds document with the books_id in the collection & passes to template
     Updates the document with the form data
     Flash success message and redirects to books page
     """
 
-    # Defensive programming - allows only the user who created review to edit if they are logged in
+    # Defensive programming - allows only the user who created review to edit
+    # if they are logged in
     if "user" not in session or session["user"] != ["created_by"]:
         flash("You can only edit your own book reviews")
         return redirect(url_for("books.view_books"))
@@ -199,13 +221,19 @@ def edit_review(books_id):
             "bookshelf_id": request.form.get("bookshelf_id")
         }
 
-        mongo.db.books.update_one({"_id": ObjectId(books_id)}, {"$set": submit})
+        mongo.db.books.update_one(
+            {"_id": ObjectId(books_id)}, {"$set": submit})
         flash("Review Successfully Updated")
         return redirect(url_for("books.view_books"))
 
     book_review = mongo.db.books.find_one({"_id": ObjectId(books_id)})
-    bookshelves = list(Bookshelves.query.order_by(Bookshelves.shelf_name).all())
-    return render_template("edit_review.html", book_review=book_review, bookshelves=bookshelves)
+    bookshelves = list(
+        Bookshelves.query.order_by(
+            Bookshelves.shelf_name).all())
+    return render_template(
+        "edit_review.html",
+        book_review=book_review,
+        bookshelves=bookshelves)
 
 
 @books.route("/view_books")
