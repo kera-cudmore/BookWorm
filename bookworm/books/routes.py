@@ -23,13 +23,11 @@ def search():
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
             # API Request
-            book_request = requests.get(
-                "https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite",
-                params=payload)
+            book_request = requests.get("https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite", params=payload)
             # Results returned from the request
             results = book_request.json()
             return render_template("search.html", results=results['items'])
-        except BaseException:
+        except:
             flash('There was an error. Please try another search term')
             return redirect(url_for("books.search"))
     return render_template("search.html")
