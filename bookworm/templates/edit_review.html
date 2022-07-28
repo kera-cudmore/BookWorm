@@ -38,9 +38,10 @@
                                     <input class=" reviewInput mb-4" type="text" name="book_author" id="book_author" value="{{ book_review.author }}" required />
 
                                 <!-- Bookshelf -->
-                                <select class="form-select mb-3" name="{{ bookshelf_id }}" aria-label="Default select example">
+                                <label for="bookshelf_name">Choose a Bookshelf</label>
+                                <select class="form-select mb-3" name="{{ bookshelf_name }}" aria-label="Default select example">
                                     {% for bookshelf in bookshelves %}       
-                                        <option {% if bookshelf.shelf_name == book_review.bookshelf_id %} selected {% endif %}>{{ bookshelf.shelf_name }}</option>
+                                        <option value="{{ bookshelf.shelf_name }}" {% if bookshelf.shelf_name == book_review.bookshelf_name %} selected {% endif %}>{{ bookshelf.shelf_name }}</option>
                                     {% endfor %}
                                 </select>
 

@@ -37,8 +37,8 @@
                                     <input class=" reviewInput mb-3" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ shelve_book.authors|join(', ') }}" required />
 
                                     <!-- Bookshelf -->
-                                <label for="bookshelf_id">Choose a Bookshelf</label>
-                                    <select class="form-select mb-3" name="bookshelf_id" title="Choose a Shelf" aria-label="Default select example">
+                                <label for="bookshelf_name">Choose a Bookshelf</label>
+                                    <select class="form-select mb-3" name="bookshelf_name" title="Choose a Shelf" aria-label="Default select example">
                                         {% for bookshelf in bookshelves %}
                                             <option value="{{ bookshelf.shelf_name }}">{{ bookshelf.shelf_name }}</option>
                                         {% endfor %}
