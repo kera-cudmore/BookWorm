@@ -12,9 +12,7 @@
     --black: #000000;
     --rose: #BC8F8F;
     --slate: #6C757D;
-    --grey: #DCDCDC;
     --bronze: #CD853F;
-    --brown: #90522D;
     --light_brown: #AC9575;
 }
 
@@ -129,7 +127,7 @@ h5, h6 {
 }
 
 
-/*---------- REVIEW FORM INPUTS ----------*/
+/*---------- INPUTS ----------*/
 /* Book Review Star Ratings */
 /* Code Source: https://bbbootstrap.com/snippets/bootstrap-rate-your-experience-template-star-ratings-30972576 */
 .rating {
@@ -180,6 +178,7 @@ h5, h6 {
     border-radius: 5px;
 }
 
+
 /*---------- MEDIA QUERIES ----------*/
 /* Tablets */
 @media only screen and (min-width : 481px) {
@@ -199,6 +198,5 @@ h5, h6 {
     h1 {
         font-size: 5rem;  
     }
-        
-}
 
+}
