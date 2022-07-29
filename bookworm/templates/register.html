@@ -20,13 +20,14 @@
                 
                 <!-- Register Form -->
                 <form method="POST" action="{{ url_for('auth.register') }}">
-                    <!-- Username Input using defensive programming - minlength 5 maxlength 15, 
+                    <!-- Username Input using defensive programming - minlength 5 maxlength 30, 
                         RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long -->
                     <div class="mx-5 mb-4">
                         <label for="username" class="form-label">Username: </label>
                         <input class="form-control" type="text" name="username"
                             id="username" placeholder="Username" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
+                            maxlength="30" required/>
+                            <small>Username must be at least 5 characters long</small>
                     </div>
 
                     <!-- Email Input -->
@@ -36,13 +37,14 @@
                             id="email" placeholder="Email" required/>
                     </div>
 
-                    <!-- Password Input using defensive programming - minlength 5 maxlength 15,
+                    <!-- Password Input using defensive programming - minlength 5 maxlength 30,
                         RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long-->
                     <div class="mx-5 mb-4">
                         <label for="password" class="form-label">Password: </label>
                             <input class="form-control" type="password" name="password"
                                 id="password" placeholder="Password" minlength="5" 
-                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
+                                maxlength="30" required/>
+                        <small>Password must be at least 5 characters long</small>
                     </div>
 
                     <!-- Sign Up Button -->
