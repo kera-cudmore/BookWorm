@@ -1,5 +1,6 @@
 """ IMPORTS """
-from flask import render_template, request, Blueprint, url_for, flash, redirect, session
+from flask import render_template, request
+from flask import Blueprint, url_for, flash, redirect, session
 from bson.objectid import ObjectId
 import requests
 from bookworm import os, db, mongo
@@ -24,7 +25,9 @@ def search():
             payload["q"] = request.form.get("searchquery")
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
             # API Request
-            book_request = requests.get("https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite", params=payload)
+            book_request = requests.get(
+                "https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite",
+                params=payload)
             # Results returned from the request
             results = book_request.json()
             
