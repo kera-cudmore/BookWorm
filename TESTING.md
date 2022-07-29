@@ -2,7 +2,7 @@
 
 Site image here 
 
-Visit the deployed site: site link here
+Visit the deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
 
 - - -
 
@@ -189,3 +189,7 @@ Additional testing was taken by friends and family on a variety of devices and s
 - - -
 
 ### Known Bugs
+
+| No | Bug |
+| :--- | :--- |
+| 1 | When performing searches using the google books API, sometimes it is not returning a result, which results in a flash message being shown. I have noted that during development the API was returning results for certain terms, but when deployed these search terms would not return a result. I plan to look further into this issue as to why it is not returning a result and see if there is a way to filter out book results that are missing attributes. |
