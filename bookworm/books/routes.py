@@ -132,6 +132,11 @@ def populate_review():
     API request saved as a dictionary which is then passed to the the
     add review function to allow fields to be prepopulated
     """
+    # Defensive programming - prevents users creating review unless signed in
+    if "user" not in session:
+        flash("You need to be logged in to add a review")
+        return redirect(url_for("auth.login"))
+
     bookshelves = list(
         Bookshelves.query.order_by(
             Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
@@ -172,7 +177,7 @@ def add_review():
         flash("You need to be logged in to add a review")
         return redirect(url_for("auth.login"))
 
-    if request.method == "POST":
+    if request.method == "POST":    
         book_review = {
             "title": request.form.get("book_title"),
             "author": request.form.get("book_author"),
@@ -190,7 +195,8 @@ def add_review():
 
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
+            Bookshelves.shelf_name).filter(
+                Bookshelves.created_by == session["user"]).all())
     return render_template("add_review.html", bookshelves=bookshelves)
 
 
@@ -203,14 +209,14 @@ def edit_review(books_id):
     Updates the document with the form data
     Flash success message and redirects to books page
     """
+    book_review = mongo.db.books.find_one({"_id": ObjectId(books_id)})
 
     # Defensive programming - allows only the user who created review to edit
     # if they are logged in
-    book_review = mongo.db.books.find_one({"_id": ObjectId(books_id)})
-
     if "user" not in session or session["user"] != book_review["created_by"]:
         flash("You can only edit your own book reviews")
         return redirect(url_for("books.view_books"))
+
 
     if request.method == "POST":
         submit = {
@@ -244,6 +250,7 @@ def view_books():
     VIEW BOOKS FUNCTION
     queries the books collection & passes the results to the template
     """
+    
     display_books = list(mongo.db.books.find({"created_by": session["user"]}))
     return render_template("books.html", display_books=display_books)
 
