@@ -244,7 +244,7 @@ def view_books():
     VIEW BOOKS FUNCTION
     queries the books collection & passes the results to the template
     """
-    display_books = list(mongo.db.books.find())
+    display_books = list(mongo.db.books.find({"created_by": session["user"]}))
     return render_template("books.html", display_books=display_books)
 
 
