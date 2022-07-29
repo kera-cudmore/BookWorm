@@ -63,27 +63,31 @@ The validator has returned warnings for the use of aria-labels on all pages usin
 [PEP8]() was used to validate the python files.
 
 * app.py
+* books / [routes.py]()
+* auth / [routes.py]()
+* error_handlers / [routes.py]()
+* main / [routes.py]()
 
 - - -
 
 ### Lighthouse
 
-I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website.
+I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website. These scores are somewhat lower than what I would like them to be so this is something that I would prioritise improving in the next implementation.
 
 ### Desktop Results
 
-* Index Page -
-* Add Bookshelf Page -
-* Add Review Page -
-* Books Page - 
-* Bookshelves Page -
-* Edit Bookshelf Page - 
-* Edit Review Page -
-* Error Page - 
-* Login Page - 
-* Profile Page - 
-* Register Page -
-* Search Page -
+* [Index Page](documentation/testing/validation/lh-index-desk.png)
+* [Add Bookshelf Page](documentation/testing/validation/lh-add-bookshelf-desk.png)
+* [Add Review Page](documentation/testing/validation/lh-add-review-desk.png)
+* [Books Page](documentation/testing/validation/lh-books-desk.png)
+* [Bookshelves Page](documentation/testing/validation/lh-bookshelves-desk.png)
+* [Edit Bookshelf Page](documentation/testing/validation/lh-edit-bookshelf-desk.png)
+* [Edit Review Page](documentation/testing/validation/lh-edit-review-desk.png)
+* [Error Page](documentation/testing/validation/lh-error-desk.png)
+* [Login Page](documentation/testing/validation/lh-login-desk.png)
+* [Profile Page](documentation/testing/validation/lh-profile-desk.png)
+* [Register Page](documentation/testing/validation/lh-register-desk.png)
+* [Search Page](documentation/testing/validation/lh-search-desk.png)
 
 ### Mobile Results
 
@@ -251,8 +255,6 @@ Additional testing was taken by friends and family on a variety of devices and s
 | `Error Page` |
 |   |   |   |   |   |
 | Home page link | Redirects the user to the home page | Clicked link | Redirected to home page | Pass |
-
-
 
  - - -
 
