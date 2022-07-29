@@ -1,6 +1,6 @@
 # BookWorm -  Testing
 
-Site image here 
+![Bookworm](documentation/bookworm.png)
 
 Visit the deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
 

@@ -4,7 +4,7 @@
 
 BookWorm was created as my third milestone project for the Code Institutes Level 5 Diploma in Web Application Development.
 
-Add site responsive screenshot here ![]()
+![Bookworm](documentation/bookworm.png)
 
 Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
 
