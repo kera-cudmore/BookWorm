@@ -63,7 +63,7 @@ def login():
                     existing_user[0].password,
                     request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome back, {}".format(request.form.get("username")))
+                flash("Welcome back, {}".format(request.form.get("username").capitalize() ))
                 return redirect(
                     url_for(
                         "auth.profile",
