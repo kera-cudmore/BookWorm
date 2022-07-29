@@ -24,7 +24,7 @@ Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
   * [Typography](#Typography)
   * [Imagery](#Imagery)
   * [Wireframes](#Wireframes)
-  * [Database Structure](#Database-Structure)
+  * [Database Schema](#Database-Schema)
 
 * [Features](#Features)
   * [General Features of Each Page](#General-Features-of-Each-Page)
@@ -156,7 +156,9 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 #### __Error Page__
 ![Error Page](documentation/wireframes/error.png)
 
-### Database Structure
+### Database Schema
+
+![Database Schema](documentation/database-schema.png)
 
 - - -
 
