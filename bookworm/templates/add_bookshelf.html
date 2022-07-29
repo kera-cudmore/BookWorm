@@ -19,7 +19,8 @@
 
                     <!-- Add bookshelf form -->
                     <form class="col-10 mx-auto" action="{{ url_for('books.add_bookshelf') }}" method="POST">
-                            <input type="text" class="form-control validate mb-3" id="new_shelf" name="new_shelf"
+                        <label for="new_shelf" hidden>New Shelf:</label>    
+                        <input type="text" class="form-control validate mb-3" id="new_shelf" name="new_shelf"
                                 placeholder="Shelf Name" minlength="3" maxlength="25" required>
                             <button class="btn btn-outline-secondary" type="submit">
                                 <i class="bi bi-plus" aria-label="Add Bookshelf"></i> Add Bookshelf
