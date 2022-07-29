@@ -32,6 +32,7 @@
                                 </h2>
                                 <div id="shelf-{{loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#bookshelfAccordion">
                                     <div class="accordion-body">
+                                        <!-- Edit Bookshelf Button -->
                                         <a id="{{ bookshelf.id }}" href="{{ url_for('books.edit_bookshelf', bookshelf_id=bookshelf.id) }}"
                                             class="btn btn-outline-secondary">
                                             <i class="bi bi-pencil-square" aria-label="Edit Bookshelf"></i>Edit
