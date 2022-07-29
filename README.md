@@ -40,7 +40,8 @@ Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
     * [Google Books API](#Google-Books-API)
     * [Flask Blueprints](#Flask-Blueprints)
     * [Flask Migrate](#Flask-Migrate)
-    *[Error Handling](#Error-Handling)
+    * [Error Handling](#Error-Handling)
+    * [Defensive Programming](#Defensive-Programming)
 
 * [Deployment & Local Development](#Deployment-&-Local-Development)
   * [Deployment](#Deployment)
@@ -298,6 +299,9 @@ Flask-Migrate is an extension that handles SQLAlchemy database migrations for Fl
 
 While researching the best way to handle errors in a Flask application using blueprints I came across the following [article](https://nrodrig1.medium.com/flask-blueprints-error-handling-and-config-file-example-d1a031070763). I really liked how this solution allowed me to create a blueprint to custom handle a number of different errors, rather than just creating a single 404 error page.
 
+### Defensive Programming
+
+I have used defensive programming through my app to ensure that users who are not logged in, or users who did not create the bookshelf or review are unable to edit. This is achieved by checking whether there is a user in session, and then also checking to see if the session user is the same user who created the bookshelf/review. If a user is not the creator, a flash message will be displayed to let them know that they are only able to edit/delete their own bookshelves/reviews and then redirects them to a suitable page. I would like to look into this further and utilise a check that is the session user is "admin" they will be granted access to all bookshelves and reviews to enable them to remove any offensive material.
 - - -
 
 ## Deployment & Local Development
