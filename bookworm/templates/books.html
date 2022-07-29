@@ -29,7 +29,7 @@
                                     <div class="accordion accordion-flush" id="accordion-{{ loop.index }}">
                                         <div class="accordion-item">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#review-{{ loop.index }}" aria-expanded="true" aria-controls="review-{{ loop.index }}">
-                                                <p class="card-title">{{ book.title }}</p>
+                                                {{ book.title }}
                                             </button>
                                             <div id="review-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="review-{{ loop.index }}" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
