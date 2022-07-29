@@ -350,7 +350,7 @@ The site is deployed using Heroku. To deploy to Heroku:
     | DEBUG | TRUE** |
 
     *Denotes a value that is specific to your app.
-    
+
     **This is set to true while deploying to enable us to see any bugs. Please change to FALSE after deployment.
 
 10. You're now ready to click the enable automatic deploys and create button. Heroku will start building the app.
@@ -364,7 +364,7 @@ The site is deployed using Heroku. To deploy to Heroku:
 14. We will now need to go the more button on the dashboard and select run console. This is where we will set up the tables in the database we have just created.
 
 15. Type python3 and then once the python interpretor opens, we can run the following:
-    
+
     ```bash
     from bookworm import db
     db.create_all()
