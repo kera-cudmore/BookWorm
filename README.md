@@ -164,21 +164,40 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
 ## Features
 
-The website is comprised of …
+The website is comprised of 12 pages which are extended from a base template.
+
+* Home page
+* Login page
+* Register page
+* Profile page
+* Bookshelve page
+* Add bookshelf page
+* Edit bookshelf page
+* Books page
+* Add review page
+* Edit review page
+* Search page
+* Error page
 
 ### Elements found on each page
 
 * Favicon - Created at [Favicon.io](https://favicon.io/). I have chosen an illustration of an open book as it fit the theme of my site, this image has also been used as the logo for the site - which fosters continuity through the site for users and promotes brand awareness.
 
-![Bookworm favicon](documentation/favicon.png)
+  ![Bookworm favicon](documentation/favicon.png)
 
 * Navbar - The Navbar is displayed on all pages of the website and allows users to navigate the site with ease. The navbar is comprised of a logo, the sites name, links to navigate the site and a search bar. The links on the navbar will vary depending on whether a user is logged into their account.
 
-IMAGE OF NAVBAR TO GO HERE
+  __User logged in Navbar__
+  
+  ![User logged in Navbar](documentation/logged-in-navbar.png)
+
+  __User not logged in Navbar__
+
+  ![User not logged in Navbar](documentation/not-loggedin-navbar.png)
 
 * Footer - A footer is displayed on all pages of the website and contains the copyright year, this is updated to the current year using [JavaScript](bookworm/static/js/script.js). 
 
-IMAGE OF FOOTER TO GO HERE
+  ![Footer](documentation/footer.png)
 
 ### Future Implementations
 
