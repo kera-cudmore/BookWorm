@@ -178,6 +178,9 @@ h5, h6 {
     border-radius: 5px;
 }
 
+sup {
+    color: red;
+}
 
 /*---------- MEDIA QUERIES ----------*/
 /* Tablets */

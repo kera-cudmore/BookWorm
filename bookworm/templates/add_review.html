@@ -13,10 +13,12 @@
             <!-- PAGE CONTENTS CARD PANEL -->
             <div class="col-10 mx-auto mb-5 card panel">
                 <div class="col-10 mx-auto">
-
+                    <p class="text-center mb-5">Choose which information you would like to save with this book. <sup>*</sup> Denotes a required field.
+                    </p>
+                    
                     <!-- Add Book review form -->
                     <form class="mx-auto" action="{{ url_for('books.add_review') }}" method="POST">
-
+                    
                         <!-- Book Cover-->
                         <div class="row row-cols-1 row-cols-md-2">
                             <div class="col text-center">
@@ -29,15 +31,15 @@
 
                             <!-- Book Title (REQUIRED)-->
                             <div class="col">
-                                <label for="book_title">Title: </label>
+                                <label for="book_title"><sup>*</sup> Title</label>
                                 <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required />
 
                                 <!-- Book Author (REQUIRED) -->
-                                    <label for="book_author">Author: </label>
+                                    <label for="book_author"><sup>*</sup> Author</label>
                                     <input class=" reviewInput mb-3" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ shelve_book.authors|join(', ') }}" required />
 
                                     <!-- Bookshelf -->
-                                <label for="bookshelf_id">Choose a Bookshelf</label>
+                                <label for="bookshelf_id"><sup>*</sup> Choose a Bookshelf</label>
                                     <select class="form-select mb-3" name="bookshelf_id" aria-label="Default select example">
                                         {% for bookshelf in bookshelves %}
                                             <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
