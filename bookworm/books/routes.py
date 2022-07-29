@@ -134,7 +134,7 @@ def populate_review():
     """
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).all())
+            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
 
     gbook_id = request.args.get('gbook_id')
     book = {}
@@ -190,7 +190,7 @@ def add_review():
 
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).all())
+            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
     return render_template("add_review.html", bookshelves=bookshelves)
 
 
@@ -231,7 +231,7 @@ def edit_review(books_id):
 
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).all())
+            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
     return render_template(
         "edit_review.html",
         book_review=book_review,
