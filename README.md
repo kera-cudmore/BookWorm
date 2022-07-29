@@ -200,6 +200,58 @@ The website is comprised of 12 pages which are extended from a base template.
 
   ![Footer](documentation/footer.png)
 
+- - -
+
+### Home Page
+
+![Home Page](documentation/home-page.png)
+
+### Login Page
+
+![Log in Page](documentation/login-page.png)
+
+### Register Page
+
+![Register Page](documentation/register-page.png)
+
+### Profile Page
+
+![Profile Page](documentation/profile-page.png)
+
+### Bookshelves Page
+
+![Bookshelves Page](documentation/bookshelves-page.png)
+
+### Add Bookshelf Page
+
+![Add Bookshelf Page](documentation/add-bookshelf-page.png)
+
+### Edit Bookshelf Page
+
+![Edit Bookshelf Page](documentation/edit-bookshelf-page.png)
+
+### Books Page
+
+![Books Page](documentation/books-page.png)
+
+### Add Review Page
+
+![Add Review Page](documentation/add-review-page.png)
+
+### Edit Review Page
+
+![Edit Review Page](documentation/edit-review-page.png)
+
+### Search Page
+
+![Search Page](documentation/search-page.png)
+
+### Error Page
+
+![Error Page](documentation/error-page.png)
+
+- - -
+
 ### Future Implementations
 
 In future implementations I would like to:
