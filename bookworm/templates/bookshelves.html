@@ -49,11 +49,11 @@
                     
                             <!-- DELETE BOOKSHELF MODAL -->
                             <!-- Defensive programming, creates an extra check before the bookshelf is deleted from the db -->  
-                            <div class="modal fade" id="deleteModal-{{ bookshelf.id }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="deleteModal-{{ bookshelf.id }}" tabindex="-1" aria-labelledby="deleteModal-{{ loop.index }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <p class="modal-title" id="deleteModalLabel">
+                                            <p class="modal-title" id="deleteModal-{{ loop.index }}">
                                                 Are you sure you want to delete this bookshelf? All books saved this shelf will also be deleted.
                                             </p>
                                         </div>
