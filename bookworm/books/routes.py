@@ -177,7 +177,7 @@ def add_review():
         flash("You need to be logged in to add a review")
         return redirect(url_for("auth.login"))
 
-    if request.method == "POST":    
+    if request.method == "POST":
         book_review = {
             "title": request.form.get("book_title"),
             "author": request.form.get("book_author"),
@@ -216,7 +216,6 @@ def edit_review(books_id):
     if "user" not in session or session["user"] != book_review["created_by"]:
         flash("You can only edit your own book reviews")
         return redirect(url_for("books.view_books"))
-
 
     if request.method == "POST":
         submit = {
