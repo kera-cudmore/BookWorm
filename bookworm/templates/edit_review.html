@@ -34,12 +34,12 @@
                                 <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" value="{{ book_review.title }}" required />
 
                                 <!-- Book Author (REQUIRED) -->
-                                    <label for="book_title">Author: </label>
+                                    <label for="book_author">Author: </label>
                                     <input class=" reviewInput mb-4" type="text" name="book_author" id="book_author" value="{{ book_review.author }}" required />
 
                                 <!-- Bookshelf -->
                                 <label for="bookshelf_id">Choose a Bookshelf</label>
-                                <select class="form-select mb-3" name="bookshelf_id" aria-label="Default select example">                                        
+                                <select class="form-select mb-3" name="bookshelf_id" aria-label="bookshelf_id">                                        
                                     {% for bookshelf in bookshelves %}  
                                         <!-- jinja if loop - converts bookshelf.id to a string, checks if db value is == to mongo value - if yes adds selected so shelf displays -->     
                                         <option value="{{ bookshelf.id }}" {% if bookshelf.id|string == book_review.bookshelf_id %} selected="selected" {% endif %}>{{ bookshelf.shelf_name }}</option>
@@ -48,11 +48,11 @@
 
                                 <!-- Star Rating (click on stars to leave a rating from 1 to 5) -->
                                 <div class=" col mb-3 rating" >
-                                    <input type="radio" {% if book_review.rating == "5" %} checked="checked" {% endif %} name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
-                                    <input type="radio" {% if book_review.rating == "4" %} checked="checked" {% endif %} name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
-                                    <input type="radio" {% if book_review.rating == "3" %} checked="checked" {% endif %} name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
-                                    <input type="radio" {% if book_review.rating == "2" %} checked="checked" {% endif %} name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
-                                    <input type="radio" {% if book_review.rating == "1" %} checked="checked" {% endif %} name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                                    <label for="5"><i class="bi bi-star"></i></label><input type="radio" {% if book_review.rating == "5" %} checked="checked" {% endif %} name="rating" value="5" id="5"> 
+                                    <label for="4"><i class="bi bi-star"></i></label><input type="radio" {% if book_review.rating == "4" %} checked="checked" {% endif %} name="rating" value="4" id="4"> 
+                                    <label for="3"><i class="bi bi-star"></i></label><input type="radio" {% if book_review.rating == "3" %} checked="checked" {% endif %} name="rating" value="3" id="3"> 
+                                    <label for="2"><i class="bi bi-star"></i></label><input type="radio" {% if book_review.rating == "2" %} checked="checked" {% endif %} name="rating" value="2" id="2"> 
+                                    <label for="1"><i class="bi bi-star"></i></label><input type="radio" {% if book_review.rating == "1" %} checked="checked" {% endif %} name="rating" value="1" id="1">
                                 </div>   
                             </div>   
                         </div>
