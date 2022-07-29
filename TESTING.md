@@ -21,12 +21,9 @@ Visit the deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
   * [Solved Bugs](#Solved-Bugs)
   * [Known Bugs](#Known-Bugs)
 
-Testing was ongoing throughout the entire build. I utilised Chrome developer tools whilst building to pinpoint and troubleshoot any issues as I went along.
+Testing was ongoing throughout the entire build. During development I made use of Google Chrome Developer Tools to ensure everything was working correctly and to assist with troubleshooting when things were not working as expected.
 
-During development I made use of Google Chrome Developer Tools to ensure everything was working correctly and to assist with troubleshooting when things were not working as expected.
-
-I have gone through each page using Google Chrome Developer Tools & Firefox i
-Inspector Tools to ensure that each page is responsive on a variety of different screen sizes and devices.
+I have gone through each page using Google Chrome Developer Tools to ensure that each page is responsive on a variety of different screen sizes and devices.
 
 - - -
 
@@ -45,7 +42,7 @@ Inspector Tools to ensure that each page is responsive on a variety of different
 * Edit Review Page -
 * Error Page - 
 * Login Page - 
-* Profile Page - 
+* [Profile Page](documentation/testing/validation/w3c-profile.png) - The validator has returned warnings for the use of aria-labels on the bootstrap icons. I am happy to leave these warnings as I have followed the instructions on the bootstrap site regarding the use of aria labels with icons, and the use of the aria labels is important for accessibility.
 * Register Page -
 * Search Page -
 
