@@ -36,8 +36,8 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 * [Index Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2F)
 * [Add Bookshelf Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fadd_bookshelf)
 * [Add Review Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fpopulate_review%3Fgbook_id%3DM4-jzgEACAAJ)
-* [Books Page]()
-* [Bookshelves Page]()
+* Books Page] - No errors
+* Bookshelves Page - No errors
 * [Edit Bookshelf Page](documentation/testing/validation/edit-bookshelf-w3c.png)
 * [Edit Review Page](documentation/testing/validation/edit-review-w3c.png) - There is one error relating to the label belonging to a hidden input.
 * [Error Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_bookshelf%2Ferror)
