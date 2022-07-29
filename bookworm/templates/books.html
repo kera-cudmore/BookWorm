@@ -40,23 +40,21 @@
                                     <div class="accordion accordion-flush" id="accordion">
                                         <div class="accordion-item">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#review-{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne">
-                                                <h5 class="card-title">{{ book.title }}</h5>
+                                                <div class="rating" >
+                                                    <input type="radio" {% if book.rating == "5" %} checked="checked" {% endif %} name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
+                                                    <input type="radio" {% if book.rating == "4" %} checked="checked" {% endif %} name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
+                                                    <input type="radio" {% if book.rating == "3" %} checked="checked" {% endif %} name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
+                                                    <input type="radio" {% if book.rating == "2" %} checked="checked" {% endif %} name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
+                                                    <input type="radio" {% if book.rating == "1" %} checked="checked" {% endif %} name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
+                                                </div>
                                             </button>
                                             <div id="review-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
+                                                    <h5 class="card-title">{{ book.title }}</h5>
                                                     <h6>Review:</h6>
                                                     <p>{{ book.review }}</p>
                                                     <h6>Notes:</h6>
                                                     <p>{{ book.notes }}</p>
-
-                                                    <div class="rating" >
-                                                        <input type="radio" {% if book.rating == "5" %} checked="checked" {% endif %} name="rating" value="5" id="5"><label for="5"><i class="bi bi-star"></i></label> 
-                                                        <input type="radio" {% if book.rating == "4" %} checked="checked" {% endif %} name="rating" value="4" id="4"><label for="4"><i class="bi bi-star"></i></label> 
-                                                        <input type="radio" {% if book.rating == "3" %} checked="checked" {% endif %} name="rating" value="3" id="3"><label for="3"><i class="bi bi-star"></i></label> 
-                                                        <input type="radio" {% if book.rating == "2" %} checked="checked" {% endif %} name="rating" value="2" id="2"><label for="2"><i class="bi bi-star"></i></label> 
-                                                        <input type="radio" {% if book.rating == "1" %} checked="checked" {% endif %} name="rating" value="1" id="1"><label for="1"><i class="bi bi-star"></i></label>
-                                                    </div>   
-
                                                 </div>
                                             </div>
                                         </div>
