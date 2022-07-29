@@ -40,8 +40,9 @@
                                 <!-- Bookshelf -->
                                 <label for="bookshelf_id">Choose a Bookshelf</label>
                                 <select class="form-select mb-3" name="bookshelf_id" aria-label="Default select example">                                        
-                                    {% for bookshelf in bookshelves %}       
-                                        <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
+                                    {% for bookshelf in bookshelves %}  
+                                        <!-- jinja if loop - converts bookshelf.id to a string, checks if db value is == to mongo value - if yes adds selected so shelf displays -->     
+                                        <option value="{{ bookshelf.id }}" {% if bookshelf.id|string == book_review.bookshelf_id %} selected="selected" {% endif %}>{{ bookshelf.shelf_name }}</option>
                                     {% endfor %}
                                 </select>
 
