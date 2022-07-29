@@ -18,7 +18,7 @@
                     <h2 class="pb-1">Bookworm: A site for Bibliophiles to keep track of their books!</h2>
                     <img src="{{ url_for('static', filename='images/book-heart.webp') }}" alt="Book with pages folded inwards to create a heart shape" class="contentImage">
                     <div class="mx-5">
-                        <p><a class="text-reset" href={{ url_for('auth.register') }}>Register</a> for an account with Bookworm and you'll be able to create your own personalised bookshelf system to help you keep track of your reading.</p>
+                        <p><a class="text-reset" href="{{ url_for('auth.register') }}">Register</a> for an account with Bookworm and you'll be able to create your own personalised bookshelf system to help you keep track of your reading.</p>
                         <p>Use the <a class="text-reset" href="{{ url_for('books.search') }}">search</a> function to find books to shelf, and leave a review or some notes on your books.</p>
                     </div>
                 </div>
