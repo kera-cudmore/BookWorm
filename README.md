@@ -6,7 +6,7 @@ BookWorm was created as my third milestone project for the Code Institutes Level
 
 Add site responsive screenshot here ![]()
 
-Link to deployed site to go here []()
+Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/kera-cudmore/BookWorm?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/kera-cudmore/BookWorm?style=for-the-badge)
@@ -92,7 +92,7 @@ As a returning registered user of the site I want to be able to:
 
 As an administrator for the site I want to be able to:
 
-* Remove any content that could be offensive.
+* Remove any content that could be offensive. (Future Implementation)
 
 - - -
 
@@ -100,7 +100,9 @@ As an administrator for the site I want to be able to:
 
 ### Colour Scheme
 
-Image of colour scheme to go here
+I have taken inspiration from the header image for the colour palette and chosen colours that complemenet each other.
+
+![Colour Scheme for Bookworm](documentation/colour-palette.png)
 
 ### Typography
 
@@ -115,6 +117,10 @@ I have used [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mont
 ![Montserrat Font](documentation/montserrat.png)
 
 ### Imagery
+
+As the site is for book lovers, I have kept the imagery throughout the site to the theme of books. Please view the media section for more information on where each image was sourced.
+
+All images of book covers have been requested through the google books API.
 
 ### Wireframes
 
@@ -255,6 +261,8 @@ I made use of the Google Books API [documentation](https://developers.google.com
 As I am only using the API to search for books, and won't be accessing google books shelves or user login data I have chosen to use an API key for access rather than OAuth. My requests to the API contain my API key, the search term the user has created and the fields that I would like to be returned. I have chosen to only receive the books title, authors, description and thumbnail of the book. I have set up the API request to ask for 30 results maximum.
 
 Update - to enable me to get the books unique ID I have had to pull the complete light version when performing a search. This unfortunately means that I am requesting more information than I need, however currently there is no way to pull in the ID with other fields. In future implementations I would look into using graphql as an alternative to calling the api as this will allow me to specify the exact data I would like to have returned.
+
+Please note that there is an issue with the google books API where certain terms don't return a result back. This is something that I will be looking further into to see if there is a way to deal with this. Search terms that return results to show the product working include: dogs, James Patterson, rabbits.
 
 ### Flask Blueprints
 
