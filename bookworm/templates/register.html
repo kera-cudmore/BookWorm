@@ -20,8 +20,7 @@
                 
                 <!-- Register Form -->
                 <form method="POST" action="{{ url_for('auth.register') }}">
-                    <!-- Username Input using defensive programming - minlength 5 maxlength 30, 
-                        RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long -->
+                    <!-- Username Input using defensive programming - minlength 5 maxlength 30, between 5 and 30 characters long -->
                     <div class="mx-5 mb-4">
                         <label for="username" class="form-label">Username: </label>
                         <input class="form-control" type="text" name="username"
@@ -37,8 +36,7 @@
                             id="email" placeholder="Email" required/>
                     </div>
 
-                    <!-- Password Input using defensive programming - minlength 5 maxlength 30,
-                        RegEx - allowing a-z, A-Z & 0-9 between 5 and 15 characters long-->
+                    <!-- Password Input using defensive programming - minlength 5 maxlength 30, between 5 and 15 characters long-->
                     <div class="mx-5 mb-4">
                         <label for="password" class="form-label">Password: </label>
                             <input class="form-control" type="password" name="password"
