@@ -39,7 +39,7 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 * [Books Page]()
 * [Bookshelves Page]()
 * [Edit Bookshelf Page]()
-* [Edit Review Page]()
+* [Edit Review Page](documentation/testing/validation/edit-review-w3c.png) - There is one error relating to the label belonging to a hidden input.
 * [Error Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_bookshelf%2Ferror)
 * [Login Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Flogin)
 * [Profile Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fprofile%3Fusername%3Dadmin)
@@ -61,6 +61,8 @@ The validator has returned warnings for the use of aria-labels on all pages usin
 ### Python Validator
 
 [PEP8](http://pep8online.com/) was used to validate the python files.
+
+Due to limited time for completing this project I have been unable to completely fix all PEP8 errors in all the files, I need to do some further research into the best ways to break lines that are too long.
 
 * app.py - No Errors
 
