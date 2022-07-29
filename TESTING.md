@@ -60,13 +60,9 @@ The validator has returned warnings for the use of aria-labels on all pages usin
 
 ### Python Validator
 
-[PEP8]() was used to validate the python files.
+[PEP8](http://pep8online.com/) was used to validate the python files.
 
-* app.py
-* books / [routes.py]()
-* auth / [routes.py]()
-* error_handlers / [routes.py]()
-* main / [routes.py]()
+* app.py - No Errors
 
 - - -
 
@@ -89,39 +85,13 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 * [Register Page](documentation/testing/validation/lh-register-desk.png)
 * [Search Page](documentation/testing/validation/lh-search-desk.png)
 
-### Mobile Results
-
-* Index Page -
-* Add Bookshelf Page -
-* Add Review Page -
-* Books Page - 
-* Bookshelves Page -
-* Edit Bookshelf Page - 
-* Edit Review Page -
-* Error Page - 
-* Login Page - 
-* Profile Page - 
-* Register Page -
-* Search Page -
-
 - - -
 
 ### WAVE Testing
 
 [WAVE](http://wave.webaim.org/) (Web Accessibility Evaluation Tool) allows developers to create content that is more accessible to users with disabilities. It does this by identifying accessibility and WGAC errors.
 
-* Index Page -
-* Add Bookshelf Page -
-* Add Review Page -
-* Books Page - 
-* Bookshelves Page -
-* Edit Bookshelf Page - 
-* Edit Review Page -
-* Error Page - 
-* Login Page - 
-* Profile Page - 
-* Register Page -
-* Search Page -
+I have used the WAVE testing tool to try and ensure there are no accessibility issues with my site.
 
 - - -
 
