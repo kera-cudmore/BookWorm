@@ -44,7 +44,7 @@ def bookshelves():
     """
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).all())
+            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
     return render_template("bookshelves.html", bookshelves=bookshelves)
 
 
