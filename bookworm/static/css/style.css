@@ -137,7 +137,7 @@ h5, h6 {
 .rating {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .rating>input {
@@ -161,14 +161,19 @@ h5, h6 {
 
 .rating>label:hover:before,
 .rating>label:hover~label:before {
+    width: 100%;
+    left: 2.5px;
+    font-size:32px;
     opacity: 1 !important;
 }
 
 .rating>input:checked~label:before {
+    width: 100%;
     opacity: 1;
 }
 
 .rating:hover>input:checked~label:before {
+    width: 100%;
     opacity: 0.4;
 }
 
