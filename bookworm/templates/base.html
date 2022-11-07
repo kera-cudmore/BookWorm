@@ -59,40 +59,40 @@
                     <ul class="navbar-nav me-0 mb-2 mb-lg-0">
                         <!-- Home & Search - to be displayed to all -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('main.home') }}">
-                                <i class="bi bi-house-heart" aria-label="Home"></i> Home</a>
+                            <a class="nav-link" href="{{ url_for('main.home') }}" aria-label="Home">
+                                <i class="bi bi-house-heart"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('books.search') }}">
-                                <i class="bi bi-search-heart" aria-label="Search"></i> Search</a>
+                            <a class="nav-link" href="{{ url_for('books.search') }}" aria-label="Search">
+                                <i class="bi bi-search-heart"></i> Search</a>
                         </li>
                         <!-- Bookshelves, books, profile & logout only to be shown to logged in users -->
                         {% if session.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('books.bookshelves') }}">
-                                <i class="bi bi-bookshelf" aria-label="Bookshelf"></i> Bookshelves</a>
+                            <a class="nav-link" href="{{ url_for('books.bookshelves') }}" aria-label="Bookshelf">
+                                <i class="bi bi-bookshelf"></i> Bookshelves</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('books.view_books') }}">
-                                <i class="bi bi-book" aria-label="Books"></i> Books</a>
+                            <a class="nav-link" href="{{ url_for('books.view_books') }}" aria-label="Books">
+                                <i class="bi bi-book"></i> Books</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('auth.profile') }}">
-                                <i class="bi bi-person" aria-label="Profile"></i> Profile</a>
+                            <a class="nav-link" href="{{ url_for('auth.profile') }}" aria-label="Profile">
+                                <i class="bi bi-person"></i> Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('auth.logout') }}">
-                                <i class="bi bi-box-arrow-right" aria-label="Log out"></i> Log Out</a>
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}" aria-label="Log out">
+                                <i class="bi bi-box-arrow-right"></i> Log Out</a>
                         </li>
                         <!-- Login & Register only to be shown if not logged in -->
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('auth.login') }}">
-                                <i class="bi bi-box-arrow-in-right" aria-label="Log in"></i> Log In</a>
+                            <a class="nav-link" href="{{ url_for('auth.login') }}" aria-label="Log in">
+                                <i class="bi bi-box-arrow-in-right"></i> Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('auth.register') }}">
-                                <i class="bi bi-person-plus" aria-label="Register"></i> Register</a>
+                            <a class="nav-link" href="{{ url_for('auth.register') }}" aria-label="Register">
+                                <i class="bi bi-person-plus"></i> Register</a>
                         </li>
                         {% endif %}
                     </ul>
