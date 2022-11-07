@@ -1,10 +1,10 @@
-![Welcome to Bookworm](documentation/welcome-to-bookworm.png)
-
 # BookWorm
 
-BookWorm was created as my third milestone project for the Code Institutes Level 5 Diploma in Web Application Development.
+![Welcome to Bookworm](documentation/welcome-to-bookworm.png)
 
 ![Bookworm](documentation/bookworm.png)
+
+BookWorm was created as my third milestone project for the Code Institutes Level 5 Diploma in Web Application Development.
 
 Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
 
@@ -128,33 +128,43 @@ All images of book covers have been requested through the google books API.
 Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
 #### __Home Page__
+
 ![Home Page](documentation/wireframes/home.png)
 
 #### __Register Page__
+
 ![Register Page](documentation/wireframes/register.png)
 
 #### __Login Page__
+
 ![Login Page](documentation/wireframes/login.png)
 
 #### __Profile Page__
+
 ![Profile Page](documentation/wireframes/profile.png)
 
 #### __Search Page__
+
 ![Search Page](documentation/wireframes/search.png)
 
 #### __Bookshelves Page__
+
 ![Bookshelves Page](documentation/wireframes/bookshelves.png)
 
 #### __Add Bookshelf Page__
+
 ![Add Bookshelf Page](documentation/wireframes/add-bookshelf.png)
 
 #### __Add/Edit Review Page__
+
 ![Add Review Page](documentation/wireframes/add-review.png)
 
 #### __Books Page__
+
 ![Books Page](documentation/wireframes/books.png)
 
 #### __Error Page__
+
 ![Error Page](documentation/wireframes/error.png)
 
 ### Database Schema
@@ -196,7 +206,7 @@ The website is comprised of 12 pages which are extended from a base template.
 
   ![User not logged in Navbar](documentation/not-loggedin-navbar.png)
 
-* Footer - A footer is displayed on all pages of the website and contains the copyright year, this is updated to the current year using [JavaScript](bookworm/static/js/script.js). 
+* Footer - A footer is displayed on all pages of the website and contains the copyright year, this is updated to the current year using [JavaScript](bookworm/static/js/script.js).
 
   ![Footer](documentation/footer.png)
 
@@ -311,7 +321,7 @@ HTML, CSS, Javascript, Python
 
 [Google Fonts](https://fonts.google.com/) - To import the fonts used on the website.
 
-[Font Awesome](https://fontawesome.com/) - Version ** - For the iconography on the website.
+[Bootstrap Icons](https://icons.getbootstrap.com/) - Version 1.8.3 - For the iconography on the website.
 
 [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To troubleshoot and test features, solve issues with responsiveness and styling.
 
