@@ -160,7 +160,8 @@ def populate_review():
     shelve_book = {
         "title": review_book['items'][0]['volumeInfo']['title'],
         "authors": review_book['items'][0]['volumeInfo']['authors'],
-        "thumbnail": review_book['items'][0]['volumeInfo']['imageLinks']['thumbnail']}
+        "thumbnail":
+            review_book['items'][0]['volumeInfo']['imageLinks']['thumbnail']}
 
     return render_template(
         "add_review.html",

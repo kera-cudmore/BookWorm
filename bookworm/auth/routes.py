@@ -1,6 +1,12 @@
 """ IMPORTS """
-from flask import (render_template, request, Blueprint, url_for, redirect,
-                   flash, session)
+from flask import (
+    render_template,
+    request,
+    Blueprint,
+    url_for,
+    redirect,
+    flash,
+    session)
 from werkzeug.security import generate_password_hash, check_password_hash
 from bookworm import db
 from bookworm.models import Users
