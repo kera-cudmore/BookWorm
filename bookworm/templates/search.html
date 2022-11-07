@@ -38,12 +38,12 @@
                                     <div class="card h-100">
                                         <img src="{{ result.volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="...">
                                         <!-- Accordion -->
-                                        <div class="accordion accordion-flush" id="accordion">
+                                        <div class="accordion accordion-flush" id="accordion-{{ loop.index }}">
                                             <div class="accordion-item">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#book-{{ loop.index }}" aria-expanded="true" aria-controls="book-{{ loop.index }}">
                                                     <h5 class="card-title">{{ result.volumeInfo.title }}</h5>
                                                 </button>
-                                                <div id="book-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                                <div id="book-{{ loop.index }}" class="accordion-collapse collapse" aria-label="{{ result.volumeInfo.title }}" data-bs-parent="#accordion-{{ loop.index}}">
                                                     <div class="accordion-body">
                                                         {% for author in result.volumeInfo.authors %}
                                                             <h6 class="card-title">{{ author }}</h6>
