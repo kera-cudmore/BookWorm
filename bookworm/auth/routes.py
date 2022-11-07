@@ -1,5 +1,6 @@
 """ IMPORTS """
-from flask import render_template, request, Blueprint, url_for, redirect, flash, session
+from flask import (render_template, request, Blueprint, url_for, redirect,
+                   flash, session)
 from werkzeug.security import generate_password_hash, check_password_hash
 from bookworm import db
 from bookworm.models import Users
@@ -63,7 +64,8 @@ def login():
                     existing_user[0].password,
                     request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome back, {}".format(request.form.get("username").capitalize() ))
+                flash("Welcome back, {}".format(
+                    request.form.get("username").capitalize()))
                 return redirect(
                     url_for(
                         "auth.profile",
