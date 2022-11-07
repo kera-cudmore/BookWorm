@@ -8,18 +8,18 @@ Visit the deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
 
 ## CONTENTS
 
-* [AUTOMATED TESTING](#AUTOMATED-TESTING)
-  * [W3C Validator](#W3C-Validator)
-  * [JavaScript Validator](#JavaScript-Validator)
-  * [Python Validator](#Python-Validator)
-  * [Lighthouse](#Lighthouse)
-  * [WAVE Testing](#WAVE-Testing)
-* [MANUAL TESTING](#MANUAL-TESTING)
-  * [Testing User Stories](#Testing-User-Stories)
-  * [Full Testing](#Full-Testing)
-* [BUGS](#BUGS)
-  * [Solved Bugs](#Solved-Bugs)
-  * [Known Bugs](#Known-Bugs)
+* [AUTOMATED TESTING](#automated-testing)
+  * [W3C Validator](#w3c-validator)
+  * [JavaScript Validator](#javascript-validator)
+  * [Python Validator](#python-validator)
+  * [Lighthouse](#lighthouse)
+  * [WAVE Testing](#wave-testing)
+* [MANUAL TESTING](#manual-testing)
+  * [Testing User Stories](#testing-user-stories)
+  * [Full Testing](#full-testing)
+* [BUGS](#bugs)
+  * [Solved Bugs](#solved-bugs)
+  * [Known Bugs](#known-bugs)
 
 Testing was ongoing throughout the entire build. During development I made use of Google Chrome Developer Tools to ensure everything was working correctly and to assist with troubleshooting when things were not working as expected.
 
