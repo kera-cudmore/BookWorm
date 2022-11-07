@@ -261,6 +261,11 @@ def view_books():
     VIEW BOOKS FUNCTION
     queries the books collection & passes the results to the template
     """
+    # Defensive programming - prevents users from viewing the books
+    #  if they aren't signed in & redirects to log in page
+    if "user" not in session:
+        flash("You need to be logged in to view your books")
+        return redirect(url_for("auth.login"))
 
     display_books = list(mongo.db.books.find({"created_by": session["user"]}))
     return render_template("books.html", display_books=display_books)
