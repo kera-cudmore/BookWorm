@@ -45,6 +45,12 @@ def bookshelves():
     Returns all bookshelves from the db in alphabetical order to a variable
     and passes to the template
     """
+    # Defensive programming - prevents users viewing bookshelves
+    # if they aren't signed in
+    if "user" not in session:
+        flash("You need to be logged in to view your bookshelves")
+        return redirect(url_for("auth.login"))
+
     bookshelves = list(
         Bookshelves.query.order_by(
             Bookshelves.shelf_name).filter(
