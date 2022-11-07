@@ -5,13 +5,14 @@ error = Blueprint('error', __name__)
 
 
 @error.app_errorhandler(400)
-def handle_400(e):
+def handle_400():
     """
     400 ERROR FUNCTION
     Takes in 400 error and returns the error page with error message
     for 400 error
     """
-    error_message = "It looks like this page was accessed incorrectly, or may have be corrupted."
+    error_message = "It looks like this page was accessed incorrectly,\
+        or may have be corrupted."
     return render_template(
         'error.html',
         error_number="400",
@@ -19,13 +20,14 @@ def handle_400(e):
 
 
 @error.app_errorhandler(401)
-def handle_401(e):
+def handle_401():
     """
     401 ERROR FUNCTION
     Takes in 401 error and returns the error page with
     error message for 401 error
     """
-    error_message = "It looks like you may not have authorisation to view this page."
+    error_message = "It looks like you may not have authorisation\
+        to view this page."
     return render_template(
         'error.html',
         error_number="401",
@@ -33,13 +35,14 @@ def handle_401(e):
 
 
 @error.app_errorhandler(404)
-def handle_404(e):
+def handle_404():
     """
     404 ERROR FUNCTION - if address isn't right
     Takes in 404 error and returns the error page with
-     error message for 404 error
+    error message for 404 error
     """
-    error_message = "The page you're looking for couldn't be found. Please check the page URL has been entered correctly"
+    error_message = "The page you're looking for couldn't be found.\
+        Please check the page URL has been entered correctly"
     return render_template(
         'error.html',
         error_number="404",
@@ -47,7 +50,7 @@ def handle_404(e):
 
 
 @error.app_errorhandler(500)
-def handle_500(e):
+def handle_500():
     """
     500 ERROR FUNCTION
     Takes in 500 error and returns the error page with error
