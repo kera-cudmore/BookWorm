@@ -46,7 +46,11 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 * [Register Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fregister)
 * [Search Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fsearch)
 
-The validator has returned warnings for the use of aria-labels on all pages using the bootstrap icons. I am happy to leave these warnings as I have followed the instructions on the bootstrap site regarding the use of aria labels with icons, and the use of the aria labels is important for accessibility.
+The validator has returned warnings for the use of aria-labels on all pages using the bootstrap icons.
+
+~~I am happy to leave these warnings as I have followed the instructions on the bootstrap site regarding the use of aria labels with icons, and the use of the aria labels is important for accessibility.~~
+
+UPDATE: I have since been advised that the best way to deal with the issue of the aria-labels throwing a warning in the validator is to move the aria-label to the parent DOM element. I have now updated this for all aria-labels that were included in an `<i>` tag, and the warning no longer appears when validating.
 
 - - -
 
