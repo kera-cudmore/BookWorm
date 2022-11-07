@@ -5,7 +5,7 @@ error = Blueprint('error', __name__)
 
 
 @error.app_errorhandler(400)
-def handle_400():
+def handle_400(e):
     """
     400 ERROR FUNCTION
     Takes in 400 error and returns the error page with error message
@@ -20,7 +20,7 @@ def handle_400():
 
 
 @error.app_errorhandler(401)
-def handle_401():
+def handle_401(e):
     """
     401 ERROR FUNCTION
     Takes in 401 error and returns the error page with
@@ -35,7 +35,7 @@ def handle_401():
 
 
 @error.app_errorhandler(404)
-def handle_404():
+def handle_404(e):
     """
     404 ERROR FUNCTION - if address isn't right
     Takes in 404 error and returns the error page with
@@ -50,7 +50,7 @@ def handle_404():
 
 
 @error.app_errorhandler(500)
-def handle_500():
+def handle_500(e):
     """
     500 ERROR FUNCTION
     Takes in 500 error and returns the error page with error
