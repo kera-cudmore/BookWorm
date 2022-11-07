@@ -26,7 +26,7 @@
                         {% for bookshelf in bookshelves %}
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading-{{ loop.index }}">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#shelf-{{loop.index }}" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#shelf-{{loop.index }}" aria-expanded="true" aria-controls="shelf-{{loop.index }}">
                                         {{ bookshelf.shelf_name }} 
                                     </button>
                                 </h2>

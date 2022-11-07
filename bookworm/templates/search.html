@@ -40,7 +40,7 @@
                                         <!-- Accordion -->
                                         <div class="accordion accordion-flush" id="accordion">
                                             <div class="accordion-item">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#book-{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#book-{{ loop.index }}" aria-expanded="true" aria-controls="book-{{ loop.index }}">
                                                     <h5 class="card-title">{{ result.volumeInfo.title }}</h5>
                                                 </button>
                                                 <div id="book-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
