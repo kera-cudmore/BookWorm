@@ -30,7 +30,7 @@ def search():
                 params=payload)
             # Results returned from the request
             results = book_request.json()
-            
+
             return render_template("search.html", results=results['items'])
         except:
             flash('There was an error. Please try another search term')
@@ -47,7 +47,8 @@ def bookshelves():
     """
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
+            Bookshelves.shelf_name).filter(
+                Bookshelves.created_by == session["user"]).all())
     return render_template("bookshelves.html", bookshelves=bookshelves)
 
 
@@ -91,7 +92,6 @@ def edit_bookshelf(bookshelf_id):
     if "user" not in session or session["user"] != bookshelf.created_by:
         flash("You can only edit your own bookshelves")
         return redirect(url_for("books.bookshelves"))
-
 
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
@@ -142,7 +142,8 @@ def populate_review():
 
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
+            Bookshelves.shelf_name).filter(
+                Bookshelves.created_by == session["user"]).all())
 
     gbook_id = request.args.get('gbook_id')
     book = {}
@@ -239,7 +240,8 @@ def edit_review(books_id):
 
     bookshelves = list(
         Bookshelves.query.order_by(
-            Bookshelves.shelf_name).filter(Bookshelves.created_by == session["user"]).all())
+            Bookshelves.shelf_name).filter(
+                Bookshelves.created_by == session["user"]).all())
     return render_template(
         "edit_review.html",
         book_review=book_review,
@@ -252,7 +254,7 @@ def view_books():
     VIEW BOOKS FUNCTION
     queries the books collection & passes the results to the template
     """
-    
+
     display_books = list(mongo.db.books.find({"created_by": session["user"]}))
     return render_template("books.html", display_books=display_books)
 
