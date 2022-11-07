@@ -24,7 +24,8 @@ Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
   * [Typography](#typography)
   * [Imagery](#imagery)
   * [Wireframes](#wireframes)
-  * [Database Schema](#database-schema)
+  * [First Draft Database Schema](#first-draft-database-schema)
+  * [Final Database Schema](#final-database-schema)
 
 * [Features](#features)
   * [Elements Fount on Each Page](#elements-found-on-each-page)
@@ -167,9 +168,11 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
 ![Error Page](documentation/wireframes/error.png)
 
-### Database Schema
+### First Draft Database Schema
 
 ![Database Schema](documentation/database-schema.png)
+
+### Final Database Schema
 
 - - -
 
@@ -336,6 +339,8 @@ HTML, CSS, Javascript, Python
 [Shields.io](https://shields.io/) To add badges to the README.
 
 [Postman](https://web.postman.co/) To test the API request parameters for Google Books API.
+
+[Lucidchart](https://lucid.app) To create the database schema.
 
 ### Google Books API
 
