@@ -42,7 +42,7 @@
 
                                     <!-- Bookshelf -->
                                 <label for="bookshelf_id"><sup>*</sup> Choose a Bookshelf</label>
-                                    <select class="form-select mb-3" name="bookshelf_id" aria-label="Default select example">
+                                    <select class="form-select mb-3" name="bookshelf_id" aria-label="Default select example" id="bookshelf_id">
                                         {% for bookshelf in bookshelves %}
                                             <option value="{{ bookshelf.id }}">{{ bookshelf.shelf_name }}</option>
                                         {% endfor %}
