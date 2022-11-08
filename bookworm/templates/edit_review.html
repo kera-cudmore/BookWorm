@@ -23,19 +23,19 @@
                             <div class="col text-center">
 
                                 <!-- Book Cover Image-->
-                                <input type="hidden" value="{{ book_review.cover }}" name="cover_url" />
-                                <img src="{{ book_review.cover }}" alt="{{ book_review.title }} book cover" />
+                                <input type="hidden" value="{{ book_review.cover }}" name="cover_url">
+                                <img src="{{ book_review.cover }}" alt="{{ book_review.title }} book cover">
                             
                             </div>
 
                             <!-- Book Title (REQUIRED)-->
                             <div class="col">
                                 <label for="book_title">Title: </label>
-                                <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" value="{{ book_review.title }}" required />
+                                <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" value="{{ book_review.title }}" required>
 
                                 <!-- Book Author (REQUIRED) -->
                                     <label for="book_author">Author: </label>
-                                    <input class=" reviewInput mb-4" type="text" name="book_author" id="book_author" value="{{ book_review.author }}" required />
+                                    <input class=" reviewInput mb-4" type="text" name="book_author" id="book_author" value="{{ book_review.author }}" required>
 
                                 <!-- Bookshelf -->
                                 <label for="bookshelf_id">Choose a Bookshelf</label>
