@@ -33,21 +33,20 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 
 [W3C](https://validator.w3.org/) was used to validate the HTML on all pages of the website. It was also used to validate the CSS.
 
-* [Index Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2F)
-* [Add Bookshelf Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fadd_bookshelf)
-* [Add Review Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fpopulate_review%3Fgbook_id%3DM4-jzgEACAAJ)
-* Books Page] - No errors
-* Bookshelves Page - No errors
-* [Edit Bookshelf Page](documentation/testing/validation/edit-bookshelf-w3c.png)
-* [Edit Review Page](documentation/testing/validation/edit-review-w3c.png) - There is one error relating to the label belonging to a hidden input.
-* [Error Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_bookshelf%2Ferror)
-* [Login Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Flogin)
-* [Profile Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fprofile%3Fusername%3Dadmin)
-* [Register Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fregister)
-* [Search Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fsearch)
+* [Index Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2F) - No errors or warnings.
+* [Add Bookshelf Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fadd_bookshelf) - No errors or warnings.
+* [Add Review Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fpopulate_review%3Fgbook_id%3D7OdQvuI-eygC) - No errors or warnings.
+* [Books Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fview_books) - No errors or warnings.
+* [Bookshelves Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fbookshelves) - No errors or warnings.
+* [Edit Bookshelf Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_bookshelf%2F23) - No errors or warnings.
+* [Edit Review Page](https://bookworm2022.herokuapp.com/edit_review/62e458bbbd1b8de864934262) - There is one error relating to the label belonging to a hidden input. CHECK AGAIN - change id to jinja injection?
+* [Error Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_bookshelf%2Ferror) - No errors or warnings.
+* [Login Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Flogin) - No errors or warnings.
+* [Profile Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fprofile%3Fusername%3Dadmin) - No errors or warnings.
+* [Register Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fregister) - No errors or warnings.
+* [Search Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fsearch) - No errors or warnings.
 
 The validator has returned warnings for the use of aria-labels on all pages using the bootstrap icons.
-
 ~~I am happy to leave these warnings as I have followed the instructions on the bootstrap site regarding the use of aria labels with icons, and the use of the aria labels is important for accessibility.~~
 
 UPDATE: I have since been advised that the best way to deal with the issue of the aria-labels throwing a warning in the validator is to move the aria-label to the parent DOM element. I have now updated this for all aria-labels that were included in an `<i>` tag, and the warning no longer appears when validating.
@@ -64,11 +63,15 @@ UPDATE: I have since been advised that the best way to deal with the issue of th
 
 ### Python Validator
 
-[PEP8](http://pep8online.com/) was used to validate the python files.
+~~[PEP8](http://pep8online.com/) was used to validate the python files. Due to limited time for completing this project I have been unable to completely fix all PEP8 errors in all the files, I need to do some further research into the best ways to break lines that are too long.~~
 
-Due to limited time for completing this project I have been unable to completely fix all PEP8 errors in all the files, I need to do some further research into the best ways to break lines that are too long.
+UPDATE: The PEP8 validator site mentioned above has since gone down. I am therefore relying on using the [pycodestyle](https://pypi.org/project/pycodestyle/) package within my IDE to ensure that my code meets PEP8 guidelines.
 
 * app.py - No Errors
+* auth/routes.py -
+* books/routes.py -
+* error_handlers/routes.py -
+* main/routes.py -
 
 - - -
 
