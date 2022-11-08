@@ -24,8 +24,10 @@ Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
   * [Typography](#typography)
   * [Imagery](#imagery)
   * [Wireframes](#wireframes)
-  * [First Draft Database Schema](#first-draft-database-schema)
-  * [Final Database Schema](#final-database-schema)
+  * [Database Schema & User Journey](#database-schema--user-journey)
+    * [User Jouney](#user-journey)
+    * [First Draft Database Schema](#first-draft-database-schema)
+    * [Final Database Schema](#final-database-schema)
 
 * [Features](#features)
   * [Elements Fount on Each Page](#elements-found-on-each-page)
@@ -168,11 +170,25 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
 ![Error Page](documentation/wireframes/error.png)
 
-### First Draft Database Schema
+### Database Schema & User Journey
+
+#### __User Journey__
+
+![User Journey](documentation/user-journey.png)
+
+#### __First Draft Database Schema__
 
 ![Database Schema](documentation/database-schema.png)
 
-### Final Database Schema
+#### __Final Database Schema__
+
+The below is the final database schema used for the site. There are some slight changes to some of the column names, and a few fields have been omitted (e.g. the dates read).
+
+![Database Schema 2](documentation/database-schema-2.png)
+
+The users table and bookshelves table will be created using Postgres. It is a relational database. The primary key for these tables will be their id fields.
+
+The books table will be created using MongoDB. It is a non-relational database.
 
 - - -
 
