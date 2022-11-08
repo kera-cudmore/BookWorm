@@ -67,11 +67,11 @@ UPDATE: I have since been advised that the best way to deal with the issue of th
 
 UPDATE: The PEP8 validator site mentioned above has since gone down. I am therefore relying on using the [pycodestyle](https://pypi.org/project/pycodestyle/) package within my IDE to ensure that my code meets PEP8 guidelines.
 
-* app.py - No Errors
+* app.py - No errors or warnings.
 * auth/routes.py -
 * books/routes.py -
-* error_handlers/routes.py -
-* main/routes.py -
+* [error_handlers/routes.py](documentation/testing/validation/error-route-pep8.png) - There is a warning regarding the argument `e` not being used. I tried removing this argument from the code, however the error pages then didn't load, they defaulted to the generic error pages. I have added back in the argument `e` to allow the error handling to work correctly and to display my own error pages to the user. I am therefore happy to leave this warning in place. Pylint also gives feedback that the argument `e` doesn't conform to snake_case naming style. Again I am happy to leave this feedback, as there is no way to snake_case name a singular letter.
+* main/routes.py - No errors or warnings.
 
 - - -
 
