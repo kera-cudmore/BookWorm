@@ -26,7 +26,9 @@ def search():
             payload["key"] = os.environ.get("GOOGLE_BOOKS_API")
             # API Request
             book_request = requests.get(
-                "https://www.googleapis.com/books/v1/volumes?&maxResults=30&projection=lite",
+                "https://www.googleapis.com/"
+                "books/v1/volumes?&maxResults="
+                "30&projection=lite",
                 params=payload)
             # Results returned from the request
             results = book_request.json()
