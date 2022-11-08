@@ -26,19 +26,19 @@
                             <div class="col text-center">
 
                                 <!-- Book Cover Image-->
-                                <input type="hidden" value="{{ shelve_book.thumbnail }}" name="cover_url" />
-                                <img src="{{ shelve_book.thumbnail }}" alt="{{ shelve_book.title }} book cover" />
+                                <input type="hidden" value="{{ shelve_book.thumbnail }}" name="cover_url">
+                                <img src="{{ shelve_book.thumbnail }}" alt="{{ shelve_book.title }} book cover">
                             
                             </div>
 
                             <!-- Book Title (REQUIRED)-->
                             <div class="col">
                                 <label for="book_title"><sup>*</sup> Title</label>
-                                <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required />
+                                <input class=" reviewInput mb-3" type="text" name="book_title" id="book_title" placeholder="Title" value="{{ shelve_book.title }}" required>
 
                                 <!-- Book Author (REQUIRED) -->
                                     <label for="book_author"><sup>*</sup> Author</label>
-                                    <input class=" reviewInput mb-3" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ shelve_book.authors|join(', ') }}" required />
+                                    <input class=" reviewInput mb-3" type="text" name="book_author" placeholder="Author" id="book_author" value="{{ shelve_book.authors|join(', ') }}" required>
 
                                     <!-- Bookshelf -->
                                 <label for="bookshelf_id"><sup>*</sup> Choose a Bookshelf</label>
