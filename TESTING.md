@@ -37,13 +37,13 @@ I have gone through each page using Google Chrome Developer Tools to ensure that
 * [Register Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fregister) - No errors or warnings.
 * [Login Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Flogin) - No errors or warnings.
 * [Profile Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fprofile%3Fusername%3Dadmin) - No errors or warnings.
-* [Bookshelves Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fbookshelves) - 1
+* [Bookshelves Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fbookshelves) - No errors or warnings.
 * [Add Bookshelf Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fadd_bookshelf) - No errors or warnings.
 * [Edit Bookshelf Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_bookshelf%2F23) - No errors or warnings.
 * [Search Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fsearch) - No errors or warnings.
-* [Add Review Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fpopulate_review%3Fgbook_id%3D7OdQvuI-eygC) - 1
+* [Add Review Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fpopulate_review%3Fgbook_id%3D7OdQvuI-eygC) - No errors or warnings.
 * [Books Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fview_books) - No errors or warnings.
-* [Edit Review Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_review%2F62e458bbbd1b8de864934262) - 1
+* [Edit Review Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_review%2F62e458bbbd1b8de864934262) - No errors or warnings.
 * [Error Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbookworm2022.herokuapp.com%2Fedit_bookshelf%2Ferror) - No errors or warnings.
 
 ~~The validator has returned warnings for the use of aria-labels on all pages using the bootstrap icons. I am happy to leave these warnings as I have followed the instructions on the bootstrap site regarding the use of aria labels with icons, and the use of the aria labels is important for accessibility.~~
@@ -67,10 +67,20 @@ UPDATE - aria-label warning: I have since been advised that the best way to deal
 UPDATE: The PEP8 validator site mentioned above has since gone down. I am therefore relying on using the [pycodestyle](https://pypi.org/project/pycodestyle/) package within my IDE to ensure that my code meets PEP8 guidelines.
 
 * app.py - No errors or warnings.
-* auth/routes.py -
-* books/routes.py -
+* auth/routes.py - Please see further information below regarding nomember error resolution.
+* books/routes.py - Please see further information below regarding nomember error resolution.
 * [error_handlers/routes.py](documentation/testing/validation/error-route-pep8.png) - There is a warning regarding the argument `e` not being used. I tried removing this argument from the code, however the error pages then didn't load, they defaulted to the generic error pages. I have added back in the argument `e` to allow the error handling to work correctly and to display my own error pages to the user. I am therefore happy to leave this warning in place. Pylint also gives feedback that the argument `e` doesn't conform to snake_case naming style. Again I am happy to leave this feedback, as there is no way to snake_case name a singular letter.
 * main/routes.py - No errors or warnings.
+
+Nomember error resolution.
+
+The auth and book routes.py files were both showing an error:
+
+``` bash
+Instance of 'scoped_session' has no 'add' memberpylint(no-member)
+```
+
+Upon doing some research regarding this error I came across the following [solution](https://cs50.stackexchange.com/questions/32768/instance-of-scoped-session-has-no-commit-member), which also referenced this answer on [stackoverflow](https://stackoverflow.com/questions/42789666/pylint-error-message-on-cloud-9-cs50). It seems to be an issue with the way the pylinter reads the python file. Research suggested that I add the following code to a `.pylintrc` file to let the linter know to ignore this error: `ignored-classes=SQLObject,Registrant,scoped_session`.
 
 - - -
 
