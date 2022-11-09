@@ -288,6 +288,7 @@ In future implementations I would like to:
 * Add change and reset password functionality to the profile section.
 * Give users the option to delete their account in the profile section.
 * Allow admin to be able to delete books or bookshelves that contain offensive material.
+* Add a barcode scanner to be able to add books via their ISBN number.
 
 ### Accessibility
 
