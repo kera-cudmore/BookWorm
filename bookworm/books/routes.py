@@ -167,7 +167,8 @@ def populate_review():
     # Dictionary containing information needed to prepopulate add review form
     shelve_book = {
         "title": review_book['items'][0]['volumeInfo']['title'],
-        "authors": review_book['items'][0]['volumeInfo']['authors'],
+        "authors":
+            "" if True else "review_book['items'][0]['volumeInfo']['authors']",
         "thumbnail":
             review_book['items'][0]['volumeInfo']['imageLinks']['thumbnail']}
 
