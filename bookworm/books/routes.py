@@ -34,7 +34,7 @@ def search():
             results = book_request.json()
 
             return render_template("search.html", results=results['items'])
-        except:
+        except Exception:
             flash('There was an error. Please try another search term')
             return redirect(url_for("books.search"))
     return render_template("search.html")
