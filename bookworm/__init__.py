@@ -1,6 +1,6 @@
 """ IMPORTS """
 import os
-import re
+# import re
 from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -20,12 +20,14 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 # if false it will use the db on heroku
 # if the heroku db has postgres:// it will update it with the correct value
 if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL") # local db
+    # local db
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://",  "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri # heroku
+    # heroku db
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri
 
 
 db = SQLAlchemy(app)
@@ -33,12 +35,12 @@ migrate = Migrate(app, db)
 mongo = PyMongo(app)
 
 
-# noqa - app & db need to be defined first before the routes
-from bookworm.auth.routes import auth
-from bookworm.books.routes import books
-from bookworm.main.routes import main
-from bookworm.error_handlers.routes import error
-app.register_blueprint(auth)
-app.register_blueprint(books)
-app.register_blueprint(main)
-app.register_blueprint(error)
+# app & db need to be defined first before the routes
+from bookworm.auth.routes import auth  # noqa: E402
+from bookworm.books.routes import books  # noqa: E402
+from bookworm.main.routes import main  # noqa: E402
+from bookworm.error_handlers.routes import error  # noqa: E402
+app.register_blueprint(auth)  # noqa: E402
+app.register_blueprint(books)  # noqa: E402
+app.register_blueprint(main)  # noqa: E402
+app.register_blueprint(error)  # noqa: E402
