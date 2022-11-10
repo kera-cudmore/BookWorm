@@ -104,7 +104,7 @@ def edit_bookshelf(bookshelf_id):
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
-        flash("Your Bookshelf has been edited successfully")
+        flash(f"Your Bookshelf {bookshelf.shelf_name} edited successfully")
         return redirect(url_for("books.bookshelves"))
 
     return render_template("edit_bookshelf.html", bookshelf=bookshelf)
@@ -131,7 +131,7 @@ def delete_bookshelf(bookshelf_id):
     db.session.delete(bookshelf)
     db.session.commit()
     mongo.db.books.delete_many({"bookshelf_id": str(bookshelf_id)})
-    flash("Bookshelf Deleted")
+    flash(f"{'bookshelf'} has been successfully deleted")
     return redirect(url_for("books.bookshelves"))
 
 
