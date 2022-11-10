@@ -67,8 +67,9 @@ UPDATE - aria-label warning: I have since been advised that the best way to deal
 UPDATE: The PEP8 validator site mentioned above has since gone down. I am therefore relying on using the [pycodestyle](https://pypi.org/project/pycodestyle/) package within my IDE to ensure that my code meets PEP8 guidelines.
 
 * app.py - No errors or warnings.
-* auth/routes.py - Please see further information below regarding nomember error resolution.
-* books/routes.py - Please see further information below regarding nomember error resolution.
+* models.py - No errors or warnings.
+* auth/routes.py - Please see further information below regarding nomember error resolution. No other errors or warnings.
+* books/routes.py - Please see further information below regarding nomember error resolution, and bare exception resolution. No other errors or warnings.
 * [error_handlers/routes.py](documentation/testing/validation/error-route-pep8.png) - There is a warning regarding the argument `e` not being used. I tried removing this argument from the code, however the error pages then didn't load, they defaulted to the generic error pages. I have added back in the argument `e` to allow the error handling to work correctly and to display my own error pages to the user. I am therefore happy to leave this warning in place. Pylint also gives feedback that the argument `e` doesn't conform to snake_case naming style. Again I am happy to leave this feedback, as there is no way to snake_case name a singular letter.
 * main/routes.py - No errors or warnings.
 
@@ -81,6 +82,10 @@ Instance of 'scoped_session' has no 'add' memberpylint(no-member)
 ```
 
 Upon doing some research regarding this error I came across the following [solution](https://cs50.stackexchange.com/questions/32768/instance-of-scoped-session-has-no-commit-member), which also referenced this answer on [stackoverflow](https://stackoverflow.com/questions/42789666/pylint-error-message-on-cloud-9-cs50). It seems to be an issue with the way the pylinter reads the python file. Research suggested that I add the following code to a `.pylintrc` file to let the linter know to ignore this error: `ignored-classes=SQLObject,Registrant,scoped_session`.
+
+Bare exception resolution.
+
+In the books/route.py file I was getting an error relating E722 no bare exceptions. I did some further research on this error and added Exeption after the except to solve this issue as mentioned in this [stackoverflow question](https://stackoverflow.com/questions/54948548/what-is-wrong-with-using-a-bare-except).
 
 - - -
 
