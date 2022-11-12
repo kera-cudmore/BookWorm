@@ -104,7 +104,7 @@ def edit_bookshelf(bookshelf_id):
     if request.method == "POST":
         bookshelf.shelf_name = request.form.get("edit_shelf")
         db.session.commit()
-        flash(f"Your Bookshelf {bookshelf.shelf_name} edited successfully")
+        flash(f"Your Bookshelf {bookshelf.shelf_name} was edited successfully")
         return redirect(url_for("books.bookshelves"))
 
     return render_template("edit_bookshelf.html", bookshelf=bookshelf)
