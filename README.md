@@ -528,8 +528,11 @@ Content for this project was written by Kera Cudmore, and the book descriptions 
 
 I would like to acknowledge the following people who helped me along the way in completing this project:
 
-* My family, for their patience while I worked on this project.
-* My Code Institute Mentor, [Adegbenga Adeye](https://github.com/deye9)
-* Daisy McGirr, for taking the time to respond to my slack post about creating a unique ID in my for loop, and helping me troubleshoot why my defensive programming wasn't working.
-* Naiose Gaffney, for talking through and troubleshooting with me ways to pull data from the search to the add review page.
+* My family for their patience while I worked on this project.
+* My Code Institute Mentor [Adegbenga Adeye](https://github.com/deye9)
+* [Daisy McGirr](https://github.com/Daisy-McG) for taking the time to respond to my slack post about creating a unique ID in my for loop, and helping me troubleshoot why my defensive programming wasn't working.
+* [Naiose Gaffney](https://github.com/NaoiseGaffney) for talking through and troubleshooting with me ways to pull data from the search to the add review page.
+* [Megan Vella](https://github.com/Medusas71) for testing my site thoroughly.
+* [Suzy Bennett](https://github.com/suzybee1987) for her help with the debug issue and helping with site testing.
 * The fantastic Tutor Support team at Code Institute.
+* Nerd Alert - for all their support and encouragment while completing this project.
