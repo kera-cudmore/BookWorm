@@ -289,6 +289,9 @@ In future implementations I would like to:
 * Give users the option to delete their account in the profile section.
 * Allow admin to be able to delete books or bookshelves that contain offensive material.
 * Add a barcode scanner to be able to add books via their ISBN number.
+* Use python to implement inserting the correct year into the footer. This is currently being inserted using JavaScript, however it would be better to use python to achieve this as this would allow me to remove the JavaScript from the project entirely, which would in turn improve loading times.
+* On the books page, add buttons at the top for each bookshelf to allow the user to see the books contained on a specific bookshelf.
+* On the bookshelf page, add a button to each shelf to allow the user to see all books displayed on that shelf.
 
 ### Accessibility
 
