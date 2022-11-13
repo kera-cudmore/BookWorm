@@ -435,7 +435,7 @@ The site is deployed using Heroku. To deploy to Heroku:
 
     *Denotes a value that is specific to your app.
 
-    **This is set to true while deploying to enable us to see any bugs. Please change to FALSE after deployment.
+    **This is set to true to enable us to see any bugs on the live site. ~~Please change to FALSE after deployment.~~ It has been brought to my attention that by leaving the debug variable in my heroku config vars, even if it is saved as false, will actually cause it to be read as true. This is due to the config vars beign saved as strings. Therefore it is better to delete this config var once you are done with debugging.
 
 10. You're now ready to click the enable automatic deploys and create button. Heroku will start building the app.
 
