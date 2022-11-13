@@ -25,7 +25,7 @@ Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
   * [Imagery](#imagery)
   * [Wireframes](#wireframes)
   * [Database Schema & User Journey](#database-schema--user-journey)
-    * [User Jouney](#user-journey)
+    * [User Journey](#user-journey)
     * [First Draft Database Schema](#first-draft-database-schema)
     * [Final Database Schema](#final-database-schema)
 
@@ -104,7 +104,7 @@ As an administrator for the site I want to be able to:
 
 ### Colour Scheme
 
-I have taken inspiration from the header image for the colour palette and chosen colours that complemenet each other.
+I have taken inspiration from the header image for the colour palette and chosen colours that complement each other.
 
 ![Colour Scheme for Bookworm](documentation/colour-palette.png)
 
@@ -200,7 +200,7 @@ The website is comprised of 12 pages which are extended from a base template.
 * Login page
 * Register page
 * Profile page
-* Bookshelve page
+* Bookshelves page
 * Add bookshelf page
 * Edit bookshelf page
 * Books page
@@ -318,7 +318,7 @@ HTML, CSS, Javascript, Python
 
 ### Frameworks Used
 
-[Flask](https://pypi.org/project/Flask/) - A microframework.
+[Flask](https://pypi.org/project/Flask/) - A micro framework.
 
 [Bootstrap](https://getbootstrap.com/) - version 5.2.0 - CSS Framework.
 
@@ -350,7 +350,7 @@ HTML, CSS, Javascript, Python
 
 [Tiny PNG](https://tinypng.com/) To compress images for use in the readme.
 
-[Birme](https://www.birme.net/) To resize images and convert to webp format for the site.
+[Birme](https://www.birme.net/) To resize images and convert to webP format for the site.
 
 [Favicon.io](https://favicon.io/) To create the favicon.
 
@@ -360,7 +360,7 @@ HTML, CSS, Javascript, Python
 
 [Postman](https://web.postman.co/) To test the API request parameters for Google Books API.
 
-[Lucidchart](https://lucid.app) To create the database schema.
+[Lucid Chart](https://lucid.app) To create the database schema.
 
 ### Google Books API
 
@@ -370,7 +370,7 @@ I made use of the Google Books API [documentation](https://developers.google.com
 
 As I am only using the API to search for books, and won't be accessing google books shelves or user login data I have chosen to use an API key for access rather than OAuth. My requests to the API contain my API key, the search term the user has created and the fields that I would like to be returned. I have chosen to only receive the books title, authors, description and thumbnail of the book. I have set up the API request to ask for 30 results maximum.
 
-Update - to enable me to get the books unique ID I have had to pull the complete light version when performing a search. This unfortunately means that I am requesting more information than I need, however currently there is no way to pull in the ID with other fields. In future implementations I would look into using graphql as an alternative to calling the api as this will allow me to specify the exact data I would like to have returned.
+Update - to enable me to get the books unique ID I have had to pull the complete light version when performing a search. This unfortunately means that I am requesting more information than I need, however currently there is no way to pull in the ID with other fields. In future implementations I would look into using graphQL as an alternative to calling the api as this will allow me to specify the exact data I would like to have returned.
 
 Please note that there is an issue with the google books API where certain terms don't return a result back. This is something that I will be looking further into to see if there is a way to deal with this. Search terms that return results to show the product working include: dogs, James Patterson, rabbits.
 
@@ -438,7 +438,7 @@ The site is deployed using Heroku. To deploy to Heroku:
 
     *Denotes a value that is specific to your app.
 
-    **This is set to true to enable us to see any bugs on the live site. ~~Please change to FALSE after deployment.~~ It has been brought to my attention that by leaving the debug variable in my heroku config vars, even if it is saved as false, will actually cause it to be read as true. This is due to the config vars beign saved as strings. Therefore it is better to delete this config var once you are done with debugging.
+    **This is set to true to enable us to see any bugs on the live site. ~~Please change to FALSE after deployment.~~ It has been brought to my attention that by leaving the debug variable in my heroku config vars, even if it is saved as false, will actually cause it to be read as true. This is due to the config vars being saved as strings. Therefore it is better to delete this config var once you are done with debugging.
 
 10. You're now ready to click the enable automatic deploys and create button. Heroku will start building the app.
 
@@ -450,7 +450,7 @@ The site is deployed using Heroku. To deploy to Heroku:
 
 14. We will now need to go the more button on the dashboard and select run console. This is where we will set up the tables in the database we have just created.
 
-15. Type python3 and then once the python interpretor opens, we can run the following:
+15. Type python3 and then once the python interpreter opens, we can run the following:
 
     ```bash
     from bookworm import db
@@ -502,7 +502,7 @@ To clone the repository:
 
 ## Testing
 
-Please see [testing.md](TESTING.md) for all testing performed
+Please see [TESTING.md](TESTING.md) for all testing performed
 - - -
 
 ## Credits
