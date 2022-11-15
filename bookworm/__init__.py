@@ -7,7 +7,7 @@ from flask_pymongo import PyMongo
 # IMPORT env if there is an env.py file
 # Used in local dev as not pushed to github & heroku
 if os.path.exists("env.py"):
-    import env # noqa
+    import env  # noqa
 
 
 app = Flask(__name__)
