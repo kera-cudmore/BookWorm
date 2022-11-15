@@ -45,6 +45,7 @@ Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
     * [Flask Migrate](#flask-migrate)
     * [Error Handling](#error-handling)
     * [Defensive Programming](#defensive-programming)
+    * [Database Migration to ElephantSQL](#database-migration-to-elephantsql)
 
 * [Deployment & Local Development](#deployment--local-development)
   * [Deployment](#deployment)
@@ -316,6 +317,8 @@ HTML, CSS, Javascript, Python
 
 [PostgreSQL](https://www.postgresql.org/) - Relational database used to store the users and the bookshelves.
 
+[ElephantSQL](https://www.elephantsql.com/) - See [Database Migration to ElephantSQL](#database-migration-to-elephantsql) section for more information.
+
 ### Frameworks Used
 
 [Flask](https://pypi.org/project/Flask/) - A micro framework.
@@ -389,6 +392,11 @@ While researching the best way to handle errors in a Flask application using blu
 ### Defensive Programming
 
 I have used defensive programming through my app to ensure that users who are not logged in, or users who did not create the bookshelf or review are unable to edit. This is achieved by checking whether there is a user in session, and then also checking to see if the session user is the same user who created the bookshelf/review. If a user is not the creator, a flash message will be displayed to let them know that they are only able to edit/delete their own bookshelves/reviews and then redirects them to a suitable page. I would like to look into this further and utilise a check that is the session user is "admin" they will be granted access to all bookshelves and reviews to enable them to remove any offensive material.
+
+### Database Migration to ElephantSQL
+
+Heroku announced in September 2022 that they would be ending their free tier hosting at the end of November 2022. As a student, I am currently able to sign up for heroku credits which will allow me to continue using the heroku service, however the student offer does not include the postgres add-on being used to host my postgres database. The Code Insitute therefore have recommended students migrate their databases to a new provider, ElephantSQL, as they are free. I have migrated my database to ElephantSQL and have amended the config vars in heroku so that the DATABASE_URL value now points to the elephantSQL database. I have run some additional testing throughout the site to ensure that everything still works as it should.
+
 - - -
 
 ## Deployment & Local Development
