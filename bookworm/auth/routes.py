@@ -96,11 +96,6 @@ def profile():
     """
     PROFILE FUNCTION
     """
-    # Defensive programming - prevents users from viewing the profile
-    #  page if they aren't signed in & redirects to log in page
-    if "user" not in session:
-        flash("You need to be logged in to view your profile")
-        return redirect(url_for("auth.login"))
     return render_template("profile.html")
 
 
