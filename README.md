@@ -293,6 +293,7 @@ In future implementations I would like to:
 * Use python to implement inserting the correct year into the footer. This is currently being inserted using JavaScript, however it would be better to use python to achieve this as this would allow me to remove the JavaScript from the project entirely, which would in turn improve loading times.
 * On the books page, add buttons at the top for each bookshelf to allow the user to see the books contained on a specific bookshelf.
 * On the bookshelf page, add a button to each shelf to allow the user to see all books displayed on that shelf.
+* Prepopulate the login fields after a user registers on the site and is redirected to the login page - this is good UX as we shouldn't expect a user to fill in the form with information we already have. Unfortunately I have been unable to implement this in this version of the project, as I was unable to make the changes and test effectively due to issues with the local development database and time constraints, however this is something that I would add in the next update of the project.
 
 ### Accessibility
 
