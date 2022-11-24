@@ -66,13 +66,13 @@ UPDATE Nov 2022 - aria-label warning: I have since been advised that the best wa
 
 UPDATE Nov 2022: The PEP8 validator site mentioned above has since gone down. I am therefore relying on using the [pycodestyle](https://pypi.org/project/pycodestyle/) package within my IDE to ensure that my code meets PEP8 guidelines.
 
-* app.py - No errors or warnings.
-* models.py - No errors or warnings.
-* __init__.py - No errors or warnings.
-* auth/routes.py - Please see further information below regarding nomember error resolution. No other errors or warnings.
-* books/routes.py - Please see further information below regarding nomember error resolution, and bare exception resolution. No other errors or warnings.
-* [error_handlers/routes.py](documentation/testing/validation/error-route-pep8.png) - There is a warning regarding the argument `e` not being used. I tried removing this argument from the code, however the error pages then didn't load, they defaulted to the generic error pages. I have added back in the argument `e` to allow the error handling to work correctly and to display my own error pages to the user. I am therefore happy to leave this warning in place. Pylint also gives feedback that the argument `e` doesn't conform to snake_case naming style. Again I am happy to leave this feedback, as there is no way to snake_case name a singular letter.
-* main/routes.py - No errors or warnings.
+* [app.py](documentation/testing/validation/python-app.png) - No errors or warnings.
+* [models.py](documentation/testing/validation/python-models.png) - No errors or warnings.
+* [__init__.py](documentation/testing/validation/python-init.png) - No errors or warnings.
+* [auth/routes.py](documentation/testing/validation/python-auth-routes.png) - Please see further information below regarding nomember error resolution. No other errors or warnings.
+* [books/routes.py](documentation/testing/validation/python-book-routes.png) - Please see further information below regarding nomember error resolution, and bare exception resolution. No other errors or warnings.
+* [error_handlers/routes.py](documentation/testing/validation/python-error-routes.png) - There is a [warning](documentation/testing/validation/error-route-pep8.png) regarding the argument `e` not being used. I tried removing this argument from the code, however the error pages then didn't load, they defaulted to the generic error pages. I have added back in the argument `e` to allow the error handling to work correctly and to display my own error pages to the user. I am therefore happy to leave this warning in place. Pylint also gives feedback that the argument `e` doesn't conform to snake_case naming style. Again I am happy to leave this feedback, as there is no way to snake_case name a singular letter.
+* [main/routes.py](documentation/testing/validation/python-main-routes.png) - No errors or warnings.
 
 Nomember error resolution.
 
