@@ -2,7 +2,7 @@
 
 ![Bookworm](documentation/bookworm.png)
 
-Visit the deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
+Visit the deployed site: [Bookworm](https://web-production-b7c20.up.railway.app/)
 
 - - -
 
