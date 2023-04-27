@@ -6,7 +6,7 @@
 
 BookWorm was created as my third milestone project for the Code Institutes Level 5 Diploma in Web Application Development.
 
-Link to deployed site: [Bookworm](https://bookworm2022.herokuapp.com/)
+Link to deployed site: [Bookworm](https://web-production-b7c20.up.railway.app/)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/kera-cudmore/BookWorm?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/kera-cudmore/BookWorm?style=for-the-badge)
@@ -404,6 +404,38 @@ Heroku announced in September 2022 that they would be ending their free tier hos
 
 ### Deployment
 
+_Update 27-4-2023:_ After completing my diploma I have migrated the deployment of my site to [railway.app](https://railway.app/), partly due to them offering a free tier (Heroku stopped offering a free hobby tier in November 2022) and also to try deploying backend projects on another service.
+
+Migrating my site over to railway.app was simple using the following instructions:
+
+1. Create a Railway account and connect to your GitHub.
+
+2. On the Railway site select:
+
+  `Create a new project` ➡️ `Deploy from a Github repo` (Choose which repo you want to deploy from) ➡️ `Add variables`
+
+3. Copy over your variables from Heroku to Railway: 
+
+    | KEY | VALUE |
+    | :-- | :-- |
+    | IP | 0.0.0.0 |
+    | PORT | 5000 |
+    | SECRET_KEY| YOUR_SECRET_KEY* |
+    | MONGO_URI | MONGO_URI* |
+    | MONGO_DBNAME | MONGO_DB* |
+    | DATABASE_URL | POSTGRES_DB* |
+    | GOOGLE_BOOKS_API | GOOGLE_API_KEY* |
+    | DEBUG | TRUE** |
+
+    *Denotes a value that is specific to your app.
+
+    **This is set to true to enable us to see any bugs on the live site. ~~Please change to FALSE after deployment.~~ It has been brought to my attention that by leaving the debug variable in my heroku config vars, even if it is saved as false, will actually cause it to be read as true. This is due to the config vars being saved as strings. Therefore it is better to delete this config var once you are done with debugging.
+
+4. Once deployment is successful, you can find the domain address in the projects settings, or on your dashboard.
+
+
+<details>
+<summary>Old Heroku Deployment Instructions</summary>
 The site is deployed using Heroku. To deploy to Heroku:
 
 1. To successfully deploy on Heroku we first need to create some files: a requirements.txt file and a Procfile.
@@ -468,6 +500,7 @@ The site is deployed using Heroku. To deploy to Heroku:
     ```
 
 16. Now that the relational database has been set up and the tables created, we can now click open app and the bookworm application should now open in a new tab.
+</details>
 
 ### Local Development
 
