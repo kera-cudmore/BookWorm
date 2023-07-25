@@ -24,7 +24,7 @@
                         {% for book in display_books %}
                             <div class="col mt-5">
                                 <div class="card h-100">
-                                    <img src="{{ book.cover }}" class="card-img-top" alt="{{ book.title }} book cover">
+                                    <img src="{{ book.cover }}" class="card-img-top h-100" alt="{{ book.title }} book cover">
                                     <!-- Accordion -->
                                     <div class="accordion accordion-flush" id="accordion-{{ loop.index }}">
                                         <div class="accordion-item">
@@ -34,9 +34,9 @@
                                             <div id="review-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="review-{{ loop.index }}" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
                                                     <h6>Review:</h6>
-                                                    <p>{{ book.review }}</p>
+                                                    <p>{{ book.review | truncate(200) }}</p>
                                                     <h6>Notes:</h6>
-                                                    <p>{{ book.notes }}</p>
+                                                    <p>{{ book.notes | truncate(200) }}</p>
                                                 </div>
                                             </div>
                                         </div>
