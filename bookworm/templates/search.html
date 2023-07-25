@@ -36,7 +36,7 @@
                             {% for result in results %}
                                 <div class="col mt-5">
                                     <div class="card h-100">
-                                        <img src="{{ result.volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="{{ result.volumeInfo.title }} book cover">
+                                        <img src="{{ result.volumeInfo.imageLinks.thumbnail }}" class="card-img-top h-100" alt="{{ result.volumeInfo.title }} book cover">
                                         <!-- Accordion -->
                                         <div class="accordion accordion-flush" id="accordion-{{ loop.index }}">
                                             <div class="accordion-item">
@@ -48,7 +48,7 @@
                                                         {% for author in result.volumeInfo.authors %}
                                                             <h6 class="card-title">{{ author }}</h6>
                                                         {% endfor %}
-                                                        <p>{{ result.volumeInfo.description }} </p>
+                                                        <p>{{ result.volumeInfo.description | truncate(200) }} </p>
                                                     </div>
                                                 </div>
                                             </div>
